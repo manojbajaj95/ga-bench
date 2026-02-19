@@ -1,0 +1,11 @@
+{
+  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "domain": "geography",
+  "prompt": "Tell me the capital of India.",
+  "gold_response": "Delhi",
+  "rubric": [
+    {
+      "criteria": "India's capital Delhi should be clearly stated"
+    }
+  ]
+}
