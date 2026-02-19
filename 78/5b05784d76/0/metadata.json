@@ -1,0 +1,35 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "785b05784d76",
+  "session_id": "02be39f6-2956-4d9d-b9d9-d6abfe076284",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-19T11:28:36.702110873Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "agents/claude_agent_sdk/__init__.py",
+    "agents/claude_agent_sdk/agent.py",
+    "pyproject.toml",
+    "run.py"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "718ae28d54cf",
+  "transcript_identifier_at_start": "2f08a575-93e2-47dc-810b-5eb0f81775e2",
+  "token_usage": {
+    "input_tokens": 29,
+    "cache_creation_tokens": 86727,
+    "cache_read_tokens": 1226922,
+    "output_tokens": 11275,
+    "api_call_count": 19
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-19T11:28:36.314821031Z",
+    "agent_lines": 81,
+    "human_added": 253,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 334,
+    "agent_percentage": 24.251497005988025
+  },
+  "transcript_path": ".claude/projects/-home-mbajaj-src-ga-bench/02be39f6-2956-4d9d-b9d9-d6abfe076284.jsonl"
+}

@@ -1,0 +1,29 @@
+Create a new agent using claude agent sdk as well, refer to this https://platform.claude.com/docs/en/agent-sdk/overview
+
+---
+
+[Request interrupted by user for tool use]
+
+---
+
+its called pip install claude-agent-sdk
+
+---
+
+lets run on example tasks and see how it goes
+
+---
+
+[Request interrupted by user for tool use]
+
+---
+
+Why do we need to claude code cli? claude agent sdk should be sufficient
+
+---
+
+go with option B
+
+---
+
+[Request interrupted by user]
