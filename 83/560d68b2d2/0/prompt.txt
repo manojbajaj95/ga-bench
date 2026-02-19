@@ -1,0 +1,106 @@
+Implement the following plan:
+
+# Plan: Add Python Best Practices Tooling
+
+## Context
+ga-bench has no linting, formatting, type checking, or pre-commit hooks. Code already has good type hints and Pydantic models. Adding ruff + ty + pre-commit enforces consistent quality automatically.
+
+## Changes
+
+### 1. `pyproject.toml` — add dev group + tool configs
+
+**Add dev dependency group:**
+```toml
+[dependency-groups]
+dev = [
+    "pre-commit>=4.0.0",
+    "ruff>=0.9.0",
+    "ty>=0.0.1a3",
+]
+```
+
+**Add ruff config:**
+```toml
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["agents", "evaluator", "tasks"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+```
+
+**Add ty config:**
+```toml
+[tool.ty.environment]
+python-version = "3.13"
+```
+
+### 2. `.pre-commit-config.yaml` — new file
+
+```yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: ty
+        name: ty (type check)
+        language: system
+        entry: uv run --group dev ty check
+        types: [python]
+        pass_filenames: false
+```
+
+### 3. Auto-fix existing code
+
+Run ruff to fix/format all existing Python files so the first pre-commit pass is clean:
+```bash
+uv run --group dev ruff check . --fix
+uv run --group dev ruff format .
+```
+
+### 4. Install pre-commit hooks
+```bash
+uv run --group dev pre-commit install
+```
+
+### 5. Verify
+```bash
+uv run --group dev pre-commit run --all-files
+uv run --group dev ty check
+```
+
+## Files Modified
+- `pyproject.toml` — dev group + [tool.ruff] + [tool.ty]
+- `.pre-commit-config.yaml` — new file
+
+## Files Auto-Modified by Ruff
+- `run.py`, `evaluator/evaluate.py`, `agents/**/*.py`, `tasks/**/*.py`
+
+
+If you need specific details from before exiting plan mode (like exact code snippets, error messages, or content you generated), read the full transcript at: /home/mbajaj/.claude/projects/-home-mbajaj-src-ga-bench/f6a6cb9f-4f95-44e5-a0ad-e2feb9c5e40c.jsonl
+
+---
+
+commit this
