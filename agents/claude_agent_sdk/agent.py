@@ -1,7 +1,7 @@
 import os
 import time
 
-from claude_agent_sdk import ClaudeAgentOptions, ClaudeSDKClient, ResultMessage
+from claude_agent_sdk import ClaudeAgentOptions, ClaudeSDKClient, ResultMessage  # type: ignore[import-untyped]
 from loguru import logger
 
 from agents.types import AgentResult, TokenUsage
@@ -60,7 +60,7 @@ async def get_agent() -> ClaudeAgentSDKAgent:
 if __name__ == "__main__":
     import asyncio
 
-    from tasks.types import Rubric, Task
+    from tasks.types import Task
 
     async def main():
         agent = await get_agent()

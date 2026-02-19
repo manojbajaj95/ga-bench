@@ -3,14 +3,16 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
-from langchain.chat_models import init_chat_model
 
-load_dotenv()
-from loguru import logger
-from pydantic import BaseModel
+load_dotenv()  # Load .env before importing modules that may read env vars at import time
 
-from agents.types import TokenUsage
-from .types import EvalResult, FinalSummary, JudgmentResult, TaskGrade
+from langchain.chat_models import init_chat_model  # noqa: E402
+from loguru import logger  # noqa: E402
+from pydantic import BaseModel  # noqa: E402
+
+from agents.types import TokenUsage  # noqa: E402
+
+from .types import EvalResult, FinalSummary, JudgmentResult, TaskGrade  # noqa: E402
 
 JUDGE_PROMPT = """\
 You are an expert evaluator. Judge whether the agent's response satisfies the following criterion.
@@ -44,9 +46,7 @@ def llm_as_judge(
     gold_response: str = "",
 ) -> EvalResult:
     """Evaluate agent_output against each rubric criterion using an LLM judge."""
-    model = init_chat_model(_JUDGE_MODEL).with_structured_output(
-        _JudgeOutput, include_raw=True
-    )
+    model = init_chat_model(_JUDGE_MODEL).with_structured_output(_JudgeOutput, include_raw=True)
 
     judgments = []
     for criterion in rubric:
@@ -57,15 +57,17 @@ def llm_as_judge(
             response=agent_output,
             reference=gold_response,
         )
-        result = model.invoke([{"role": "user", "content": content}])
+        result: dict = model.invoke([{"role": "user", "content": content}])  # type: ignore[assignment]
         parsed: _JudgeOutput = result["parsed"]
         mark = "PASS" if parsed.score else "FAIL"
         logger.info("[{}] {}", mark, criterion[:80])
-        judgments.append(JudgmentResult(
-            criterion=criterion,
-            score=parsed.score,
-            comment=parsed.reasoning,
-        ))
+        judgments.append(
+            JudgmentResult(
+                criterion=criterion,
+                score=parsed.score,
+                comment=parsed.reasoning,
+            )
+        )
 
     return EvalResult(
         judgments=judgments,
@@ -81,10 +83,7 @@ def evaluate_run(run_id: str, output_base: str = "output") -> None:
         raise FileNotFoundError(f"Run directory not found: {run_dir}")
 
     _SKIP = {"manifest.json", "grades.json", "final.json"}
-    task_files = sorted(
-        f for f in run_dir.glob("*.json")
-        if f.name not in _SKIP and not f.name.endswith(".eval.json")
-    )
+    task_files = sorted(f for f in run_dir.glob("*.json") if f.name not in _SKIP and not f.name.endswith(".eval.json"))
 
     logger.info("Evaluating run: {}", run_id)
     logger.info("Tasks to evaluate: {}", len(task_files))
@@ -104,31 +103,40 @@ def evaluate_run(run_id: str, output_base: str = "output") -> None:
 
         # Save per-task eval
         eval_file = run_dir / f"{task_result['task_id']}.eval.json"
-        eval_file.write_text(json.dumps({
-            "task_id": task_result["task_id"],
-            **eval_result.model_dump(),
-        }, indent=2))
+        eval_file.write_text(
+            json.dumps(
+                {
+                    "task_id": task_result["task_id"],
+                    **eval_result.model_dump(),
+                },
+                indent=2,
+            )
+        )
 
         score = eval_result.passed / eval_result.total if eval_result.total else 0.0
         usage = TokenUsage(**task_result["token_usage"])
-        grades.append(TaskGrade(
-            task_id=task_result["task_id"],
-            domain=task_result["domain"],
-            prompt=task_result["prompt"],
-            score=score,
-            passed=eval_result.passed,
-            total=eval_result.total,
-            token_usage=usage,
-            time_taken=task_result["time_taken"],
-        ))
+        grades.append(
+            TaskGrade(
+                task_id=task_result["task_id"],
+                domain=task_result["domain"],
+                prompt=task_result["prompt"],
+                score=score,
+                passed=eval_result.passed,
+                total=eval_result.total,
+                token_usage=usage,
+                time_taken=task_result["time_taken"],
+            )
+        )
         logger.success("Task scored {:.0%} ({}/{})", score, eval_result.passed, eval_result.total)
 
     # grades.json
     grades_file = run_dir / "grades.json"
-    grades_file.write_text(json.dumps(
-        {"run_id": run_id, "grades": [g.model_dump() for g in grades]},
-        indent=2,
-    ))
+    grades_file.write_text(
+        json.dumps(
+            {"run_id": run_id, "grades": [g.model_dump() for g in grades]},
+            indent=2,
+        )
+    )
 
     # final.json
     n = len(grades)

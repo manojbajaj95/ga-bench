@@ -1,6 +1,6 @@
-import json
 from pathlib import Path
-from .types import Task, Rubric
+
+from .types import Rubric, Task
 
 
 def create_task(
@@ -10,13 +10,10 @@ def create_task(
     rubric: list[str | Rubric],
     task_id: str | None = None,
 ) -> Task:
-    rubric_items = [
-        Rubric(criteria=r) if isinstance(r, str) else r for r in rubric
-    ]
-    kwargs = dict(domain=domain, prompt=prompt, gold_response=gold_response, rubric=rubric_items)
+    rubric_items = [Rubric(criteria=r) if isinstance(r, str) else r for r in rubric]
     if task_id is not None:
-        kwargs["id"] = task_id
-    return Task(**kwargs)
+        return Task(id=task_id, domain=domain, prompt=prompt, gold_response=gold_response, rubric=rubric_items)
+    return Task(domain=domain, prompt=prompt, gold_response=gold_response, rubric=rubric_items)
 
 
 def save_task(task: Task, path: str | Path) -> None:

@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+
 from agents.types import TokenUsage
 
 
@@ -18,7 +19,7 @@ class TaskGrade(BaseModel):
     task_id: str
     domain: str
     prompt: str
-    score: float          # passed / total
+    score: float  # passed / total
     passed: int
     total: int
     token_usage: TokenUsage

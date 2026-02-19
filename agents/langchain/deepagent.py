@@ -4,8 +4,8 @@ import time
 from deepagents import create_deep_agent
 from langchain.chat_models import init_chat_model
 
-from tasks.types import Task
 from agents.types import AgentResult, TokenUsage
+from tasks.types import Task
 
 
 class DeepAgent:
@@ -28,10 +28,7 @@ class DeepAgent:
 
         content = last_msg.content
         if isinstance(content, list):
-            content = "".join(
-                block.get("text", "") if isinstance(block, dict) else str(block)
-                for block in content
-            )
+            content = "".join(block.get("text", "") if isinstance(block, dict) else str(block) for block in content)
 
         return AgentResult(
             response=content,
@@ -50,6 +47,7 @@ async def get_agent() -> DeepAgent:
 
 if __name__ == "__main__":
     import asyncio
+
     from tasks.types import Task
 
     async def main():

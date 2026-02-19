@@ -1,24 +1,24 @@
 import asyncio
 import json
 import uuid
-from datetime import datetime, timezone
-from enum import Enum
+from datetime import UTC, datetime
+from enum import StrEnum
 from pathlib import Path
 
 import typer
 from dotenv import load_dotenv
 from loguru import logger
 
-load_dotenv()
+load_dotenv()  # Load .env before importing modules that may read env vars at import time
 
-from agents.base import Agent
-from tasks import load_tasks
-from tasks.types import Task
+from agents.base import Agent  # noqa: E402
+from tasks import load_tasks  # noqa: E402
+from tasks.types import Task  # noqa: E402
 
 app = typer.Typer()
 
 
-class AgentName(str, Enum):
+class AgentName(StrEnum):
     langchain_react = "langchain-react"
     langchain_deepagent = "langchain-deepagent"
     claude_agent_sdk = "claude-agent-sdk"
@@ -82,7 +82,7 @@ async def _main(agent_name: AgentName, tasks_dir: str, output_base: str, system_
 
     manifest = {
         "run_id": run_id,
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
         "agent": agent_name.value,
         "tasks_dir": tasks_dir,
         "num_tasks": len(results),
@@ -94,8 +94,8 @@ async def _main(agent_name: AgentName, tasks_dir: str, output_base: str, system_
 
 @app.command()
 def main(
-    agent: AgentName = typer.Argument(..., help="Agent to run"),
-    tasks_dir: str = typer.Argument(..., help="Path to the tasks directory"),
+    agent: AgentName = typer.Argument(..., help="Agent to run"),  # noqa: B008
+    tasks_dir: str = typer.Argument(..., help="Path to the tasks directory"),  # noqa: B008
     output: str = typer.Option("output", "--output", "-o", help="Base output directory"),
     system_prompt: str = typer.Option("", "--system-prompt", "-s", help="System prompt passed to the agent"),
 ):

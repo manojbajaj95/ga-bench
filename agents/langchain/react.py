@@ -3,8 +3,8 @@ import time
 
 from langchain.agents import create_agent
 
-from tasks.types import Task
 from agents.types import AgentResult, TokenUsage
+from tasks.types import Task
 
 
 class ReactAgent:
@@ -27,10 +27,7 @@ class ReactAgent:
 
         content = last_msg.content
         if isinstance(content, list):
-            content = "".join(
-                block.get("text", "") if isinstance(block, dict) else str(block)
-                for block in content
-            )
+            content = "".join(block.get("text", "") if isinstance(block, dict) else str(block) for block in content)
 
         return AgentResult(
             response=content,
@@ -49,7 +46,8 @@ async def get_agent() -> ReactAgent:
 
 if __name__ == "__main__":
     import asyncio
-    from tasks.types import Task, Rubric
+
+    from tasks.types import Task
 
     async def main():
         agent = await get_agent()
