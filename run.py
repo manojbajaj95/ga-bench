@@ -6,7 +6,10 @@ from enum import Enum
 from pathlib import Path
 
 import typer
+from dotenv import load_dotenv
 from loguru import logger
+
+load_dotenv()
 
 from agents.base import Agent
 from tasks import load_tasks
@@ -18,6 +21,7 @@ app = typer.Typer()
 class AgentName(str, Enum):
     langchain_react = "langchain-react"
     langchain_deepagent = "langchain-deepagent"
+    claude_agent_sdk = "claude-agent-sdk"
 
 
 async def _get_agent(name: AgentName) -> Agent:
@@ -26,6 +30,8 @@ async def _get_agent(name: AgentName) -> Agent:
         from agents.langchain.react import get_agent
     elif name == AgentName.langchain_deepagent:
         from agents.langchain.deepagent import get_agent
+    elif name == AgentName.claude_agent_sdk:
+        from agents.claude_agent_sdk.agent import get_agent
     agent = await get_agent()
     logger.success("Agent loaded: {}", name.value)
     return agent

@@ -2,7 +2,10 @@ import json
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
+
+load_dotenv()
 from loguru import logger
 from pydantic import BaseModel
 
