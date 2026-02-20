@@ -1,16 +1,18 @@
 import os
 import time
+from typing import Any
 
 from langchain.agents import create_agent
+from langchain_core.tools import BaseTool
 
 from agents.types import AgentResult, TokenUsage
 from tasks.types import Task
 
 
 class ReactAgent:
-    def __init__(self):
+    def __init__(self, tools: list[BaseTool] | None = None):
         model = os.getenv("AGENT_MODEL", "anthropic:claude-haiku-4-5")
-        self._agent = create_agent(model, tools=[])
+        self._agent = create_agent(model, tools=tools or [])
 
     async def run(self, task: Task, system_prompt: str = "") -> AgentResult:
         messages = []
@@ -19,7 +21,7 @@ class ReactAgent:
         messages.append({"role": "user", "content": task.prompt})
 
         start = time.perf_counter()
-        result = self._agent.invoke({"messages": messages})
+        result = await self._agent.ainvoke({"messages": messages})
         elapsed = round(time.perf_counter() - start, 3)
 
         last_msg = result["messages"][-1]
@@ -40,8 +42,18 @@ class ReactAgent:
         )
 
 
-async def get_agent() -> ReactAgent:
-    return ReactAgent()
+async def get_agent(mcp_server: dict[str, Any] | None = None) -> ReactAgent:
+    tools: list[BaseTool] = []
+    if mcp_server:
+        from langchain_mcp_adapters.client import MultiServerMCPClient, StreamableHttpConnection
+
+        connection: StreamableHttpConnection = {
+            "transport": mcp_server["transport"],
+            "url": mcp_server["url"],
+        }
+        client = MultiServerMCPClient({"world": connection})
+        tools = await client.get_tools()
+    return ReactAgent(tools=tools)
 
 
 if __name__ == "__main__":

@@ -1,9 +1,11 @@
 import asyncio
 import json
+import sys
 import uuid
 from datetime import UTC, datetime
 from enum import StrEnum
 from pathlib import Path
+from typing import Any
 
 import typer
 from dotenv import load_dotenv
@@ -17,6 +19,8 @@ from tasks.types import Task  # noqa: E402
 
 app = typer.Typer()
 
+WORLD_SERVER_PORT = 7331
+
 
 class AgentName(StrEnum):
     langchain_react = "langchain-react"
@@ -24,15 +28,20 @@ class AgentName(StrEnum):
     claude_agent_sdk = "claude-agent-sdk"
 
 
-async def _get_agent(name: AgentName) -> Agent:
+async def _get_agent(name: AgentName, mcp_server: dict[str, Any] | None = None, run_dir: Path | None = None) -> Agent:
     logger.info("Loading agent: {}", name.value)
     if name == AgentName.langchain_react:
         from agents.langchain.react import get_agent
+
+        agent = await get_agent(mcp_server=mcp_server)
     elif name == AgentName.langchain_deepagent:
         from agents.langchain.deepagent import get_agent
+
+        agent = await get_agent(run_dir=run_dir)
     elif name == AgentName.claude_agent_sdk:
         from agents.claude_agent_sdk.agent import get_agent
-    agent = await get_agent()
+
+        agent = await get_agent()
     logger.success("Agent loaded: {}", name.value)
     return agent
 
@@ -58,7 +67,7 @@ async def run_task(agent: Agent, task: Task, system_prompt: str = "") -> dict:
     }
 
 
-async def _main(agent_name: AgentName, tasks_dir: str, output_base: str, system_prompt: str):
+async def _main(agent_name: AgentName, tasks_dir: str, output_base: str, system_prompt: str, world: str | None):
     run_id = str(uuid.uuid4())
     run_dir = Path(output_base) / run_id
     run_dir.mkdir(parents=True)
@@ -66,25 +75,47 @@ async def _main(agent_name: AgentName, tasks_dir: str, output_base: str, system_
     logger.info("Run ID:  {}", run_id)
     logger.info("Output:  {}", run_dir)
 
-    agent = await _get_agent(agent_name)
-    tasks = load_tasks(tasks_dir)
-    logger.info("Tasks:   {} loaded from {}", len(tasks), tasks_dir)
+    world_proc = None
+    mcp_server = None
+    if world:
+        world_proc = await asyncio.create_subprocess_exec(
+            sys.executable,
+            world,
+            "--port",
+            str(WORLD_SERVER_PORT),
+            stdout=asyncio.subprocess.DEVNULL,
+            stderr=asyncio.subprocess.DEVNULL,
+        )
+        await asyncio.sleep(1.5)  # wait for HTTP server to be ready
+        mcp_url = f"http://127.0.0.1:{WORLD_SERVER_PORT}/mcp"
+        mcp_server = {"transport": "streamable_http", "url": mcp_url}
+        logger.info("World:   {} → {}", world, mcp_url)
 
-    results = []
-    for i, task in enumerate(tasks, 1):
-        logger.info("Task {}/{}", i, len(tasks))
-        result = await run_task(agent, task, system_prompt=system_prompt)
-        logger.debug("Response: {}", result["agent_response"][:120])
+    try:
+        agent = await _get_agent(agent_name, mcp_server=mcp_server, run_dir=run_dir)
+        tasks = load_tasks(tasks_dir)
+        logger.info("Tasks:   {} loaded from {}", len(tasks), tasks_dir)
 
-        task_file = run_dir / f"{task.id}.json"
-        task_file.write_text(json.dumps(result, indent=2))
-        results.append(result)
+        results = []
+        for i, task in enumerate(tasks, 1):
+            logger.info("Task {}/{}", i, len(tasks))
+            result = await run_task(agent, task, system_prompt=system_prompt)
+            logger.debug("Response: {}", result["agent_response"][:120])
+
+            task_file = run_dir / f"{task.id}.json"
+            task_file.write_text(json.dumps(result, indent=2))
+            results.append(result)
+    finally:
+        if world_proc:
+            world_proc.terminate()
+            await world_proc.wait()
 
     manifest = {
         "run_id": run_id,
         "timestamp": datetime.now(UTC).isoformat(),
         "agent": agent_name.value,
         "tasks_dir": tasks_dir,
+        "world": world,
         "num_tasks": len(results),
         "task_ids": [r["task_id"] for r in results],
     }
@@ -98,8 +129,9 @@ def main(
     tasks_dir: str = typer.Argument(..., help="Path to the tasks directory"),  # noqa: B008
     output: str = typer.Option("output", "--output", "-o", help="Base output directory"),
     system_prompt: str = typer.Option("", "--system-prompt", "-s", help="System prompt passed to the agent"),
+    world: str | None = typer.Option(None, "--world", "-w", help="Path to world server script (MCP tools)"),  # noqa: B008
 ):
-    asyncio.run(_main(agent, tasks_dir, output, system_prompt))
+    asyncio.run(_main(agent, tasks_dir, output, system_prompt, world))
 
 
 if __name__ == "__main__":

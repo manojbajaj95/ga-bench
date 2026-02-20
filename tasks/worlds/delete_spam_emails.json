@@ -1,0 +1,17 @@
+{
+  "id": "c7d8e9f0-a1b2-4c3d-8e5f-6a7b8c9d0e1f",
+  "domain": "email_management",
+  "prompt": "Search all spam emails and delete every one of them. When done, report the number of emails deleted and list each one by subject and ID.",
+  "gold_response": "Found 1 spam email in the spam folder: 'You won a prize!' from noreply@spam.example (id: e004). Deleted it by moving it to trash.",
+  "rubric": [
+    {
+      "criteria": "The agent must search or list the spam folder to discover spam emails"
+    },
+    {
+      "criteria": "The agent must delete (move to trash) every email found in the spam folder"
+    },
+    {
+      "criteria": "The agent must report what was deleted, including the email subject or id"
+    }
+  ]
+}

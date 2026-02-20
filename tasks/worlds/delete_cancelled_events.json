@@ -1,0 +1,17 @@
+{
+  "id": "d1e2f3a4-b5c6-7890-defa-1b2c3d4e5f60",
+  "domain": "calendar_management",
+  "prompt": "Find all cancelled events on the calendar and delete them. When done, report the number of events deleted and list each one by title and ID.",
+  "gold_response": "Found 2 cancelled events: 'CANCELLED: Board Meeting' (ev002) and 'CANCELLED: Sprint Planning' (ev004). Both were deleted from the calendar.",
+  "rubric": [
+    {
+      "criteria": "The agent must search or list events to discover which ones are cancelled"
+    },
+    {
+      "criteria": "The agent must delete all cancelled events (ev002 and ev004)"
+    },
+    {
+      "criteria": "The agent must report the titles or IDs of the events that were deleted"
+    }
+  ]
+}

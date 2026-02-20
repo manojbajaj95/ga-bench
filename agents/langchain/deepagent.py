@@ -1,7 +1,9 @@
 import os
 import time
+from pathlib import Path
 
 from deepagents import create_deep_agent
+from deepagents.backends import FilesystemBackend
 from langchain.chat_models import init_chat_model
 
 from agents.types import AgentResult, TokenUsage
@@ -9,9 +11,10 @@ from tasks.types import Task
 
 
 class DeepAgent:
-    def __init__(self):
+    def __init__(self, root_dir: Path):
         model_id = os.getenv("AGENT_MODEL", "anthropic:claude-haiku-4-5")
-        self._agent = create_deep_agent(model=init_chat_model(model_id))
+        backend = FilesystemBackend(root_dir=root_dir, virtual_mode=True)
+        self._agent = create_deep_agent(model=init_chat_model(model_id), backend=backend)
 
     async def run(self, task: Task, system_prompt: str = "") -> AgentResult:
         messages = []
@@ -41,19 +44,21 @@ class DeepAgent:
         )
 
 
-async def get_agent() -> DeepAgent:
-    return DeepAgent()
+async def get_agent(run_dir: Path | None = None) -> DeepAgent:
+    return DeepAgent(root_dir=run_dir or Path("output/default"))
 
 
 if __name__ == "__main__":
     import asyncio
+    import tempfile
 
     from tasks.types import Task
 
     async def main():
-        agent = await get_agent()
-        task = Task(domain="test", prompt="hi", gold_response="", rubric=[])
-        result = await agent.run(task)
-        print(result)
+        with tempfile.TemporaryDirectory() as tmp:
+            agent = await get_agent(run_dir=Path(tmp))
+            task = Task(domain="test", prompt="hi", gold_response="", rubric=[])
+            result = await agent.run(task)
+            print(result)
 
     asyncio.run(main())
