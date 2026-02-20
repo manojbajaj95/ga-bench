@@ -1,0 +1,17 @@
+{
+  "id": "45bd6c6b-3a43-4e54-aa53-e065702b0d4b",
+  "domain": "cross_app",
+  "prompt": "Search arXiv for papers about AI agents. Find the most-cited paper on this topic. Then post a message to the #engineering Slack channel (C002) summarizing the paper's title, authors, and a key finding from its abstract. Report the message ID of the post you sent.",
+  "gold_response": "The most-cited arXiv paper on AI agents is 'Agentic AI: Benchmark Design for Long-Horizon Tool-Using Agents' (2501.14900) by Mihail Popescu, Ling Zhang, and Olusegun Okonkwo, with 256 citations. Key finding: performance degrades sharply beyond 10-step horizons, with tool selection errors as the primary failure mode (58%). Posted a summary to #engineering and received a message ID.",
+  "rubric": [
+    {
+      "criteria": "The agent searched arXiv for papers about AI agents and correctly identified the most-cited result: 'Agentic AI: Benchmark Design for Long-Horizon Tool-Using Agents' (2501.14900) with 256 citations."
+    },
+    {
+      "criteria": "The agent included the paper title, at least one author name, and a key finding from the abstract in the Slack message."
+    },
+    {
+      "criteria": "The agent posted the message to the #engineering channel (C002) and reported the resulting message ID."
+    }
+  ]
+}

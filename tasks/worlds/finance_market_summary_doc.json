@@ -1,0 +1,17 @@
+{
+  "id": "fd9d9524-6429-42c7-92da-61ba732bb902",
+  "domain": "cross_app",
+  "prompt": "Get the current market summary (major indices) and fetch quotes for three technology stocks: AAPL, MSFT, and NVDA. Then create a new document titled 'Market Snapshot — Feb 2026' in the docs system under the 'Finance' folder, summarizing the index levels and the three stock prices with their daily changes. When done, report the new document's ID.",
+  "gold_response": "Retrieved market summary: S&P 500 at 5891.20 (+0.21%), Dow at 43218.50 (+0.41%), Nasdaq at 19340.10 (-0.30%). Stock quotes: AAPL $228.50 (+1.02%), MSFT $415.80 (+1.02%), NVDA $875.40 (+3.42%). Created document 'Market Snapshot — Feb 2026' in the Finance folder. Document ID: <newly assigned id>.",
+  "rubric": [
+    {
+      "criteria": "The agent retrieved the market summary and correctly identified the S&P 500, Dow Jones, and Nasdaq index levels and their daily changes."
+    },
+    {
+      "criteria": "The agent fetched quotes for AAPL, MSFT, and NVDA and included their prices and daily percentage changes in the document."
+    },
+    {
+      "criteria": "The agent created a new document titled 'Market Snapshot — Feb 2026' in the docs system and reported its newly assigned document ID."
+    }
+  ]
+}

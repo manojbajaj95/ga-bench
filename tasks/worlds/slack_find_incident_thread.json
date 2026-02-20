@@ -1,0 +1,17 @@
+{
+  "id": "8f6cdf91-786f-4a6a-bf91-80dd30ac6df0",
+  "domain": "slack",
+  "prompt": "There was a P1 incident in the #incident-response channel. Find the incident thread, summarize what happened, and list all messages in the thread including who sent each one (by display name) and what they said.",
+  "gold_response": "A P1 incident was reported by Alice Chen (U001): payment service latency spike detected with p99 > 5s. Bob Smith (U002) replied that the DB connection pool was exhausted and initiated a rollback of the last deploy. Dave Park (U004) confirmed the rollback was complete and latency was returning to normal. The thread consists of 3 messages: msg014 (Alice Chen), msg015 (Bob Smith), msg016 (Dave Park).",
+  "rubric": [
+    {
+      "criteria": "The agent identified the #incident-response channel (C005) and retrieved its messages."
+    },
+    {
+      "criteria": "The agent fetched the full incident thread and found all 3 messages (msg014, msg015, msg016)."
+    },
+    {
+      "criteria": "The agent correctly attributed each message to the right person (Alice Chen reported the incident, Bob Smith identified the root cause and rolled back, Dave Park confirmed resolution) and summarized the sequence of events."
+    }
+  ]
+}

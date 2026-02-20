@@ -1,0 +1,17 @@
+{
+  "id": "7e469b1d-cd31-4b77-9aa7-b0fba494e669",
+  "domain": "cross_app",
+  "prompt": "The team has been discussing Q1 OKR progress. First, search Slack for messages mentioning 'OKR'. Then, find and read the Q1 OKR Review document in the docs system. Finally, calculate the average completion percentage across all key results mentioned in the document (treat 'On track' items without a percentage as 100%, and items described as needing work as 0%). Report the Slack message(s) you found, a summary of the OKR document, and the calculated average KR completion percentage.",
+  "gold_response": "Slack search found 1 message mentioning OKR: Eve Kumar in #general saying 'Reminder: Q1 OKR check-in docs are due by EOD Friday.' The Q1 OKR Review document (doc001) lists 5 key results with these completion levels: shipping 3 features (67%), API latency on track (100%), uptime met (100%), DAU at 38K/50K (76%), churn at 3.4% vs 3% target (0%). Average completion: (67 + 100 + 100 + 76 + 0) / 5 = 68.6%.",
+  "rubric": [
+    {
+      "criteria": "The agent searched Slack for 'OKR' and found the message from Eve Kumar in #general reminding the team that Q1 OKR check-in docs are due."
+    },
+    {
+      "criteria": "The agent found and read the Q1 OKR Review document (doc001) from the docs system, identifying the 5 key results and their completion states."
+    },
+    {
+      "criteria": "The agent computed the average KR completion percentage using the calculator or arithmetic and reported a value between 65% and 72%."
+    }
+  ]
+}

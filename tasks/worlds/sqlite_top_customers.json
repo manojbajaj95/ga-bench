@@ -1,0 +1,17 @@
+{
+  "id": "1e89cff2-a4eb-4003-b5d9-0d34cef4c6cd",
+  "domain": "sqlite",
+  "prompt": "Query the database to find the top 3 customers by total amount spent across all their orders. Only include orders with status 'delivered'. For each customer, report their name, email, and total spend.",
+  "gold_response": "The top 3 customers by delivered order spend are: 1) Alice Chen (alice@example.com) — $889.98. 2) Bob Smith (bob@example.com) — $239.98. 3) Dave Park (dave@example.com) — $91.98.",
+  "rubric": [
+    {
+      "criteria": "The agent queried the orders table joined with users, correctly filtering on status = 'delivered'."
+    },
+    {
+      "criteria": "The agent aggregated total spend per customer using SUM and ranked them correctly."
+    },
+    {
+      "criteria": "The agent reported the correct top 3 customers: Alice Chen ($889.98), Bob Smith ($239.98), and Dave Park ($91.98), including names and emails."
+    }
+  ]
+}
