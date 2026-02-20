@@ -2,8 +2,16 @@
 
 from fastmcp import FastMCP
 
+from worlds.apps.arxiv_app import ArxivApp
+from worlds.apps.calculator_app import CalculatorApp
 from worlds.apps.calendar_app import CalendarApp
+from worlds.apps.docs_app import DocsApp
 from worlds.apps.email_app import EmailApp
+from worlds.apps.fetch_app import FetchApp
+from worlds.apps.slack_app import SlackApp
+from worlds.apps.sqlite_app import SQLiteApp
+from worlds.apps.web_search_app import WebSearchApp
+from worlds.apps.yahoo_finance_app import YahooFinanceApp
 
 # ---------------------------------------------------------------------------
 # Build sub-servers from app instances
@@ -12,6 +20,14 @@ from worlds.apps.email_app import EmailApp
 _apps = [
     EmailApp(),
     CalendarApp(),
+    WebSearchApp(),
+    SlackApp(),
+    ArxivApp(),
+    FetchApp(),
+    YahooFinanceApp(),
+    DocsApp(),
+    CalculatorApp(),
+    SQLiteApp(),
 ]
 
 # ---------------------------------------------------------------------------
