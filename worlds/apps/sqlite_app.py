@@ -99,7 +99,7 @@ INSERT INTO orders (user_id, product_id, quantity, total, status, created_at) VA
 
 
 def _create_connection() -> sqlite3.Connection:
-    conn = sqlite3.connect(":memory:")
+    conn = sqlite3.connect(":memory:", check_same_thread=False)
     conn.row_factory = sqlite3.Row
     conn.executescript(_SCHEMA)
     conn.executescript(_SEED)
@@ -132,7 +132,7 @@ class SQLiteApp:
     # Tools
     # ------------------------------------------------------------------
 
-    def query(self, sql: str, params: list | None = None) -> dict:
+    def query(self, sql: str, params: list[str | int | float | bool] | None = None) -> dict:
         """Execute a read-only SQL SELECT query and return the results.
 
         The database contains three tables:

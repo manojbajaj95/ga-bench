@@ -67,7 +67,14 @@ async def run_task(agent: Agent, task: Task, system_prompt: str = "") -> dict:
     }
 
 
-async def _main(agent_name: AgentName, tasks_dir: str, output_base: str, system_prompt: str, world: str | None):
+async def _main(
+    agent_name: AgentName,
+    tasks_dir: str,
+    output_base: str,
+    system_prompt: str,
+    world: str | None,
+    task_id: str | None,
+):
     run_id = str(uuid.uuid4())
     run_dir = Path(output_base) / run_id
     run_dir.mkdir(parents=True)
@@ -94,6 +101,11 @@ async def _main(agent_name: AgentName, tasks_dir: str, output_base: str, system_
     try:
         agent = await _get_agent(agent_name, mcp_server=mcp_server, run_dir=run_dir)
         tasks = load_tasks(tasks_dir)
+        if task_id:
+            tasks = [t for t in tasks if t.id == task_id]
+            if not tasks:
+                logger.error("No task found with id '{}' in {}", task_id, tasks_dir)
+                return
         logger.info("Tasks:   {} loaded from {}", len(tasks), tasks_dir)
 
         results = []
@@ -130,8 +142,9 @@ def main(
     output: str = typer.Option("output", "--output", "-o", help="Base output directory"),
     system_prompt: str = typer.Option("", "--system-prompt", "-s", help="System prompt passed to the agent"),
     world: str | None = typer.Option(None, "--world", "-w", help="Path to world server script (MCP tools)"),  # noqa: B008
+    task_id: str | None = typer.Option(None, "--task-id", "-t", help="Run a single task by its ID (for debugging)"),  # noqa: B008
 ):
-    asyncio.run(_main(agent, tasks_dir, output, system_prompt, world))
+    asyncio.run(_main(agent, tasks_dir, output, system_prompt, world, task_id))
 
 
 if __name__ == "__main__":
