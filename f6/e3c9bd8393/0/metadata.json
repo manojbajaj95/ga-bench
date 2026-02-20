@@ -1,0 +1,37 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "f6e3c9bd8393",
+  "session_id": "291b02af-3f12-4461-91c4-409629f184d5",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-20T22:18:44.095547776Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "tasks/worlds/fetch_summarize_page.json",
+    "tasks/worlds/finance_market_summary_doc.json",
+    "tasks/worlds/slack_find_incident_thread.json",
+    "tasks/worlds/sqlite_top_customers.json",
+    "tasks/worlds/arxiv_share_to_slack.json",
+    "tasks/worlds/cross_app_okr_progress.json"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "30d264d5bf74",
+  "transcript_identifier_at_start": "d60b904f-7eda-4dc2-98f3-7a5f59bab5ec",
+  "token_usage": {
+    "input_tokens": 2515,
+    "cache_creation_tokens": 126112,
+    "cache_read_tokens": 7354914,
+    "output_tokens": 39048,
+    "api_call_count": 93
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-20T22:18:43.40474738Z",
+    "agent_lines": 85,
+    "human_added": 17,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 102,
+    "agent_percentage": 83.33333333333334
+  },
+  "transcript_path": ".claude/projects/-home-mbajaj-src-ga-bench/291b02af-3f12-4461-91c4-409629f184d5.jsonl"
+}
