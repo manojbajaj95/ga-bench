@@ -1,0 +1,34 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "0ffbf138825c",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "worlds/apps/arxiv_app.py",
+    "worlds/apps/calculator_app.py",
+    "worlds/apps/docs_app.py",
+    "worlds/apps/fetch_app.py",
+    "worlds/apps/slack_app.py",
+    "worlds/apps/sqlite_app.py",
+    "worlds/apps/web_search_app.py",
+    "worlds/apps/yahoo_finance_app.py",
+    "worlds/server.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0f/fbf138825c/0/metadata.json",
+      "transcript": "/0f/fbf138825c/0/full.jsonl",
+      "context": "/0f/fbf138825c/0/context.md",
+      "content_hash": "/0f/fbf138825c/0/content_hash.txt",
+      "prompt": "/0f/fbf138825c/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 2515,
+    "cache_creation_tokens": 126112,
+    "cache_read_tokens": 7354914,
+    "output_tokens": 39048,
+    "api_call_count": 93
+  }
+}
