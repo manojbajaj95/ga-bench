@@ -3,7 +3,7 @@
   "checkpoint_id": "b2254a7e31a8",
   "strategy": "manual-commit",
   "branch": "main",
-  "checkpoints_count": 2,
+  "checkpoints_count": 3,
   "files_touched": [
     "agents/claude_agent_sdk/agent.py",
     "run.py"
@@ -29,13 +29,20 @@
       "context": "/b2/254a7e31a8/2/context.md",
       "content_hash": "/b2/254a7e31a8/2/content_hash.txt",
       "prompt": "/b2/254a7e31a8/2/prompt.txt"
+    },
+    {
+      "metadata": "/b2/254a7e31a8/3/metadata.json",
+      "transcript": "/b2/254a7e31a8/3/full.jsonl",
+      "context": "/b2/254a7e31a8/3/context.md",
+      "content_hash": "/b2/254a7e31a8/3/content_hash.txt",
+      "prompt": "/b2/254a7e31a8/3/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 2551,
-    "cache_creation_tokens": 186137,
-    "cache_read_tokens": 10410978,
-    "output_tokens": 46065,
-    "api_call_count": 121
+    "input_tokens": 2591,
+    "cache_creation_tokens": 233057,
+    "cache_read_tokens": 12180325,
+    "output_tokens": 56747,
+    "api_call_count": 157
   }
 }
