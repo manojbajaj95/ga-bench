@@ -1,0 +1,46 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "c151e1278799",
+  "session_id": "ef25b374-a442-46e2-95cd-e4242660179e",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-20T21:43:48.554993251Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "run.py",
+    "tasks/worlds/delete_spam_emails.json",
+    "worlds/__init__.py",
+    "worlds/apps/__init__.py",
+    "worlds/apps/calendar_app.py",
+    "agents/langchain/deepagent.py",
+    "worlds/apps/email_app.py",
+    "uv.lock",
+    ".entire/.gitignore",
+    ".entire/settings.json",
+    "agents/langchain/react.py",
+    "pyproject.toml",
+    "tasks/worlds/delete_cancelled_events.json",
+    "worlds/server.py",
+    "CLAUDE.md",
+    "README.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "745036f1f692",
+  "token_usage": {
+    "input_tokens": 40,
+    "cache_creation_tokens": 46920,
+    "cache_read_tokens": 1769347,
+    "output_tokens": 10682,
+    "api_call_count": 36
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-20T21:43:48.401064297Z",
+    "agent_lines": 1013,
+    "human_added": 205,
+    "human_modified": 198,
+    "human_removed": 0,
+    "total_committed": 1416,
+    "agent_percentage": 71.53954802259888
+  },
+  "transcript_path": ".claude/projects/-home-mbajaj-src-ga-bench/ef25b374-a442-46e2-95cd-e4242660179e.jsonl"
+}
