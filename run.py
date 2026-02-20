@@ -41,7 +41,7 @@ async def _get_agent(name: AgentName, mcp_server: dict[str, Any] | None = None, 
     elif name == AgentName.claude_agent_sdk:
         from agents.claude_agent_sdk.agent import get_agent
 
-        agent = await get_agent()
+        agent = await get_agent(mcp_server=mcp_server)
     logger.success("Agent loaded: {}", name.value)
     return agent
 
