@@ -1,0 +1,16 @@
+# Session Context
+
+## User Prompts
+
+### Prompt 1
+
+Create following new apps: web_search-> should allow searching for some content, hardcode answers. add common queries like whats the weather in SF, latest news about some match, and so on. No need to create task or run eval for now.
+
+### Prompt 2
+
+Add a fake slack app, arxiv for papers, fetch ( to fetch anything from web, not fake), yahoo-finance, docs for creating, finding and saving docs, calculator for simple number calculator, and an in memory sqlite database app ( load some dummy data in memory).
+
+### Prompt 3
+
+commit these apps.
+

@@ -1,0 +1,40 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "0ffbf138825c",
+  "session_id": "4efca436-c5b5-499f-ac32-97f2e834da11",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-20T22:12:08.980754101Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "worlds/apps/arxiv_app.py",
+    "worlds/apps/calculator_app.py",
+    "worlds/apps/docs_app.py",
+    "worlds/apps/fetch_app.py",
+    "worlds/apps/slack_app.py",
+    "worlds/apps/sqlite_app.py",
+    "worlds/apps/web_search_app.py",
+    "worlds/apps/yahoo_finance_app.py",
+    "worlds/server.py"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "553d4b512c98",
+  "transcript_identifier_at_start": "97ae9d16-f9a9-4d8d-9437-c469735bfe58",
+  "token_usage": {
+    "input_tokens": 32,
+    "cache_creation_tokens": 149607,
+    "cache_read_tokens": 1681400,
+    "output_tokens": 30149,
+    "api_call_count": 26
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-20T22:12:08.705967319Z",
+    "agent_lines": 2367,
+    "human_added": 339,
+    "human_modified": 187,
+    "human_removed": 0,
+    "total_committed": 2893,
+    "agent_percentage": 81.81818181818183
+  },
+  "transcript_path": ".claude/projects/-home-mbajaj-src-ga-bench/4efca436-c5b5-499f-ac32-97f2e834da11.jsonl"
+}
