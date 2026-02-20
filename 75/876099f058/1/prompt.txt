@@ -1,0 +1,53 @@
+Create following new apps: web_search-> should allow searching for some content, hardcode answers. add common queries like whats the weather in SF, latest news about some match, and so on. No need to create task or run eval for now.
+
+---
+
+Add a fake slack app, arxiv for papers, fetch ( to fetch anything from web, not fake), yahoo-finance, docs for creating, finding and saving docs, calculator for simple number calculator, and an in memory sqlite database app ( load some dummy data in memory).
+
+---
+
+commit these apps.
+
+---
+
+Now create tasks one at a time. Give me task, i'll approve then then you can create it.
+
+---
+
+yes.
+
+---
+
+yes. For next task create a multi app task, that spans 2-3 apps
+
+---
+
+yes.
+
+---
+
+yes
+
+---
+
+yes. Next create task for unused apps
+
+---
+
+yes. this is last
+
+---
+
+Now do a run and evaluate. It will take some time
+
+---
+
+[Request interrupted by user for tool use]
+
+---
+
+Just run the eval. Fresh full run is costly
+
+---
+
+We should allow it capability to run a individual task on a specific id as well, for debugging use cases
