@@ -10,8 +10,10 @@
     "pyproject.toml",
     "tasks/worlds/ads_analysis.json",
     "tasks/worlds/ads_data.csv",
+    "tasks/worlds/fib_2000.json",
     "tasks/worlds/github_bug_triage_to_slack.json",
     "tasks/worlds/github_draft_pr_email_reminder.json",
+    "tasks/worlds/india_capital.json",
     "tasks/worlds/reddit_top_python_post_to_doc.json",
     "tasks/worlds/sqlite_top_products_to_slack.json",
     "worlds/apps/files_app.py",
@@ -40,13 +42,20 @@
       "context": "/40/5a9404724e/2/context.md",
       "content_hash": "/40/5a9404724e/2/content_hash.txt",
       "prompt": "/40/5a9404724e/2/prompt.txt"
+    },
+    {
+      "metadata": "/40/5a9404724e/3/metadata.json",
+      "transcript": "/40/5a9404724e/3/full.jsonl",
+      "context": "/40/5a9404724e/3/context.md",
+      "content_hash": "/40/5a9404724e/3/content_hash.txt",
+      "prompt": "/40/5a9404724e/3/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 2602,
-    "cache_creation_tokens": 951832,
-    "cache_read_tokens": 12310402,
-    "output_tokens": 72646,
-    "api_call_count": 161
+    "input_tokens": 2614,
+    "cache_creation_tokens": 997093,
+    "cache_read_tokens": 12681851,
+    "output_tokens": 74822,
+    "api_call_count": 171
   }
 }
