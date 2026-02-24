@@ -1,0 +1,43 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "405a9404724e",
+  "session_id": "43c6fe38-16e9-4c6f-b118-fc9e7d39a870",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-24T15:03:51.301285681Z",
+  "branch": "main",
+  "checkpoints_count": 5,
+  "files_touched": [
+    "agents/claude_agent_sdk/agent.py",
+    "evaluator/__init__.py",
+    "tasks/worlds/ads_analysis.json",
+    "tasks/worlds/ads_data.csv",
+    "tasks/worlds/github_bug_triage_to_slack.json",
+    "tasks/worlds/github_draft_pr_email_reminder.json",
+    "tasks/worlds/reddit_top_python_post_to_doc.json",
+    "tasks/worlds/sqlite_top_products_to_slack.json",
+    "worlds/apps/files_app.py",
+    "worlds/apps/github_app.py",
+    "worlds/apps/reddit_app.py",
+    "worlds/server.py"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "1131b89cabb4",
+  "transcript_identifier_at_start": "5f4eb88b-bef5-4fe1-abd7-b9937001c144",
+  "token_usage": {
+    "input_tokens": 86,
+    "cache_creation_tokens": 825213,
+    "cache_read_tokens": 4798823,
+    "output_tokens": 33521,
+    "api_call_count": 67
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-24T15:03:50.687322133Z",
+    "agent_lines": 1390,
+    "human_added": 59,
+    "human_modified": 30,
+    "human_removed": 0,
+    "total_committed": 1479,
+    "agent_percentage": 93.98242055442867
+  },
+  "transcript_path": ".claude/projects/-home-mbajaj-src-ga-bench/43c6fe38-16e9-4c6f-b118-fc9e7d39a870.jsonl"
+}
