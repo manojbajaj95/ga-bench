@@ -1,0 +1,45 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "405a9404724e",
+  "session_id": "ef25b374-a442-46e2-95cd-e4242660179e",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-24T15:03:54.053059943Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "pyproject.toml",
+    "tasks/worlds/ads_analysis.json",
+    "tasks/worlds/ads_data.csv",
+    "tasks/worlds/sqlite_top_products_to_slack.json",
+    "worlds/apps/github_app.py",
+    "tasks/worlds/fib_2000.json",
+    "worlds/apps/files_app.py",
+    "tasks/worlds/india_capital.json",
+    "worlds/apps/reddit_app.py",
+    "worlds/server.py",
+    "agents/claude_agent_sdk/agent.py",
+    "tasks/worlds/github_bug_triage_to_slack.json",
+    "tasks/worlds/github_draft_pr_email_reminder.json",
+    "tasks/worlds/reddit_top_python_post_to_doc.json",
+    "evaluator/__init__.py"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "745036f1f692",
+  "token_usage": {
+    "input_tokens": 40,
+    "cache_creation_tokens": 46920,
+    "cache_read_tokens": 1769347,
+    "output_tokens": 10682,
+    "api_call_count": 36
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-24T15:03:53.889698619Z",
+    "agent_lines": 1390,
+    "human_added": 38,
+    "human_modified": 30,
+    "human_removed": 0,
+    "total_committed": 1458,
+    "agent_percentage": 95.33607681755831
+  },
+  "transcript_path": ".claude/projects/-home-mbajaj-src-ga-bench/ef25b374-a442-46e2-95cd-e4242660179e.jsonl"
+}
