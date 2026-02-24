@@ -1,0 +1,17 @@
+{
+  "id": "f85e3091-c2d5-47a8-bd3e-6701f924e8dc",
+  "domain": "cross_app",
+  "prompt": "Query the SQLite database to find the top 3 products by total revenue from delivered orders (sum of order totals where status = 'delivered', grouped by product name, sorted descending). Then post the results as a message to the #general Slack channel (C001) listing each product name and its total delivered revenue. When done, report the top 3 products with their revenue figures and the Slack message ID.",
+  "gold_response": "Top 3 products by delivered revenue: 1) Standing Desk — $499.99; 2) Ergonomic Chair — $389.99; 3) Mechanical Keyboard — $149.99. Posted these results to #general (C001) and received a message ID.",
+  "rubric": [
+    {
+      "criteria": "The agent queried SQLite joining orders and products, filtered for status='delivered', and correctly identified the top 3 products: Standing Desk ($499.99), Ergonomic Chair ($389.99), and Mechanical Keyboard ($149.99) in that order."
+    },
+    {
+      "criteria": "The agent posted the top-3 product revenue results to the #general Slack channel (C001)."
+    },
+    {
+      "criteria": "The agent reported the Slack message ID returned from the post operation."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "b2d94e07-5f1c-4a38-8c60-7e3ab1f620d9",
+  "domain": "cross_app",
+  "prompt": "Analyse the advertising campaign data at tasks/worlds/ads_data.csv (columns: campaign_id, campaign_name, platform, ad_format, date, impressions, clicks, spend, conversions, revenue). Compute the following metrics:\n1. ROAS (revenue ÷ spend) for each campaign — identify the campaign with the highest ROAS.\n2. CTR (clicks ÷ impressions, as a percentage) for each platform — identify the platform with the highest CTR.\n3. Total spend and total revenue across all rows, and the overall ROAS.\n\nThen post a concise summary of these findings to the #engineering Slack channel (C002).\n\nWhen done, report: the best-ROAS campaign and its ROAS, the best-CTR platform and its CTR, total spend, total revenue, overall ROAS, and the Slack message ID.",
+  "gold_response": "Read 16 rows from ads_data.csv. Campaign ROAS: Retargeting 14.0x, Summer Sale 4.63x, New Product Launch 3.63x, Brand Awareness 0.65x — best campaign is Retargeting (C003). Platform CTR: Meta 2.45%, TikTok 2.30%, Google 1.80% — best platform is Meta. Total spend: $9,440.00; total revenue: $39,660.00; overall ROAS: 4.20x. Posted summary to #engineering (C002) and received a Slack message ID.",
+  "rubric": [
+    {
+      "criteria": "The agent correctly identified Retargeting (C003) as the best-performing campaign by ROAS, reporting a value between 13.8x and 14.2x."
+    },
+    {
+      "criteria": "The agent correctly identified Meta as the platform with the highest CTR, reporting a value between 2.4% and 2.5%."
+    },
+    {
+      "criteria": "The agent reported total spend of approximately $9,440 and total revenue of approximately $39,660 (or equivalently, an overall ROAS between 4.1x and 4.3x)."
+    },
+    {
+      "criteria": "The agent posted a summary to the #engineering Slack channel (C002) and reported the resulting Slack message ID."
+    }
+  ]
+}

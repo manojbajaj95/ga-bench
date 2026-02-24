@@ -1,0 +1,17 @@
+campaign_id,campaign_name,platform,ad_format,date,impressions,clicks,spend,conversions,revenue
+C001,Summer Sale,Google,image,2026-02-01,45000,1350,540.00,45,2250.00
+C001,Summer Sale,Google,image,2026-02-02,48000,1440,576.00,48,2400.00
+C001,Summer Sale,Meta,video,2026-02-01,90000,1800,720.00,72,3600.00
+C001,Summer Sale,Meta,video,2026-02-02,85000,1700,680.00,68,3400.00
+C002,Brand Awareness,Google,video,2026-02-01,120000,1200,960.00,18,540.00
+C002,Brand Awareness,Google,video,2026-02-02,115000,1150,920.00,17,510.00
+C002,Brand Awareness,TikTok,video,2026-02-01,200000,4000,800.00,20,600.00
+C002,Brand Awareness,TikTok,video,2026-02-02,220000,4400,880.00,22,660.00
+C003,Retargeting,Google,carousel,2026-02-01,15000,600,300.00,60,4200.00
+C003,Retargeting,Google,carousel,2026-02-02,14000,560,280.00,56,3920.00
+C003,Retargeting,Meta,carousel,2026-02-01,12000,480,240.00,48,3360.00
+C003,Retargeting,Meta,carousel,2026-02-02,13000,520,260.00,52,3640.00
+C003,Retargeting,Meta,image,2026-02-03,11000,440,220.00,44,3080.00
+C004,New Product Launch,Google,image,2026-02-03,55000,1100,660.00,33,1650.00
+C004,New Product Launch,Meta,carousel,2026-02-03,42000,1260,504.00,63,3150.00
+C004,New Product Launch,TikTok,video,2026-02-03,180000,5400,900.00,54,2700.00

@@ -1,0 +1,17 @@
+{
+  "id": "c97b254e-3a18-4f82-99e1-5608d14bc220",
+  "domain": "cross_app",
+  "prompt": "Find the top-scored post in r/python. Get its full content and the highest-scoring comment on it. Then create a new document titled 'Python Community Highlights' in the docs system under the 'Engineering' folder, whose body includes the post title, author, score, post body, and the top comment with its author and score. When done, report the new document ID.",
+  "gold_response": "The top post in r/python is 'Python 3.14 released — major performance improvements' (p001) by u/pythonista99, score 4823. The highest-scoring comment is from u/speed_freak (score 1203): 'Finally! The new optimizer has been in development for 2 years. Totally worth the wait.' Created document 'Python Community Highlights' in the Engineering folder and received a document ID.",
+  "rubric": [
+    {
+      "criteria": "The agent identified 'Python 3.14 released — major performance improvements' (p001) by u/pythonista99 as the top post in r/python with a score of 4823."
+    },
+    {
+      "criteria": "The agent retrieved the top comment by u/speed_freak (score 1203) mentioning the new optimizer being in development for 2 years."
+    },
+    {
+      "criteria": "The agent created a document titled 'Python Community Highlights' in the docs system and reported its newly assigned document ID."
+    }
+  ]
+}

@@ -8,6 +8,9 @@ from worlds.apps.calendar_app import CalendarApp
 from worlds.apps.docs_app import DocsApp
 from worlds.apps.email_app import EmailApp
 from worlds.apps.fetch_app import FetchApp
+from worlds.apps.files_app import FilesApp
+from worlds.apps.github_app import GitHubApp
+from worlds.apps.reddit_app import RedditApp
 from worlds.apps.slack_app import SlackApp
 from worlds.apps.sqlite_app import SQLiteApp
 from worlds.apps.web_search_app import WebSearchApp
@@ -28,6 +31,9 @@ _apps = [
     DocsApp(),
     CalculatorApp(),
     SQLiteApp(),
+    RedditApp(),
+    GitHubApp(),
+    FilesApp(),
 ]
 
 # ---------------------------------------------------------------------------

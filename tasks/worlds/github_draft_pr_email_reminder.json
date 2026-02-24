@@ -1,0 +1,17 @@
+{
+  "id": "e142d7f3-bb60-4c1a-8f55-9024a6cd5b47",
+  "domain": "cross_app",
+  "prompt": "List all open pull requests in myorg/backend-api and identify any that are still in draft status. For each draft PR, look up the author's email address from the Slack user list, then send them an email asking them to mark the PR ready for review when it is ready — include the PR number and title in the email body. When done, report the draft PR(s) you found and the email ID(s) sent.",
+  "gold_response": "Found 1 draft PR: #54 'Refactor database layer to use SQLAlchemy 2.x' by carol. Looked up carol's email from Slack users: carol@example.com. Sent an email to carol@example.com asking her to mark PR #54 ready for review when ready. Received an email ID.",
+  "rubric": [
+    {
+      "criteria": "The agent listed PRs in myorg/backend-api and correctly identified PR #54 'Refactor database layer to use SQLAlchemy 2.x' authored by carol as the only draft PR."
+    },
+    {
+      "criteria": "The agent looked up carol's email address (carol@example.com) via the Slack user list and sent the email to that address, mentioning PR #54 and/or its title in the email body."
+    },
+    {
+      "criteria": "The agent reported the email ID returned from the send operation."
+    }
+  ]
+}

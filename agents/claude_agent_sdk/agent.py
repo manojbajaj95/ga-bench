@@ -57,17 +57,17 @@ class ClaudeAgentSDKAgent:
         async with ClaudeSDKClient(options=options) as client:
             await client.query(task.prompt)
             async for message in client.receive_response():
-                if isinstance(message, ResultMessage):
-                    if message.result:
-                        response_text = message.result
-                    if message.usage:
-                        inp = message.usage.get("input_tokens", 0) or 0
-                        out = message.usage.get("output_tokens", 0) or 0
-                        token_usage = TokenUsage(
-                            input_tokens=inp,
-                            output_tokens=out,
-                            total_tokens=inp + out,
-                        )
+                if isinstance(message, ResultMessage) and message.result:
+                    response_text = message.result
+                usage = getattr(message, "usage", None)
+                if usage:
+                    inp = usage.get("input_tokens", 0) or 0
+                    out = usage.get("output_tokens", 0) or 0
+                    token_usage = TokenUsage(
+                        input_tokens=token_usage.input_tokens + inp,
+                        output_tokens=token_usage.output_tokens + out,
+                        total_tokens=token_usage.total_tokens + inp + out,
+                    )
 
         elapsed = round(time.perf_counter() - start, 3)
         return AgentResult(
