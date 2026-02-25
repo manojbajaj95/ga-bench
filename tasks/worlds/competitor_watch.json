@@ -1,0 +1,12 @@
+{
+  "id": "7a8b9c0d-1e2f-4a5b-8c9d-0e1f2a3b4c5d",
+  "domain": "web_search_and_docs",
+  "prompt": "Search for 'OpenAI vs Anthropic' news. Summarize 3 key differences in a document 'AI_Wars.md' in the 'General' folder. Report the document ID.",
+  "gold_response": "Searched for OpenAI vs Anthropic, found differences in safety approach, model focus, and corporate structure. Created 'AI_Wars.md' (docID: doc007) in the General folder.",
+  "rubric": [
+    { "criteria": "The agent must search the web for 'OpenAI vs Anthropic'." },
+    { "criteria": "The agent must create a document named 'AI_Wars.md' in the 'General' folder." },
+    { "criteria": "The document content must include at least 3 key differences between OpenAI and Anthropic (e.g., safety approach, model focus, corporate structure)." },
+    { "criteria": "The agent must report the ID of the created document." }
+  ]
+}

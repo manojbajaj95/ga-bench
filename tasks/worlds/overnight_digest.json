@@ -1,0 +1,11 @@
+{
+  "id": "ccce3dff-b3d0-4a97-a30f-8f644a863b59",
+  "domain": "information_retrieval",
+  "prompt": "Summarize all unread emails and Slack messages received between 8 PM yesterday and 8 AM today. Send the summary to me via email.",
+  "gold_response": "Summarized unread messages from overnight and sent an email summary.",
+  "rubric": [
+    { "criteria": "The agent must find unread emails and Slack messages from the specified time range (8 PM yesterday to 8 AM today)." },
+    { "criteria": "The agent must create a summary of these messages." },
+    { "criteria": "The agent must send the summary via email." }
+  ]
+}

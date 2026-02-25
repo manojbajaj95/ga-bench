@@ -1,0 +1,12 @@
+{
+  "id": "d3e4f5a6-b7c8-4d9e-0f1a-2b3c4d5e6f7a",
+  "domain": "web_search_and_docs",
+  "prompt": "Check the weather for San Francisco, New York City, and London. Create a packing list 'Packing_List.md' in the 'General' folder based on the weather in each city. Report the document ID.",
+  "gold_response": "Checked weather for SF (58°F, Partly Cloudy), NYC (34°F, Overcast), and London (45°F, Light Rain). Created 'Packing_List.md' (docID: doc010) with appropriate items (e.g., light jacket for SF, winter coat for NYC, umbrella for London).",
+  "rubric": [
+    { "criteria": "The agent must search for weather in San Francisco, New York City, and London." },
+    { "criteria": "The agent must create a document named 'Packing_List.md' in the 'General' folder." },
+    { "criteria": "The packing list must reflect the weather conditions in all three cities (e.g., cold weather gear for NYC, rain gear for London)." },
+    { "criteria": "The agent must report the ID of the created document." }
+  ]
+}

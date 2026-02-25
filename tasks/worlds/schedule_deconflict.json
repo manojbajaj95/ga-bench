@@ -1,0 +1,11 @@
+{
+  "id": "d90765ee-163c-493a-86b9-d36a866a4dc9",
+  "domain": "calendar_management",
+  "prompt": "Check my calendar for overlapping meetings today. If found, reschedule the internal one (e.g., 'Team Sync') to 1 hour later and email the participants about the change.",
+  "gold_response": "Identified overlapping meetings, rescheduled 'Team Sync', and notified participants.",
+  "rubric": [
+    { "criteria": "The agent must identify overlapping meetings on the calendar for today." },
+    { "criteria": "The agent must reschedule the internal meeting ('Team Sync') to 1 hour later." },
+    { "criteria": "The agent must send an email to the participants of the rescheduled meeting." }
+  ]
+}

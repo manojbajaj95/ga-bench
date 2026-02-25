@@ -8,7 +8,8 @@ from typing import Literal
 
 from fastmcp import FastMCP
 
-# ---------------------------------------------------------------------------
+from worlds.utils import load_seed_data
+
 # Dummy seed data
 # ---------------------------------------------------------------------------
 
@@ -286,6 +287,11 @@ class RedditApp:
     """Dummy Reddit-like social media application with posts, comments, and voting."""
 
     def __init__(self) -> None:
+        self.name = "reddit"
+        self.data = load_seed_data("reddit")
+        self._subreddits: dict[str, dict] = self.data["_SUBREDDITS"]
+        self._posts: dict[str, dict] = self.data["_POSTS"]
+        self._comments: dict[str, dict] = self.data["_COMMENTS"]
         self.name = "reddit"
         self._subreddits: dict[str, dict] = dict(_SUBREDDITS)
         self._posts: dict[str, dict] = {k: dict(v) for k, v in _POSTS.items()}

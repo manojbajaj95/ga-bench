@@ -1,0 +1,12 @@
+{
+  "id": "c2d3e4f5-a6b7-4c8d-9e0f-1a2b3c4d5e6f",
+  "domain": "web_search_and_docs",
+  "prompt": "Find the average rent in San Francisco and New York City. Calculate the annual difference. Create a report 'Rent_Diff.md' in the 'General' folder with the amounts and the difference. Report the document ID.",
+  "gold_response": "Found average rents: SF ($3,500) and NYC ($4,200). Monthly difference is $700, annual difference is $8,400. Created 'Rent_Diff.md' (docID: doc009) in the General folder.",
+  "rubric": [
+    { "criteria": "The agent must search for average rents in San Francisco and New York City." },
+    { "criteria": "The agent must calculate the annual difference correctly (e.g., ($4,200 - $3,500) * 12 = $8,400)." },
+    { "criteria": "The agent must create a document named 'Rent_Diff.md' in the 'General' folder containing the rents and the calculated difference." },
+    { "criteria": "The agent must report the ID of the created document." }
+  ]
+}

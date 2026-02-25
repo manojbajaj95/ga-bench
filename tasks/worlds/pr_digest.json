@@ -1,0 +1,20 @@
+{
+  "id": "5f8e9a2b-3c4d-4e5f-6a7b-8c9d0e1f2a3b",
+  "domain": "github_management",
+  "prompt": "Summarize the last 5 merged PRs in the 'myorg/universal-mcp' repository. List the contributors in a document titled 'PR_Digest.md' in the 'General' folder. When done, report the document ID and the list of contributors.",
+  "gold_response": "Summarized the last 5 merged PRs for 'myorg/universal-mcp' (PR #102, #103, #104, #105, #106). The contributors are dev1 and dev2. Created 'PR_Digest.md' in the 'General' folder with ID docXXXXXX.",
+  "rubric": [
+    {
+      "criteria": "The agent found the last 5 merged PRs in 'myorg/universal-mcp' (PR #102, #103, #104, #105, #106)."
+    },
+    {
+      "criteria": "The agent identified the contributors as dev1 and dev2."
+    },
+    {
+      "criteria": "The agent created a document 'PR_Digest.md' in the 'General' folder containing the summary and contributors."
+    },
+    {
+      "criteria": "The agent reported the document ID and the list of contributors."
+    }
+  ]
+}

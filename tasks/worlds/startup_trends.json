@@ -1,0 +1,20 @@
+{
+  "id": "4c1e2390-b97f-4b73-8669-91e462fb017e",
+  "domain": "social_media_analysis",
+  "prompt": "Analyze the last 7 days of posts in r/startups. Create a document 'Startup_Trends.md' in the 'General' folder comparing the number of posts about 'hiring' vs 'funding'. Report the document ID and the counts you found.",
+  "gold_response": "I analyzed r/startups and found 1 post about hiring and 1 post about funding. I created 'Startup_Trends.md' (docID: doc...) with this comparison.",
+  "rubric": [
+    {
+      "criteria": "The agent must list or search posts in the 'startups' subreddit."
+    },
+    {
+      "criteria": "The agent must create a new document named 'Startup_Trends.md' using the docs tool."
+    },
+    {
+      "criteria": "The document must compare the number of posts related to 'hiring' vs 'funding' (based on seed data, there is 1 of each)."
+    },
+    {
+      "criteria": "The agent must report the document ID of the created report."
+    }
+  ]
+}

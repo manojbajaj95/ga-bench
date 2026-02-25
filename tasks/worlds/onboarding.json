@@ -1,0 +1,20 @@
+{
+  "id": "617232fb-396e-4a68-a415-eaeaef3c79a4",
+  "domain": "onboarding",
+  "prompt": "Add user 'Alice' (alice@example.com) to the 'backend-team' on GitHub. Create a welcome email to her with the subject 'Welcome to the Team' and body 'Glad to have you!'. Schedule a 'Kickoff Meeting' with her for next Monday at 10 AM. Report the actions taken.",
+  "gold_response": "Added Alice to 'backend-team' on GitHub. Sent welcome email to alice@example.com. Scheduled 'Kickoff Meeting' for next Monday at 10 AM.",
+  "rubric": [
+    {
+      "criteria": "The agent must add 'Alice' to the 'backend-team' on GitHub using the add_to_team tool."
+    },
+    {
+      "criteria": "The agent must send an email to 'alice@example.com' with the correct subject and body."
+    },
+    {
+      "criteria": "The agent must schedule a calendar event 'Kickoff Meeting' for next Monday at 10 AM."
+    },
+    {
+      "criteria": "The agent must report all three actions taken."
+    }
+  ]
+}

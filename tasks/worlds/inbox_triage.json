@@ -1,0 +1,12 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440002",
+  "domain": "email_management",
+  "prompt": "Filter unread emails from the last 24 hours. If the subject contains 'Urgent', reply with 'On it'. If the body contains 'unsubscribe', move it to 'archive'. Report the number of emails processed. When done, report exactly what actions you took.",
+  "gold_response": "Processed 2 unread emails from the last 24 hours. Replied 'On it' to the 'Urgent: Server Down' email and moved the 'Weekly Tech News' email to archive.",
+  "rubric": [
+    { "criteria": "The agent must identify unread emails from the last 24 hours (Urgent: Server Down and Weekly Tech News)." },
+    { "criteria": "The agent must reply 'On it' to the email with 'Urgent' in the subject." },
+    { "criteria": "The agent must move the email containing 'unsubscribe' to the 'archive' folder." },
+    { "criteria": "The agent must report the number of emails processed and the actions taken." }
+  ]
+}

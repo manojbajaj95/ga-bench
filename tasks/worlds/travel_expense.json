@@ -1,0 +1,20 @@
+{
+  "id": "24017dc9-e326-4571-bcfe-bff8fb882965",
+  "domain": "travel_expense",
+  "prompt": "Find all 'Uber' receipts in my email. Create a CSV file 'Expenses.csv' in the 'General' folder with columns: Date, Amount, Merchant. Report the document ID.",
+  "gold_response": "Found 3 Uber receipts. Created Expenses.csv in the General folder (ID: doc010).",
+  "rubric": [
+    {
+      "criteria": "The agent must search for emails from Uber or with 'Uber' in the subject/body."
+    },
+    {
+      "criteria": "The agent must extract the Date, Amount, and Merchant (Uber) from at least 3 emails."
+    },
+    {
+      "criteria": "The agent must create a CSV file 'Expenses.csv' in the 'General' folder with the correct columns."
+    },
+    {
+      "criteria": "The agent must report the document ID of the created CSV file."
+    }
+  ]
+}

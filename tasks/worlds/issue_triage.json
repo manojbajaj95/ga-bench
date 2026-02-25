@@ -1,0 +1,17 @@
+{
+  "id": "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
+  "domain": "github_management",
+  "prompt": "Find all open issues with the label 'bug' in the 'myorg/universal-mcp' repository. Email a summary of these issues to 'engineering@example.com'. When done, report the number of bugs found and the email subject.",
+  "gold_response": "Found 3 open bug issues in 'myorg/universal-mcp' (#1, #2, #3). Sent a summary email to 'engineering@example.com' with the subject 'Bug Report: myorg/universal-mcp'.",
+  "rubric": [
+    {
+      "criteria": "The agent found 3 open issues with the 'bug' label in 'myorg/universal-mcp' (#1, #2, #3)."
+    },
+    {
+      "criteria": "The agent sent an email to 'engineering@example.com' with a summary of the bugs."
+    },
+    {
+      "criteria": "The agent reported the count of bugs found (3) and the email subject."
+    }
+  ]
+}

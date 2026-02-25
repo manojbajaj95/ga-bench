@@ -1,0 +1,12 @@
+{
+  "id": "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e",
+  "domain": "web_search_and_docs",
+  "prompt": "Create a 7-day Python learning plan focusing on Asyncio and Pydantic. Search for resources if needed. Save it as 'Python_Plan.md' in the 'General' folder. Report the document ID.",
+  "gold_response": "Searched for Python learning resources, created a 7-day plan covering Asyncio (Days 1-3) and Pydantic (Days 4-7). Saved as 'Python_Plan.md' (docID: doc008) in the General folder.",
+  "rubric": [
+    { "criteria": "The agent must search for Python learning resources or Asyncio/Pydantic tutorials." },
+    { "criteria": "The agent must create a document named 'Python_Plan.md' in the 'General' folder." },
+    { "criteria": "The document content must be a 7-day plan covering both Asyncio and Pydantic." },
+    { "criteria": "The agent must report the ID of the created document." }
+  ]
+}

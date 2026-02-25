@@ -1,0 +1,17 @@
+{
+  "id": "f1e2d3c4-b5a6-4f5e-8d9c-0b1a2f3e4d5c",
+  "domain": "github_management",
+  "prompt": "Draft release notes based on PRs closed in the last 7 days in the 'myorg/universal-mcp' repository. Save the notes to a document titled 'Release_Notes.md' in the 'General' folder. When done, report the document ID and the number of PRs included.",
+  "gold_response": "Drafted release notes based on 5 PRs closed in the last 7 days (#102, #103, #104, #105, #106). Saved to 'Release_Notes.md' in the 'General' folder with ID docXXXXXX.",
+  "rubric": [
+    {
+      "criteria": "The agent found 5 PRs closed in the last 7 days in 'myorg/universal-mcp' (#102, #103, #104, #105, #106)."
+    },
+    {
+      "criteria": "The agent created a document 'Release_Notes.md' in the 'General' folder with content reflecting these PRs."
+    },
+    {
+      "criteria": "The agent reported the document ID and the number of PRs included (5)."
+    }
+  ]
+}

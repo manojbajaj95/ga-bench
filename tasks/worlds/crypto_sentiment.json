@@ -1,0 +1,26 @@
+{
+  "id": "13441918-29b3-4ca4-922c-e4bb63dfe724",
+  "domain": "crypto_analysis",
+  "prompt": "Get the current price of Bitcoin. Analyze the last 5 posts in r/Bitcoin for sentiment (positive/negative). Create a document 'Crypto_Report.md' in the 'General' folder with the price and your sentiment analysis. Report the document ID.",
+  "gold_response": "The current price of Bitcoin is $97,450. I analyzed the last 5 posts in r/Bitcoin and found the sentiment to be generally positive (4 positive, 1 negative). I created 'Crypto_Report.md' (ID: doc008) in the 'General' folder with this information.",
+  "rubric": [
+    {
+      "criteria": "The agent must retrieve the current price of Bitcoin (expected: $97,450)."
+    },
+    {
+      "criteria": "The agent must read the last 5 posts from the r/Bitcoin subreddit."
+    },
+    {
+      "criteria": "The agent must perform a sentiment analysis on those 5 posts."
+    },
+    {
+      "criteria": "The agent must create a document named 'Crypto_Report.md' in the 'General' folder."
+    },
+    {
+      "criteria": "The document must contain the Bitcoin price and the sentiment analysis."
+    },
+    {
+      "criteria": "The agent must report the document ID of the created file."
+    }
+  ]
+}

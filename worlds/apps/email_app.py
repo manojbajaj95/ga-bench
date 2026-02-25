@@ -3,67 +3,16 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Literal
 
 from fastmcp import FastMCP
 
+from worlds.utils import load_seed_data
+
 # ---------------------------------------------------------------------------
 # Dummy seed data
 # ---------------------------------------------------------------------------
-
-_EMAILS: dict[str, dict] = {
-    "e001": {
-        "id": "e001",
-        "from": "alice@example.com",
-        "to": ["bob@example.com"],
-        "subject": "Q1 Planning",
-        "body": "Hi Bob, let's sync up on Q1 goals next week.",
-        "folder": "inbox",
-        "read": False,
-        "timestamp": (datetime.now() - timedelta(hours=2)).isoformat(),
-    },
-    "e002": {
-        "id": "e002",
-        "from": "carol@example.com",
-        "to": ["bob@example.com"],
-        "subject": "Re: Project Update",
-        "body": "Thanks for the update. Looks good to me!",
-        "folder": "inbox",
-        "read": True,
-        "timestamp": (datetime.now() - timedelta(hours=5)).isoformat(),
-    },
-    "e003": {
-        "id": "e003",
-        "from": "bob@example.com",
-        "to": ["alice@example.com"],
-        "subject": "Project Update",
-        "body": "Alice, here is the latest project status...",
-        "folder": "sent",
-        "read": True,
-        "timestamp": (datetime.now() - timedelta(hours=6)).isoformat(),
-    },
-    "e004": {
-        "id": "e004",
-        "from": "noreply@spam.example",
-        "to": ["bob@example.com"],
-        "subject": "You won a prize!",
-        "body": "Click here to claim your prize.",
-        "folder": "spam",
-        "read": False,
-        "timestamp": (datetime.now() - timedelta(days=1)).isoformat(),
-    },
-    "e005": {
-        "id": "e005",
-        "from": "dave@example.com",
-        "to": ["bob@example.com"],
-        "subject": "Lunch tomorrow?",
-        "body": "Are you free for lunch tomorrow at noon?",
-        "folder": "inbox",
-        "read": False,
-        "timestamp": (datetime.now() - timedelta(minutes=30)).isoformat(),
-    },
-}
 
 _FOLDERS = {"inbox", "sent", "drafts", "spam", "trash", "archive"}
 
@@ -73,7 +22,8 @@ class EmailApp:
 
     def __init__(self) -> None:
         self.name = "email"
-        self._emails: dict[str, dict] = dict(_EMAILS)
+        self.data = load_seed_data("email")
+        self._emails: dict[str, dict] = self.data["_EMAILS"]
 
     # ------------------------------------------------------------------
     # Tools

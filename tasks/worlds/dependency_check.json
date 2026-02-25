@@ -1,0 +1,20 @@
+{
+  "id": "b2c3d4e5-f6a7-4b5c-8d9e-0f1a2b3c4d5e",
+  "domain": "cross_app",
+  "prompt": "Read 'worlds/data/pyproject.toml' to find the current versions of 'fastmcp' and 'pydantic'. Search the web to check for the latest versions of these libraries. Create a report titled 'Outdated_Libs.md' in the 'General' folder listing the current vs latest versions. When done, report the document ID and the latest versions you found.",
+  "gold_response": "Read 'worlds/data/pyproject.toml' and found fastmcp==0.1.0 and pydantic==2.0.0. Web search revealed latest versions: fastmcp 0.4.2 and pydantic 2.10.0. Created 'Outdated_Libs.md' in the 'General' folder with ID docXXXXXX.",
+  "rubric": [
+    {
+      "criteria": "The agent read 'worlds/data/pyproject.toml' and correctly identified the current versions of fastmcp (0.1.0) and pydantic (2.0.0)."
+    },
+    {
+      "criteria": "The agent searched the web and found the latest versions: fastmcp 0.4.2 and pydantic 2.10.0."
+    },
+    {
+      "criteria": "The agent created a report 'Outdated_Libs.md' in the 'General' folder with a comparison of current vs latest versions."
+    },
+    {
+      "criteria": "The agent reported the document ID and the latest versions found."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "153a409d-5c24-44a7-a499-a71d21b68f14",
+  "domain": "task_management",
+  "prompt": "Find all emails with 'Urgent' in the subject. For each, create a ticket in the TodoApp with priority 'high' and the email subject as the title. Report the ticket IDs created.",
+  "gold_response": "Found urgent emails and created high-priority tasks in the TodoApp.",
+  "rubric": [
+    { "criteria": "The agent must search for emails with 'Urgent' in the subject." },
+    { "criteria": "The agent must create a high-priority task in the TodoApp for each urgent email found." },
+    { "criteria": "The agent must report the IDs of the newly created tasks." }
+  ]
+}

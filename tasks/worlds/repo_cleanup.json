@@ -1,0 +1,17 @@
+{
+  "id": "40b4a526-2632-49ab-b650-d13b708edc78",
+  "domain": "github_management",
+  "prompt": "Identify stale branches in 'myorg/universal-mcp' that haven't been updated in over 30 days. List them in a message to the '#engineering' channel on Slack. Report the message ID.",
+  "gold_response": "Identified stale branches in 'myorg/universal-mcp': 'feat/new-auth' and 'fix/memory-leak-old'. Posted the list to Slack #engineering. Message ID: msgXXXXXX.",
+  "rubric": [
+    {
+      "criteria": "The agent must list branches in 'myorg/universal-mcp' and identify those older than 30 days."
+    },
+    {
+      "criteria": "The agent must post the list of stale branches to the Slack #engineering channel."
+    },
+    {
+      "criteria": "The agent must report the ID of the Slack message."
+    }
+  ]
+}

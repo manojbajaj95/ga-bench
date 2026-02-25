@@ -1,0 +1,2303 @@
+{
+  "email": {
+    "_EMAILS": {
+      "e001": {
+        "id": "e001",
+        "from": "alice@example.com",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "Q1 Planning",
+        "body": "Hi Bob, let's sync up on Q1 goals next week.",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-2h}}"
+      },
+      "e002": {
+        "id": "e002",
+        "from": "carol@example.com",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "Re: Project Update",
+        "body": "Thanks for the update. Looks good to me!",
+        "folder": "inbox",
+        "read": true,
+        "timestamp": "{{NOW-5h}}"
+      },
+      "e003": {
+        "id": "e003",
+        "from": "bob@example.com",
+        "to": [
+          "alice@example.com"
+        ],
+        "subject": "Project Update",
+        "body": "Alice, here is the latest project status...",
+        "folder": "sent",
+        "read": true,
+        "timestamp": "{{NOW-6h}}"
+      },
+      "e004": {
+        "id": "e004",
+        "from": "noreply@spam.example",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "You won a prize!",
+        "body": "Click here to claim your prize.",
+        "folder": "spam",
+        "read": false,
+        "timestamp": "{{NOW-1d}}"
+      },
+      "e005": {
+        "id": "e005",
+        "from": "dave@example.com",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "Lunch tomorrow?",
+        "body": "Are you free for lunch tomorrow at noon?",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-30m}}"
+      },
+      "e006": {
+        "id": "e006",
+        "from": "receipts@eazydiner.example",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "Your Eazydiner Receipt",
+        "body": "Thank you for dining with us! Total: $45.00.",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-1d}}"
+      },
+      "e007": {
+        "id": "e007",
+        "from": "bookings@fly.example",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "Flight Confirmation",
+        "body": "Your flight is confirmed. Arrival: {{NOW+3d}}.",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-2h}}"
+      },
+      "e008": {
+        "id": "e008",
+        "from": "admin@example.com",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "Urgent: Server Down",
+        "body": "Please fix ASAP.",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-1h}}"
+      },
+      "e009": {
+        "id": "e009",
+        "from": "news@tech.example",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "Weekly Tech News",
+        "body": "Here is the news... [unsubscribe]",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-4h}}"
+      },
+      "e010": {
+        "id": "e010",
+        "from": "system@example.com",
+        "to": [
+          "bob@example.com"
+        ],
+        "subject": "System Health Report",
+        "body": "All systems are operational as of 4 AM.",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-6h}}"
+      },
+      "e011": {
+        "id": "e011",
+        "from": "billing@cloud.example",
+        "to": ["bob@example.com"],
+        "subject": "Invoice #8821 - Cloud Services",
+        "body": "Your invoice for last month is ready. Total: $150.00.",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-1d}}"
+      },
+      "e012": {
+        "id": "e012",
+        "from": "accounts@saas.example",
+        "to": ["bob@example.com"],
+        "subject": "Invoice for Subscription",
+        "body": "Thank you for your payment of $49.99.",
+        "folder": "inbox",
+        "read": true,
+        "timestamp": "{{NOW-2d}}"
+      },
+      "e013": {
+        "id": "e013",
+        "from": "support@tool.example",
+        "to": ["bob@example.com"],
+        "subject": "Invoice INV-2026-001",
+        "body": "Amount due: $200.00. Please pay by end of week.",
+        "folder": "inbox",
+        "read": false,
+        "timestamp": "{{NOW-3h}}"
+      },
+      "e014": {
+        "id": "e014",
+        "from": "uber.receipts@uber.example",
+        "to": ["bob@example.com"],
+        "subject": "Your trip with Uber on Friday morning",
+        "body": "Total: $24.50. Date: 2026-02-20.",
+        "folder": "inbox",
+        "read": true,
+        "timestamp": "{{NOW-5d}}"
+      },
+      "e015": {
+        "id": "e015",
+        "from": "uber.receipts@uber.example",
+        "to": ["bob@example.com"],
+        "subject": "Your trip with Uber on Saturday evening",
+        "body": "Total: $32.10. Date: 2026-02-21.",
+        "folder": "inbox",
+        "read": true,
+        "timestamp": "{{NOW-4d}}"
+      },
+      "e016": {
+        "id": "e016",
+        "from": "uber.receipts@uber.example",
+        "to": ["bob@example.com"],
+        "subject": "Your trip with Uber on Monday afternoon",
+        "body": "Total: $18.75. Date: 2026-02-23.",
+        "folder": "inbox",
+        "read": true,
+        "timestamp": "{{NOW-2d}}"
+      }
+    }
+  },
+  "reddit": {
+    "_SUBREDDITS": {
+      "python": {
+        "name": "python",
+        "display_name": "r/python",
+        "description": "News about the Python programming language.",
+        "subscribers": 1200000,
+        "created": "2008-01-01T00:00:00"
+      },
+      "machinelearning": {
+        "name": "machinelearning",
+        "display_name": "r/MachineLearning",
+        "description": "Research and news about machine learning.",
+        "subscribers": 2500000,
+        "created": "2010-03-12T00:00:00"
+      },
+      "worldnews": {
+        "name": "worldnews",
+        "display_name": "r/worldnews",
+        "description": "A place for major news from around the world.",
+        "subscribers": 28000000,
+        "created": "2008-06-20T00:00:00"
+      },
+      "AskReddit": {
+        "name": "AskReddit",
+        "display_name": "r/AskReddit",
+        "description": "Ask and answer thought-provoking questions.",
+        "subscribers": 42000000,
+        "created": "2008-01-25T00:00:00"
+      },
+      "technology": {
+        "name": "technology",
+        "display_name": "r/technology",
+        "description": "Subreddit dedicated to the news and discussions about technology.",
+        "subscribers": 15000000,
+        "created": "2008-04-15T00:00:00"
+      },
+      "startups": {
+        "name": "startups",
+        "display_name": "r/startups",
+        "description": "A community for startups and founders.",
+        "subscribers": 1500000,
+        "created": "2010-01-01T00:00:00"
+      },
+      "Bitcoin": {
+        "name": "Bitcoin",
+        "display_name": "r/Bitcoin",
+        "description": "Bitcoin is the currency of the Internet.",
+        "subscribers": 6000000,
+        "created": "2010-09-09T00:00:00"
+      }
+    },
+    "_POSTS": {
+      "p001": {
+        "id": "p001",
+        "title": "Python 3.14 released \u2014 major performance improvements",
+        "author": "u/pythonista99",
+        "subreddit": "python",
+        "selftext": "The Python core team just released 3.14 with significant speed-ups thanks to the new optimizer. Benchmarks show 20-40% improvement on typical workloads.",
+        "url": "https://python.org/news/python-3-14",
+        "score": 4823,
+        "upvote_ratio": 0.97,
+        "num_comments": 312,
+        "flair": "News",
+        "is_self": false,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-5h}}"
+      },
+      "p002": {
+        "id": "p002",
+        "title": "What's your go-to Python library for data validation?",
+        "author": "u/dev_curious",
+        "subreddit": "python",
+        "selftext": "I've been using Pydantic for a while, but heard good things about marshmallow and cerberus. What do you all prefer and why?",
+        "url": null,
+        "score": 892,
+        "upvote_ratio": 0.91,
+        "num_comments": 145,
+        "flair": "Discussion",
+        "is_self": true,
+        "saved": true,
+        "hidden": false,
+        "timestamp": "{{NOW-12h}}"
+      },
+      "p003": {
+        "id": "p003",
+        "title": "New paper: LLMs achieve human-level reasoning on ARC-AGI benchmark",
+        "author": "u/ml_researcher",
+        "subreddit": "machinelearning",
+        "selftext": "Our team's latest paper demonstrates that a combination of chain-of-thought prompting and tool use enables LLMs to solve 95% of ARC-AGI tasks. Pre-print on arXiv.",
+        "url": "https://arxiv.org/abs/2501.99999",
+        "score": 9201,
+        "upvote_ratio": 0.93,
+        "num_comments": 876,
+        "flair": "Research",
+        "is_self": false,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-8h}}"
+      },
+      "p004": {
+        "id": "p004",
+        "title": "Rant: stop using LLMs for everything \u2014 they're not magic",
+        "author": "u/skeptical_dev",
+        "subreddit": "machinelearning",
+        "selftext": "Tired of seeing every startup pitch 'AI-powered' products that are just GPT wrappers. LLMs hallucinate and should not be used as ground truth in production systems.",
+        "url": null,
+        "score": -43,
+        "upvote_ratio": 0.34,
+        "num_comments": 302,
+        "flair": "Discussion",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-20h}}"
+      },
+      "p005": {
+        "id": "p005",
+        "title": "Global renewable energy capacity hits record high in 2025",
+        "author": "u/green_reporter",
+        "subreddit": "worldnews",
+        "selftext": "",
+        "url": "https://news.example.com/renewable-record-2025",
+        "score": 18400,
+        "upvote_ratio": 0.96,
+        "num_comments": 1204,
+        "flair": "Environment",
+        "is_self": false,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-3h}}"
+      },
+      "p006": {
+        "id": "p006",
+        "title": "What's a skill you learned during quarantine that you still use today?",
+        "author": "u/nostalgic_ask",
+        "subreddit": "AskReddit",
+        "selftext": "",
+        "url": null,
+        "score": 52100,
+        "upvote_ratio": 0.98,
+        "num_comments": 8902,
+        "flair": null,
+        "is_self": true,
+        "saved": true,
+        "hidden": false,
+        "timestamp": "{{NOW-14h}}"
+      },
+      "p007": {
+        "id": "p007",
+        "title": "Tech layoffs continue: 10,000 jobs cut at major firms this quarter",
+        "author": "u/tech_reporter",
+        "subreddit": "technology",
+        "selftext": "",
+        "url": "https://techcrunch.example.com/layoffs-2025",
+        "score": 7350,
+        "upvote_ratio": 0.88,
+        "num_comments": 945,
+        "flair": "Article",
+        "is_self": false,
+        "saved": false,
+        "hidden": true,
+        "timestamp": "{{NOW-1d}}"
+      },
+      "p008": {
+        "id": "p008",
+        "title": "Show r/python: I built a zero-dependency HTTP server in 200 lines",
+        "author": "u/minimalist_coder",
+        "subreddit": "python",
+        "selftext": "Tired of heavy frameworks, so I wrote a tiny HTTP server using only stdlib. It handles routing, middleware, and JSON responses. GitHub link in comments.",
+        "url": null,
+        "score": 2103,
+        "upvote_ratio": 0.95,
+        "num_comments": 88,
+        "flair": "Showcase",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-30h}}"
+      },
+      "p009": {
+        "id": "p009",
+        "title": "How is the hiring market for senior engineers?",
+        "author": "u/founder123",
+        "subreddit": "startups",
+        "selftext": "We just raised our seed round and need to hire 3 senior engineers. Is it easier or harder to hire right now compared to 2024?",
+        "url": null,
+        "score": 450,
+        "upvote_ratio": 0.92,
+        "num_comments": 85,
+        "flair": "Hiring",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-1d}}"
+      },
+      "p010": {
+        "id": "p010",
+        "title": "Seed funding trends in 2026: AI agents",
+        "author": "u/vc_insider",
+        "subreddit": "startups",
+        "selftext": "We are seeing seed rounds for AI agent startups averaging $4M on $20M caps. What are you seeing?",
+        "url": null,
+        "score": 1200,
+        "upvote_ratio": 0.95,
+        "num_comments": 120,
+        "flair": "Funding",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-2d}}"
+      },
+      "p011": {
+        "id": "p011",
+        "title": "Bitcoin is going to the moon! 🚀",
+        "author": "u/bullish_trader",
+        "subreddit": "Bitcoin",
+        "selftext": "I just bought more Bitcoin. The price is looking great and I think we'll hit $100k soon!",
+        "url": null,
+        "score": 1500,
+        "upvote_ratio": 0.95,
+        "num_comments": 200,
+        "flair": "Bullish",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-1h}}"
+      },
+      "p012": {
+        "id": "p012",
+        "title": "Is it too late to buy Bitcoin?",
+        "author": "u/newbie_investor",
+        "subreddit": "Bitcoin",
+        "selftext": "I've been watching Bitcoin for a while but haven't bought any yet. Is now a good time or should I wait for a dip?",
+        "url": null,
+        "score": 500,
+        "upvote_ratio": 0.85,
+        "num_comments": 150,
+        "flair": "Question",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-2h}}"
+      },
+      "p013": {
+        "id": "p013",
+        "title": "I'm worried about Bitcoin's energy consumption",
+        "author": "u/eco_warrior",
+        "subreddit": "Bitcoin",
+        "selftext": "The amount of electricity used for mining is insane. I'm thinking of selling my holdings because of the environmental impact.",
+        "url": null,
+        "score": -50,
+        "upvote_ratio": 0.40,
+        "num_comments": 250,
+        "flair": "Discussion",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-3h}}"
+      },
+      "p014": {
+        "id": "p014",
+        "title": "Why Bitcoin is better than gold",
+        "author": "u/crypto_maximalist",
+        "subreddit": "Bitcoin",
+        "selftext": "Bitcoin is more portable, divisible, and scarce than gold. It's the digital gold of the 21st century.",
+        "url": null,
+        "score": 2000,
+        "upvote_ratio": 0.98,
+        "num_comments": 300,
+        "flair": "Discussion",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-4h}}"
+      },
+      "p015": {
+        "id": "p015",
+        "title": "Bitcoin adoption in El Salvador",
+        "author": "u/news_bot",
+        "subreddit": "Bitcoin",
+        "selftext": "More businesses in El Salvador are accepting Bitcoin as payment. This is a great sign for global adoption.",
+        "url": "https://news.example.com/bitcoin-el-salvador",
+        "score": 800,
+        "upvote_ratio": 0.92,
+        "num_comments": 100,
+        "flair": "News",
+        "is_self": false,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-5h}}"
+      },
+      "p016": {
+        "id": "p016",
+        "title": "Acme Corp's new update is a disaster",
+        "author": "u/angry_user",
+        "subreddit": "startups",
+        "selftext": "The latest update from Acme Corp broke everything. I'm switching to a competitor.",
+        "url": null,
+        "score": 450,
+        "upvote_ratio": 0.85,
+        "num_comments": 45,
+        "flair": "Rant",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-2h}}"
+      },
+      "p017": {
+        "id": "p017",
+        "title": "Acme Corp support is non-existent",
+        "author": "u/frustrated_founder",
+        "subreddit": "startups",
+        "selftext": "Been waiting for 3 days for a response from Acme Corp. Terrible service.",
+        "url": null,
+        "score": 320,
+        "upvote_ratio": 0.90,
+        "num_comments": 12,
+        "flair": "Discussion",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-4h}}"
+      },
+      "p018": {
+        "id": "p018",
+        "title": "Is Acme Corp going under?",
+        "author": "u/speculator",
+        "subreddit": "startups",
+        "selftext": "Hearing rumors about layoffs and financial trouble at Acme Corp. Anyone know more?",
+        "url": null,
+        "score": 890,
+        "upvote_ratio": 0.75,
+        "num_comments": 150,
+        "flair": "Rumor",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-6h}}"
+      },
+      "p019": {
+        "id": "p019",
+        "title": "Acme Corp's CEO is out of touch",
+        "author": "u/industry_insider",
+        "subreddit": "startups",
+        "selftext": "The recent interview with Acme's CEO shows they have no idea what the market wants.",
+        "url": "https://tech-news.example.com/acme-ceo-interview",
+        "score": 210,
+        "upvote_ratio": 0.80,
+        "num_comments": 30,
+        "flair": "Article",
+        "is_self": false,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-10h}}"
+      },
+      "p020": {
+        "id": "p020",
+        "title": "Avoid Acme Corp at all costs",
+        "author": "u/burned_customer",
+        "subreddit": "startups",
+        "selftext": "They double charged me and refused to refund. Scammers.",
+        "url": null,
+        "score": 1200,
+        "upvote_ratio": 0.95,
+        "num_comments": 80,
+        "flair": "Warning",
+        "is_self": true,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-12h}}"
+      },
+      "p021": {
+        "id": "p021",
+        "title": "Acme Corp's security breach",
+        "author": "u/security_expert",
+        "subreddit": "startups",
+        "selftext": "Just found a major vulnerability in Acme Corp's API. They haven't fixed it yet.",
+        "url": "https://security-blog.example.com/acme-vulnerability",
+        "score": 3400,
+        "upvote_ratio": 0.98,
+        "num_comments": 200,
+        "flair": "Security",
+        "is_self": false,
+        "saved": false,
+        "hidden": false,
+        "timestamp": "{{NOW-18h}}"
+      }
+    },
+    "_COMMENTS": {
+      "c001": {
+        "id": "c001",
+        "post_id": "p001",
+        "parent_id": null,
+        "author": "u/speed_freak",
+        "body": "Finally! The new optimizer has been in development for 2 years. Totally worth the wait.",
+        "score": 1203,
+        "saved": false,
+        "timestamp": "{{NOW-4h_30m}}"
+      },
+      "c002": {
+        "id": "c002",
+        "post_id": "p001",
+        "parent_id": "c001",
+        "author": "u/skeptic42",
+        "body": "Benchmarks always look good in isolation. Let's see how it performs on real-world workloads.",
+        "score": 432,
+        "saved": false,
+        "timestamp": "{{NOW-4h}}"
+      },
+      "c003": {
+        "id": "c003",
+        "post_id": "p001",
+        "parent_id": null,
+        "author": "u/async_advocate",
+        "body": "Did they fix the GIL situation for async workloads?",
+        "score": 891,
+        "saved": true,
+        "timestamp": "{{NOW-3h_45m}}"
+      },
+      "c004": {
+        "id": "c004",
+        "post_id": "p002",
+        "parent_id": null,
+        "author": "u/pydantic_fan",
+        "body": "Pydantic v2 is a massive upgrade. The performance improvements alone make it worth switching.",
+        "score": 312,
+        "saved": false,
+        "timestamp": "{{NOW-11h}}"
+      },
+      "c005": {
+        "id": "c005",
+        "post_id": "p002",
+        "parent_id": null,
+        "author": "u/attrs_user",
+        "body": "I prefer attrs + cattrs for pure Python dataclasses. Much lighter than Pydantic.",
+        "score": 178,
+        "saved": false,
+        "timestamp": "{{NOW-10h}}"
+      },
+      "c006": {
+        "id": "c006",
+        "post_id": "p003",
+        "parent_id": null,
+        "author": "u/agi_watcher",
+        "body": "ARC-AGI was supposed to be AGI-proof. Interesting times we live in.",
+        "score": 2041,
+        "saved": true,
+        "timestamp": "{{NOW-7h}}"
+      },
+      "c007": {
+        "id": "c007",
+        "post_id": "p006",
+        "parent_id": null,
+        "author": "u/bread_baker",
+        "body": "Sourdough bread. I now bake every weekend and it's genuinely one of my favorite hobbies.",
+        "score": 15830,
+        "saved": false,
+        "timestamp": "{{NOW-13h}}"
+      },
+      "c008": {
+        "id": "c008",
+        "post_id": "p006",
+        "parent_id": null,
+        "author": "u/guitar_convert",
+        "body": "Guitar. Still play for 30 minutes every evening. Best thing to come out of 2020.",
+        "score": 12400,
+        "saved": false,
+        "timestamp": "{{NOW-13h_20m}}"
+      }
+    }
+  },
+  "github": {
+    "_REPOS": {
+      "octocat/hello-world": {
+        "id": "r001",
+        "full_name": "octocat/hello-world",
+        "owner": "octocat",
+        "name": "hello-world",
+        "description": "My first repository on GitHub!",
+        "language": "Ruby",
+        "stars": 2100,
+        "forks": 890,
+        "open_issues": 3,
+        "default_branch": "main",
+        "private": false,
+        "archived": false,
+        "created_at": "2011-01-26T19:01:12",
+        "updated_at": "{{NOW-10d}}"
+      },
+      "myorg/backend-api": {
+        "id": "r002",
+        "full_name": "myorg/backend-api",
+        "owner": "myorg",
+        "name": "backend-api",
+        "description": "REST API for the main product.",
+        "language": "Python",
+        "stars": 45,
+        "forks": 8,
+        "open_issues": 12,
+        "default_branch": "main",
+        "private": true,
+        "archived": false,
+        "created_at": "2022-03-15T10:00:00",
+        "updated_at": "{{NOW-2h}}"
+      },
+      "myorg/frontend": {
+        "id": "r003",
+        "full_name": "myorg/frontend",
+        "owner": "myorg",
+        "name": "frontend",
+        "description": "React-based frontend application.",
+        "language": "TypeScript",
+        "stars": 12,
+        "forks": 2,
+        "open_issues": 5,
+        "default_branch": "main",
+        "private": true,
+        "archived": false,
+        "created_at": "2023-01-10T08:30:00",
+        "updated_at": "{{NOW-6h}}"
+      },
+      "myorg/legacy-service": {
+        "id": "r004",
+        "full_name": "myorg/legacy-service",
+        "owner": "myorg",
+        "name": "legacy-service",
+        "description": "Old monolith \u2014 do not touch.",
+        "language": "Java",
+        "stars": 3,
+        "forks": 1,
+        "open_issues": 0,
+        "default_branch": "master",
+        "private": true,
+        "archived": true,
+        "created_at": "2015-06-01T00:00:00",
+        "updated_at": "{{NOW-365d}}"
+      },
+      "myorg/universal-mcp": {
+        "id": "r005",
+        "full_name": "myorg/universal-mcp",
+        "owner": "myorg",
+        "name": "universal-mcp",
+        "description": "Universal Model Context Protocol server.",
+        "language": "Python",
+        "stars": 150,
+        "forks": 12,
+        "open_issues": 3,
+        "default_branch": "main",
+        "private": false,
+        "archived": false,
+        "created_at": "2024-01-01T00:00:00",
+        "updated_at": "{{NOW-1h}}",
+        "_BRANCHES": [
+          {"name": "main", "updated_at": "{{NOW-1h}}"},
+          {"name": "feat/new-auth", "updated_at": "{{NOW-45d}}"},
+          {"name": "fix/memory-leak-old", "updated_at": "{{NOW-60d}}"}
+        ]
+      }
+
+    },
+    "_ISSUES": {
+      "i001": {
+        "id": "i001",
+        "number": 42,
+        "repo": "myorg/backend-api",
+        "title": "API returns 500 when user has no profile picture",
+        "body": "Steps to reproduce: create a new user without uploading an avatar, then call GET /users/{id}. The server throws a NullPointerException.",
+        "author": "alice",
+        "assignees": [
+          "bob"
+        ],
+        "labels": [
+          "bug",
+          "high-priority"
+        ],
+        "state": "open",
+        "comments": 4,
+        "created_at": "{{NOW-3d}}",
+        "updated_at": "{{NOW-5h}}"
+      },
+      "i002": {
+        "id": "i002",
+        "number": 43,
+        "repo": "myorg/backend-api",
+        "title": "Add pagination to /products endpoint",
+        "body": "Currently the products endpoint returns all records. We need cursor-based pagination to handle large catalogs.",
+        "author": "carol",
+        "assignees": [],
+        "labels": [
+          "enhancement"
+        ],
+        "state": "open",
+        "comments": 1,
+        "created_at": "{{NOW-7d}}",
+        "updated_at": "{{NOW-6d}}"
+      },
+      "i003": {
+        "id": "i003",
+        "number": 38,
+        "repo": "myorg/backend-api",
+        "title": "Update README with deployment instructions",
+        "body": "The README is outdated. We need to document docker-compose and k8s setup.",
+        "author": "dave",
+        "assignees": [
+          "dave"
+        ],
+        "labels": [
+          "documentation"
+        ],
+        "state": "closed",
+        "comments": 2,
+        "created_at": "{{NOW-14d}}",
+        "updated_at": "{{NOW-2d}}"
+      },
+      "i004": {
+        "id": "i004",
+        "number": 17,
+        "repo": "myorg/frontend",
+        "title": "Dark mode flickers on initial page load",
+        "body": "When dark mode is enabled and the page first loads there is a brief white flash before the theme is applied.",
+        "author": "alice",
+        "assignees": [
+          "alice"
+        ],
+        "labels": [
+          "bug",
+          "ui"
+        ],
+        "state": "open",
+        "comments": 6,
+        "created_at": "{{NOW-5d}}",
+        "updated_at": "{{NOW-1h}}"
+      },
+      "i005": {
+        "id": "i005",
+        "number": 18,
+        "repo": "myorg/frontend",
+        "title": "Add loading skeleton to product cards",
+        "body": "Product cards should show a shimmer skeleton while data is being fetched.",
+        "author": "bob",
+        "assignees": [],
+        "labels": [
+          "enhancement",
+          "ui"
+        ],
+        "state": "open",
+        "comments": 0,
+        "created_at": "{{NOW-1d}}",
+        "updated_at": "{{NOW-1d}}"
+      }
+      },
+      "i101": {
+        "id": "i101",
+        "number": 1,
+        "repo": "myorg/universal-mcp",
+        "title": "Connection timeout on slow networks",
+        "body": "The client times out too quickly when the network is slow.",
+        "author": "user1",
+        "assignees": [],
+        "labels": [
+          "bug"
+        ],
+        "state": "open",
+        "comments": 0,
+        "created_at": "{{NOW-2d}}",
+        "updated_at": "{{NOW-2d}}"
+      },
+      "i102": {
+        "id": "i102",
+        "number": 2,
+        "repo": "myorg/universal-mcp",
+        "title": "Memory leak in long-running sessions",
+        "body": "Memory usage increases over time in long-running sessions.",
+        "author": "user2",
+        "assignees": [
+          "dev1"
+        ],
+        "labels": [
+          "bug"
+        ],
+        "state": "open",
+        "comments": 1,
+        "created_at": "{{NOW-1d}}",
+        "updated_at": "{{NOW-1h}}"
+      },
+      "i104": {
+        "id": "i104",
+        "number": 4,
+        "repo": "myorg/universal-mcp",
+        "title": "CI Failure: Build failed on main",
+        "body": "Build failed with error: `ModuleNotFoundError: No module named 'fastmcp.util'`. This seems to be caused by a missing dependency in `setup.py`.",
+        "author": "github-actions",
+        "assignees": [],
+        "labels": ["bug", "ci"],
+        "state": "open",
+        "comments": 0,
+        "created_at": "{{NOW-1h}}",
+        "updated_at": "{{NOW-1h}}"
+      },
+
+
+      "i103": {
+        "id": "i103",
+        "number": 3,
+        "repo": "myorg/universal-mcp",
+        "title": "Incorrect error message for invalid API key",
+        "body": "The error message for an invalid API key is misleading.",
+        "author": "user3",
+        "assignees": [],
+        "labels": [
+          "bug"
+        ],
+        "state": "open",
+        "comments": 0,
+        "created_at": "{{NOW-3h}}",
+        "updated_at": "{{NOW-3h}}"
+    },
+    "_PULL_REQUESTS": {
+      "pr001": {
+        "id": "pr001",
+        "number": 55,
+        "repo": "myorg/backend-api",
+        "title": "Fix null pointer in user profile endpoint",
+        "body": "Adds a null check for the avatar field before constructing the response. Fixes #42.",
+        "author": "bob",
+        "reviewers": [
+          "alice",
+          "carol"
+        ],
+        "labels": [
+          "bug"
+        ],
+        "state": "open",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "fix/null-avatar",
+        "commits": 2,
+        "changed_files": 3,
+        "additions": 18,
+        "deletions": 4,
+        "created_at": "{{NOW-10h}}",
+        "updated_at": "{{NOW-2h}}"
+      },
+      "pr002": {
+        "id": "pr002",
+        "number": 54,
+        "repo": "myorg/backend-api",
+        "title": "Refactor database layer to use SQLAlchemy 2.x",
+        "body": "Modernises our DB access to use the new async session API.",
+        "author": "carol",
+        "reviewers": [
+          "bob"
+        ],
+        "labels": [
+          "refactor"
+        ],
+        "state": "open",
+        "draft": true,
+        "mergeable": true,
+        "base": "main",
+        "head": "refactor/sqlalchemy-2",
+        "commits": 14,
+        "changed_files": 22,
+        "additions": 340,
+        "deletions": 289,
+        "created_at": "{{NOW-4d}}",
+        "updated_at": "{{NOW-1d}}"
+      },
+      "pr003": {
+        "id": "pr003",
+        "number": 19,
+        "repo": "myorg/frontend",
+        "title": "Fix dark mode flash on load",
+        "body": "Inlines the theme class into the HTML head to prevent FOUC. Resolves #17.",
+        "author": "alice",
+        "reviewers": [],
+        "labels": [
+          "bug",
+          "ui"
+        ],
+        "state": "open",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "fix/dark-mode-flash",
+        "commits": 1,
+        "changed_files": 2,
+        "additions": 9,
+        "deletions": 1,
+        "created_at": "{{NOW-4h}}",
+        "updated_at": "{{NOW-1h}}"
+      },
+      "pr101": {
+        "id": "pr101",
+        "number": 101,
+        "repo": "myorg/universal-mcp",
+        "title": "Feature implementation part 1",
+        "body": "Implements core features for the MCP.",
+        "author": "dev1",
+        "reviewers": [
+          "dev2"
+        ],
+        "labels": [
+          "enhancement"
+        ],
+        "state": "closed",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "feat/part-1",
+        "commits": 3,
+        "changed_files": 5,
+        "additions": 100,
+        "deletions": 10,
+        "created_at": "{{NOW-9d}}",
+        "updated_at": "{{NOW-8d}}",
+        "merged": true,
+        "merged_at": "{{NOW-8d}}"
+      },
+      "pr102": {
+        "id": "pr102",
+        "number": 102,
+        "repo": "myorg/universal-mcp",
+        "title": "Feature implementation part 2",
+        "body": "Implements core features for the MCP.",
+        "author": "dev1",
+        "reviewers": [
+          "dev2"
+        ],
+        "labels": [
+          "enhancement"
+        ],
+        "state": "closed",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "feat/part-2",
+        "commits": 3,
+        "changed_files": 5,
+        "additions": 100,
+        "deletions": 10,
+        "created_at": "{{NOW-8d}}",
+        "updated_at": "{{NOW-7d}}",
+        "merged": true,
+        "merged_at": "{{NOW-7d}}"
+      },
+      "pr103": {
+        "id": "pr103",
+        "number": 103,
+        "repo": "myorg/universal-mcp",
+        "title": "Feature implementation part 3",
+        "body": "Implements core features for the MCP.",
+        "author": "dev1",
+        "reviewers": [
+          "dev2"
+        ],
+        "labels": [
+          "enhancement"
+        ],
+        "state": "closed",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "feat/part-3",
+        "commits": 3,
+        "changed_files": 5,
+        "additions": 100,
+        "deletions": 10,
+        "created_at": "{{NOW-7d}}",
+        "updated_at": "{{NOW-6d}}",
+        "merged": true,
+        "merged_at": "{{NOW-6d}}"
+      },
+      "pr104": {
+        "id": "pr104",
+        "number": 104,
+        "repo": "myorg/universal-mcp",
+        "title": "Feature implementation part 4",
+        "body": "Implements core features for the MCP.",
+        "author": "dev1",
+        "reviewers": [
+          "dev2"
+        ],
+        "labels": [
+          "enhancement"
+        ],
+        "state": "closed",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "feat/part-4",
+        "commits": 3,
+        "changed_files": 5,
+        "additions": 100,
+        "deletions": 10,
+        "created_at": "{{NOW-6d}}",
+        "updated_at": "{{NOW-5d}}",
+        "merged": true,
+        "merged_at": "{{NOW-5d}}"
+      },
+      "pr105": {
+        "id": "pr105",
+        "number": 105,
+        "repo": "myorg/universal-mcp",
+        "title": "Feature implementation part 5",
+        "body": "Implements core features for the MCP.",
+        "author": "dev1",
+        "reviewers": [
+          "dev2"
+        ],
+        "labels": [
+          "enhancement"
+        ],
+        "state": "closed",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "feat/part-5",
+        "commits": 3,
+        "changed_files": 5,
+        "additions": 100,
+        "deletions": 10,
+        "created_at": "{{NOW-5d}}",
+        "updated_at": "{{NOW-4d}}",
+        "merged": true,
+        "merged_at": "{{NOW-4d}}"
+      },
+      "pr106": {
+        "id": "pr106",
+        "number": 106,
+        "repo": "myorg/universal-mcp",
+        "title": "Add support for custom transports",
+        "body": "Allows users to define their own transport layers.",
+        "author": "dev2",
+        "reviewers": [
+          "dev1"
+        ],
+        "labels": [
+          "enhancement"
+        ],
+        "state": "closed",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "feat/custom-transports",
+        "commits": 5,
+        "changed_files": 8,
+        "additions": 250,
+        "deletions": 20,
+        "created_at": "{{NOW-3d}}",
+        "updated_at": "{{NOW-2d}}",
+        "merged": true,
+        "merged_at": "{{NOW-2d}}"
+      },
+      "pr042": {
+        "id": "pr042",
+        "number": 42,
+        "repo": "myorg/universal-mcp",
+        "title": "Add new feature X",
+        "body": "This PR adds feature X to the MCP server.",
+        "author": "alice",
+        "reviewers": ["bob"],
+        "labels": ["enhancement"],
+        "state": "open",
+        "draft": false,
+        "mergeable": true,
+        "base": "main",
+        "head": "feat/x",
+        "commits": 1,
+        "changed_files": 2,
+        "additions": 50,
+        "deletions": 5,
+        "created_at": "{{NOW-1d}}",
+        "updated_at": "{{NOW-1d}}"
+      }
+
+    },
+    "_COMMENTS": {
+      "ic001": {
+        "id": "ic001",
+        "target_id": "i001",
+        "target_type": "issue",
+        "author": "bob",
+        "body": "I can reproduce this. The avatar URL field is None when not set and we call .length on it.",
+        "created_at": "{{NOW-2d}}"
+      },
+      "ic002": {
+        "id": "ic002",
+        "target_id": "i001",
+        "target_type": "issue",
+        "author": "alice",
+        "body": "Working on a fix, PR coming soon.",
+        "created_at": "{{NOW-8h}}"
+      },
+      "ic003": {
+        "id": "ic003",
+        "target_id": "pr001",
+        "target_type": "pr",
+        "author": "alice",
+        "body": "LGTM \u2014 can you add a unit test for the null case?",
+        "created_at": "{{NOW-3h}}"
+      }
+    }
+  },
+  "web_search": {
+    "_SEARCH_INDEX": [
+      {
+        "keywords": [
+          "openai",
+          "anthropic",
+          "comparison",
+          "differences",
+          "ai"
+        ],
+        "title": "OpenAI vs Anthropic: 3 Key Differences in 2026",
+        "url": "https://tech-analysis.example.com/openai-vs-anthropic",
+        "snippet": "The rivalry between OpenAI and Anthropic intensifies. Key differences include: 1) Safety approach: Anthropic uses Constitutional AI while OpenAI relies on RLHF. 2) Model focus: OpenAI prioritizes multi-modal reasoning (GPT-5), whereas Anthropic focuses on long-context window and coding (Claude 3.7). 3) Corporate structure: OpenAI is a capped-profit entity, while Anthropic is a Public Benefit Corporation (PBC).",
+        "category": "technology",
+        "source": "Tech Analysis"
+      },
+      {
+        "keywords": [
+          "python",
+          "asyncio",
+          "pydantic",
+          "learning",
+          "tutorial"
+        ],
+        "title": "Mastering Modern Python: Asyncio and Pydantic",
+        "url": "https://python-mastery.example.com/asyncio-pydantic",
+        "snippet": "To master modern Python, focus on Asyncio for concurrency and Pydantic for data validation. A 7-day plan: Day 1-3: Asyncio basics, event loops, and coroutines. Day 4-5: Pydantic models, validators, and settings management. Day 6-7: Integrating both for high-performance APIs.",
+        "category": "education",
+        "source": "Python Mastery"
+      },
+      {
+        "keywords": [
+          "rent",
+          "san francisco",
+          "sf",
+          "average"
+        ],
+        "title": "San Francisco Rent Market Report 2026",
+        "url": "https://housing-data.example.com/sf-rent",
+        "snippet": "The average monthly rent for a 1-bedroom apartment in San Francisco has stabilized at $3,500. High demand continues in the Mission and SoMa districts.",
+        "category": "housing",
+        "source": "Housing Data"
+      },
+      {
+        "keywords": [
+          "rent",
+          "new york",
+          "nyc",
+          "average"
+        ],
+        "title": "New York City Rent Market Report 2026",
+        "url": "https://housing-data.example.com/nyc-rent",
+        "snippet": "New York City sees record high rents in 2026. The average monthly rent for a 1-bedroom apartment in Manhattan is now $4,200, with Brooklyn following at $3,800.",
+        "category": "housing",
+        "source": "Housing Data"
+      },
+      {
+        "keywords": [
+          "weather",
+          "london",
+          "uk"
+        ],
+        "title": "Current Weather in London, UK",
+        "url": "https://weather.example.com/london",
+        "snippet": "London, UK: 45\u00b0F, Light Rain. High 48\u00b0F, Low 42\u00b0F. Wind: 15 mph from the east. Humidity: 85%. Typical overcast London day.",
+        "category": "weather",
+        "source": "Weather Service"
+      },
+      {
+        "keywords": [
+          "weather",
+          "san francisco",
+          "sf"
+        ],
+        "title": "Current Weather in San Francisco, CA",
+        "url": "https://weather.example.com/san-francisco",
+        "snippet": "San Francisco, CA: 58\u00b0F, Partly Cloudy. High 62\u00b0F, Low 54\u00b0F. Wind: 12 mph from the west. Humidity: 78%. Fog advisory in effect through morning.",
+        "category": "weather",
+        "source": "Weather Service"
+      },
+      {
+        "keywords": [
+          "weather",
+          "new york",
+          "nyc"
+        ],
+        "title": "Current Weather in New York, NY",
+        "url": "https://weather.example.com/new-york",
+        "snippet": "New York, NY: 34\u00b0F, Overcast. High 38\u00b0F, Low 29\u00b0F. Wind: 8 mph from the north. Humidity: 65%. Winter storm watch in effect this weekend.",
+        "category": "weather",
+        "source": "Weather Service"
+      },
+      {
+        "keywords": [
+          "weather",
+          "los angeles",
+          "la"
+        ],
+        "title": "Current Weather in Los Angeles, CA",
+        "url": "https://weather.example.com/los-angeles",
+        "snippet": "Los Angeles, CA: 72\u00b0F, Sunny. High 76\u00b0F, Low 60\u00b0F. Wind: 5 mph from the southwest. Humidity: 42%. Beautiful day expected.",
+        "category": "weather",
+        "source": "Weather Service"
+      },
+      {
+        "keywords": [
+          "weather",
+          "chicago"
+        ],
+        "title": "Current Weather in Chicago, IL",
+        "url": "https://weather.example.com/chicago",
+        "snippet": "Chicago, IL: 18\u00b0F, Heavy Snow. High 22\u00b0F, Low 10\u00b0F. Wind: 20 mph from the northwest. Blizzard warning in effect. 8\u201312 inches of snow expected.",
+        "category": "weather",
+        "source": "Weather Service"
+      },
+      {
+        "keywords": [
+          "warriors",
+          "game",
+          "nba",
+          "score",
+          "basketball"
+        ],
+        "title": "Golden State Warriors vs. Los Angeles Lakers \u2014 Game Recap",
+        "url": "https://sports.example.com/nba/warriors-lakers-recap",
+        "snippet": "Warriors defeat Lakers 118\u2013104. Stephen Curry led all scorers with 38 points, 8 assists, and 5 rebounds. LeBron James finished with 28 points and 9 assists. Golden State improves to 31\u201317 on the season.",
+        "category": "sports",
+        "source": "Sports Network"
+      },
+      {
+        "keywords": [
+          "49ers",
+          "game",
+          "nfl",
+          "score",
+          "football",
+          "super bowl"
+        ],
+        "title": "San Francisco 49ers Season Update",
+        "url": "https://sports.example.com/nfl/49ers-season",
+        "snippet": "The 49ers finished the regular season 12\u20135, clinching the NFC West division title. Brock Purdy threw for 4,280 yards and 31 TDs. The team hosts their divisional playoff game next weekend at Levi's Stadium.",
+        "category": "sports",
+        "source": "Sports Network"
+      },
+      {
+        "keywords": [
+          "chelsea",
+          "manchester",
+          "premier league",
+          "soccer",
+          "football",
+          "match"
+        ],
+        "title": "Chelsea vs. Manchester City \u2014 Premier League Match Report",
+        "url": "https://sports.example.com/soccer/chelsea-mancity",
+        "snippet": "Chelsea held Manchester City to a 1\u20131 draw at Stamford Bridge. Erling Haaland opened the scoring in the 23rd minute; Cole Palmer equalized with a stunning free kick in the 67th. Both sides remain in contention for a top-four finish.",
+        "category": "sports",
+        "source": "Sports Network"
+      },
+      {
+        "keywords": [
+          "f1",
+          "formula 1",
+          "race",
+          "grand prix",
+          "verstappen",
+          "ferrari"
+        ],
+        "title": "F1 Season Standings Update",
+        "url": "https://sports.example.com/f1/standings",
+        "snippet": "Max Verstappen leads the Drivers' Championship with 287 points. Charles Leclerc is second with 261 points, and Lando Norris third with 248. Ferrari leads the Constructors' Championship by 34 points over Red Bull.",
+        "category": "sports",
+        "source": "Sports Network"
+      },
+      {
+        "keywords": [
+          "ai",
+          "artificial intelligence",
+          "openai",
+          "anthropic",
+          "llm",
+          "news"
+        ],
+        "title": "Latest AI Industry News",
+        "url": "https://news.example.com/technology/ai-roundup",
+        "snippet": "Anthropic releases Claude 3.7 with enhanced reasoning capabilities. OpenAI announces GPT-5 research preview for enterprise customers. Google DeepMind publishes new research on multi-modal agents. AI chip demand drives NVIDIA revenue to record $39B quarterly earnings.",
+        "category": "technology",
+        "source": "Tech News Daily"
+      },
+      {
+        "keywords": [
+          "stock",
+          "market",
+          "nasdaq",
+          "dow",
+          "s&p",
+          "finance"
+        ],
+        "title": "Stock Market Summary \u2014 Today's Close",
+        "url": "https://finance.example.com/market-summary",
+        "snippet": "Markets closed mixed. Dow Jones: 43,218 (+0.4%). S&P 500: 5,891 (+0.1%). Nasdaq: 19,340 (\u20130.3%). Tech stocks pulled back on inflation data; energy and financial sectors gained. Treasury 10-year yield at 4.42%.",
+        "category": "finance",
+        "source": "Financial Times"
+      },
+      {
+        "keywords": [
+          "bitcoin",
+          "crypto",
+          "ethereum",
+          "cryptocurrency"
+        ],
+        "title": "Cryptocurrency Prices \u2014 Live Update",
+        "url": "https://finance.example.com/crypto",
+        "snippet": "Bitcoin (BTC): $97,450 (+2.1%). Ethereum (ETH): $3,280 (+1.4%). Solana (SOL): $182 (+3.8%). Total crypto market cap: $3.2 trillion. Bitcoin ETF inflows reached $800M this week.",
+        "category": "finance",
+        "source": "CryptoWatch"
+      },
+      {
+        "keywords": [
+          "election",
+          "politics",
+          "congress",
+          "senate",
+          "president"
+        ],
+        "title": "Political News Roundup",
+        "url": "https://news.example.com/politics/roundup",
+        "snippet": "Senate passes bipartisan infrastructure maintenance bill 68\u201332. House committee advances tech antitrust legislation. Polling shows approval ratings stable ahead of midterm season. Several governors announce 2028 presidential exploratory committees.",
+        "category": "politics",
+        "source": "National Press"
+      },
+      {
+        "keywords": [
+          "movie",
+          "film",
+          "box office",
+          "cinema",
+          "oscar"
+        ],
+        "title": "Box Office & Entertainment News",
+        "url": "https://entertainment.example.com/movies",
+        "snippet": "This weekend's top film grossed $74M domestically. Oscar nominations announced with 12 films receiving multiple nods. Streaming wars heat up as three major platforms report subscriber growth. A24's latest release earns 97% on Rotten Tomatoes.",
+        "category": "entertainment",
+        "source": "Entertainment Weekly"
+      },
+      {
+        "keywords": [
+          "venue",
+          "offsite",
+          "san francisco",
+          "sf",
+          "team building"
+        ],
+        "title": "Top 10 Offsite Venues in San Francisco",
+        "url": "https://venues.example.com/sf-offsites",
+        "snippet": "Looking for the perfect team offsite venue in SF? 1) The Pearl (Dogpatch) - Industrial chic with a rooftop. 2) Terra Gallery (SoMa) - Large art-filled space. 3) Stable Cafe (Mission) - Intimate garden setting. 4) Bently Reserve (Financial District) - Grand historic hall.",
+        "category": "business",
+        "source": "SF Venues"
+      },
+      {
+        "keywords": [
+          "restaurant",
+          "food",
+          "eat",
+          "dining",
+          "san francisco"
+        ],
+        "title": "Top Restaurants in San Francisco 2026",
+        "url": "https://food.example.com/sf-restaurants",
+        "snippet": "San Francisco's dining scene continues to thrive. Top picks: Zuni Caf\u00e9 (Mission), State Bird Provisions (Western Addition), Nopa (NoPa), and Bix (Jackson Square). New Michelin stars awarded to three restaurants in the Mission District.",
+        "category": "food",
+        "source": "Eater SF"
+      },
+      {
+        "keywords": [
+          "covid",
+          "flu",
+          "health",
+          "disease",
+          "cdc"
+        ],
+        "title": "CDC Health Update \u2014 Respiratory Illness Season",
+        "url": "https://health.example.com/cdc-update",
+        "snippet": "CDC reports flu activity at moderate levels nationally, with the West seeing higher-than-average cases. RSV activity declining. COVID variants continue circulating at low levels. Current vaccines remain effective against severe illness.",
+        "category": "health",
+        "source": "CDC / Health News"
+      },
+      {
+        "keywords": [
+          "apple",
+          "iphone",
+          "macbook",
+          "ios",
+          "wwdc"
+        ],
+        "title": "Apple News \u2014 Latest Products and Updates",
+        "url": "https://tech.example.com/apple",
+        "snippet": "Apple announces iOS 19.3 update with enhanced AI features powered by on-device models. New MacBook Pro with M4 Ultra chip ships next month. Apple Vision Pro 2 rumored for fall launch. App Store revenue reaches $100B milestone.",
+        "category": "technology",
+        "source": "9to5Mac"
+      },
+      {
+        "keywords": [
+          "census",
+          "94012",
+          "demographics"
+        ],
+        "title": "Demographics for 94012",
+        "url": "https://census.example.com/94012",
+        "snippet": "Census data for zip code 94012 shows a population of 32,400, median age 38.2, and median household income $142,000.",
+        "category": "government",
+        "source": "Census Bureau"
+      },
+      {
+        "keywords": [
+          "nvda",
+          "amd",
+          "financial",
+          "stock"
+        ],
+        "title": "NVDA vs AMD: Financial Comparison",
+        "url": "https://finance.example.com/nvda-amd-compare",
+        "snippet": "NVDA's data center revenue continues to dwarf AMD's, with a massive lead in AI accelerators. AMD is making inroads with its MI300 series.",
+        "category": "finance",
+        "source": "Financial Tech Review"
+      },
+      {
+        "keywords": [
+          "yc",
+          "launches",
+          "startups",
+          "y combinator"
+        ],
+        "title": "Recent YC Launches",
+        "url": "https://tech.example.com/yc-launches",
+        "snippet": "A wave of new AI startups have launched from Y Combinator's latest batch, focusing on agents, coding assistants, and healthcare.",
+        "category": "technology",
+        "source": "Startup News"
+      },
+      {
+        "keywords": [
+          "fastmcp",
+          "modulenotfounderror",
+          "util",
+          "fix"
+        ],
+        "title": "Fixing ModuleNotFoundError: No module named 'fastmcp.util'",
+        "url": "https://github.com/jlowin/fastmcp/issues/123",
+        "snippet": "This error occurs when using FastMCP version 0.4.0 or later. The `util` module was renamed to `utils`. To fix this, update your imports or install the `fastmcp-compat` package which provides the old aliases.",
+        "category": "technology",
+        "source": "GitHub Issues"
+      },
+
+
+      {
+        "keywords": [
+          "census",
+          "94012",
+          "san francisco"
+        ],
+        "title": "Census 94012",
+        "url": "https://example.com/census/94012",
+        "snippet": "Census data for ZIP 94012 (San Francisco, CA): Population 15,000. Median Age 35. Housing Units 6,000. Median Income $120,000.",
+        "category": "census",
+        "source": "Census Bureau"
+      },
+      {
+        "keywords": [
+          "llm agents",
+          "paper",
+          "2023",
+          "2024",
+          "cited",
+          "most cited"
+        ],
+        "title": "The Rise of LLM Agents: A Survey of Recent Advances (2024)",
+        "url": "https://arxiv.org/abs/2401.00001",
+        "snippet": "Title: The Rise of LLM Agents: A Survey of Recent Advances. Authors: John Doe, Jane Smith. Abstract: This paper provides a comprehensive survey of Large Language Model (LLM) based agents, which have shown remarkable capabilities in reasoning and tool use. We categorize existing agents into several types and discuss their applications in various domains. This is currently the most cited paper on the topic in 2024.",
+        "category": "technology",
+        "source": "arXiv"
+      },
+      {
+        "keywords": [
+          "fastmcp",
+          "version",
+          "latest"
+        ],
+        "title": "FastMCP 0.4.2 Released",
+        "url": "https://pypi.org/project/fastmcp/",
+        "snippet": "FastMCP 0.4.2 is now available. This release includes performance improvements and bug fixes. The latest stable version is 0.4.2.",
+        "category": "technology",
+        "source": "PyPI"
+      },
+      {
+        "keywords": [
+          "pydantic",
+          "version",
+          "latest"
+        ],
+        "title": "Pydantic v2.10.0 Release Notes",
+        "url": "https://docs.pydantic.dev/latest/changelog/",
+        "snippet": "Pydantic v2.10.0 is the latest stable release. It introduces several new features and improvements over v2.0.0.",
+        "category": "technology",
+        "source": "Pydantic Docs"
+      }
+    ]
+  },
+  "calendar": {
+    "_EVENTS": {
+      "ev001": {
+        "id": "ev001",
+        "title": "Team Standup",
+        "start": "{{MONDAY+0d_9h_0m}}",
+        "end": "{{MONDAY+0d_9h_30m}}",
+        "attendees": [
+          "alice@example.com",
+          "bob@example.com",
+          "carol@example.com"
+        ],
+        "description": "Daily sync",
+        "calendar": "work",
+        "status": "confirmed"
+      },
+      "ev002": {
+        "id": "ev002",
+        "title": "CANCELLED: Board Meeting",
+        "start": "{{MONDAY+1d_10h_0m}}",
+        "end": "{{MONDAY+1d_11h_0m}}",
+        "attendees": [
+          "ceo@example.com",
+          "bob@example.com"
+        ],
+        "description": "Quarterly board review \u2014 cancelled due to scheduling conflict.",
+        "calendar": "work",
+        "status": "cancelled"
+      },
+      "ev003": {
+        "id": "ev003",
+        "title": "Lunch with Alice",
+        "start": "{{MONDAY+2d_12h_0m}}",
+        "end": "{{MONDAY+2d_13h_0m}}",
+        "attendees": [
+          "alice@example.com",
+          "bob@example.com"
+        ],
+        "description": "",
+        "calendar": "personal",
+        "status": "confirmed"
+      },
+      "ev004": {
+        "id": "ev004",
+        "title": "CANCELLED: Sprint Planning",
+        "start": "{{MONDAY+2d_14h_0m}}",
+        "end": "{{MONDAY+2d_15h_30m}}",
+        "attendees": [
+          "alice@example.com",
+          "bob@example.com",
+          "dave@example.com"
+        ],
+        "description": "Sprint 12 planning \u2014 postponed to next week.",
+        "calendar": "work",
+        "status": "cancelled"
+      },
+      "ev005": {
+        "id": "ev005",
+        "title": "Project Review",
+        "start": "{{MONDAY+3d_15h_0m}}",
+        "end": "{{MONDAY+3d_16h_0m}}",
+        "attendees": [
+          "carol@example.com",
+          "bob@example.com"
+        ],
+        "description": "Mid-sprint review of Project Alpha",
+        "calendar": "work",
+        "status": "confirmed"
+      },
+      "ev006": {
+        "id": "ev006",
+        "title": "Weekend BBQ",
+        "start": "{{MONDAY+5d_15h_0m}}",
+        "end": "{{MONDAY+5d_18h_0m}}",
+        "attendees": [
+          "alice@example.com",
+          "bob@example.com",
+          "dave@example.com",
+          "carol@example.com"
+        ],
+        "description": "Team BBQ at Dave's place",
+        "calendar": "personal",
+        "status": "confirmed"
+      },
+      "ev007": {
+        "id": "ev007",
+        "title": "1:1 with Manager",
+        "start": "{{MONDAY+4d_11h_0m}}",
+        "end": "{{MONDAY+4d_11h_30m}}",
+        "attendees": [
+          "manager@example.com",
+          "bob@example.com"
+        ],
+        "description": "",
+        "calendar": "work",
+        "status": "confirmed"
+      },
+      "ev008": {
+        "id": "ev008",
+        "title": "Client Call",
+        "start": "{{NOW+1h}}",
+        "end": "{{NOW+2h}}",
+        "attendees": [
+          "client@example.com",
+          "bob@example.com"
+        ],
+        "description": "Discuss project requirements",
+        "calendar": "work",
+        "status": "confirmed"
+      },
+      "ev009": {
+        "id": "ev009",
+        "title": "Team Sync",
+        "start": "{{NOW+1h}}",
+        "end": "{{NOW+2h}}",
+        "attendees": [
+          "alice@example.com",
+          "bob@example.com"
+        ],
+        "description": "Internal sync",
+        "calendar": "work",
+        "status": "confirmed"
+      },
+      "ev010": {
+        "id": "ev010",
+        "title": "Next Week Planning",
+        "start": "{{NOW+7d}}",
+        "end": "{{NOW+169h}}",
+        "attendees": [
+          "bob@example.com"
+        ],
+        "description": "Plan for the upcoming week",
+        "calendar": "work",
+        "status": "confirmed"
+      }
+    }
+  },
+  "finance": {
+    "_STOCKS": {
+      "AAPL": {
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "sector": "Technology",
+        "price": 228.5,
+        "change": 2.3,
+        "change_pct": 1.02,
+        "market_cap": "3.51T",
+        "pe_ratio": 34.2,
+        "dividend_yield": 0.51,
+        "52w_high": 245.61,
+        "52w_low": 164.08,
+        "volume": 54320000,
+        "avg_volume": 62100000,
+        "description": "Apple designs and sells consumer electronics, software, and online services. Core products include iPhone, Mac, iPad, and Apple Watch."
+      },
+      "MSFT": {
+        "symbol": "MSFT",
+        "name": "Microsoft Corporation",
+        "sector": "Technology",
+        "price": 415.8,
+        "change": 4.2,
+        "change_pct": 1.02,
+        "market_cap": "3.09T",
+        "pe_ratio": 36.8,
+        "dividend_yield": 0.73,
+        "52w_high": 441.76,
+        "52w_low": 344.79,
+        "volume": 22450000,
+        "avg_volume": 21800000,
+        "description": "Microsoft develops software, cloud services, and hardware. Azure is the second-largest cloud platform globally."
+      },
+      "GOOGL": {
+        "symbol": "GOOGL",
+        "name": "Alphabet Inc.",
+        "sector": "Communication Services",
+        "price": 195.4,
+        "change": -1.8,
+        "change_pct": -0.91,
+        "market_cap": "2.41T",
+        "pe_ratio": 24.1,
+        "dividend_yield": 0.47,
+        "52w_high": 208.7,
+        "52w_low": 130.67,
+        "volume": 18600000,
+        "avg_volume": 24300000,
+        "description": "Alphabet operates Google Search, YouTube, Google Cloud, and various other ventures. Advertising is the primary revenue driver."
+      },
+      "AMZN": {
+        "symbol": "AMZN",
+        "name": "Amazon.com Inc.",
+        "sector": "Consumer Discretionary",
+        "price": 230.1,
+        "change": 3.6,
+        "change_pct": 1.59,
+        "market_cap": "2.44T",
+        "pe_ratio": 44.7,
+        "dividend_yield": 0.0,
+        "52w_high": 242.52,
+        "52w_low": 153.35,
+        "volume": 35200000,
+        "avg_volume": 38500000,
+        "description": "Amazon operates e-commerce, AWS cloud services, Prime Video, and Alexa devices. AWS is the world's largest cloud platform."
+      },
+      "NVDA": {
+        "symbol": "NVDA",
+        "name": "NVIDIA Corporation",
+        "sector": "Technology",
+        "price": 875.4,
+        "change": 28.9,
+        "change_pct": 3.42,
+        "market_cap": "2.15T",
+        "pe_ratio": 56.3,
+        "dividend_yield": 0.03,
+        "52w_high": 974.0,
+        "52w_low": 475.09,
+        "volume": 42800000,
+        "avg_volume": 45100000,
+        "description": "NVIDIA designs GPUs for gaming, professional visualization, data centers, and automotive. Dominant supplier for AI training infrastructure."
+      },
+      "TSLA": {
+        "symbol": "TSLA",
+        "name": "Tesla Inc.",
+        "sector": "Consumer Discretionary",
+        "price": 312.6,
+        "change": -8.4,
+        "change_pct": -2.62,
+        "market_cap": "998B",
+        "pe_ratio": 78.1,
+        "dividend_yield": 0.0,
+        "52w_high": 488.54,
+        "52w_low": 138.8,
+        "volume": 88100000,
+        "avg_volume": 92300000,
+        "description": "Tesla manufactures electric vehicles, energy storage products, and solar panels. FSD autonomous driving is a key strategic initiative."
+      },
+      "META": {
+        "symbol": "META",
+        "name": "Meta Platforms Inc.",
+        "sector": "Communication Services",
+        "price": 712.3,
+        "change": 11.2,
+        "change_pct": 1.6,
+        "market_cap": "1.81T",
+        "pe_ratio": 29.4,
+        "dividend_yield": 0.27,
+        "52w_high": 740.91,
+        "52w_low": 414.5,
+        "volume": 16900000,
+        "avg_volume": 17200000,
+        "description": "Meta owns Facebook, Instagram, WhatsApp, and Threads. Reality Labs division develops VR/AR hardware."
+      },
+      "BRK.B": {
+        "symbol": "BRK.B",
+        "name": "Berkshire Hathaway Inc.",
+        "sector": "Financials",
+        "price": 489.7,
+        "change": 1.3,
+        "change_pct": 0.27,
+        "market_cap": "1.07T",
+        "pe_ratio": 22.6,
+        "dividend_yield": 0.0,
+        "52w_high": 502.6,
+        "52w_low": 360.0,
+        "volume": 4200000,
+        "avg_volume": 3800000,
+        "description": "Berkshire Hathaway is a conglomerate holding company. Key subsidiaries: BNSF Railway, Geico, and Berkshire Energy."
+      },
+      "JPM": {
+        "symbol": "JPM",
+        "name": "JPMorgan Chase & Co.",
+        "sector": "Financials",
+        "price": 248.9,
+        "change": 3.1,
+        "change_pct": 1.26,
+        "market_cap": "703B",
+        "pe_ratio": 13.8,
+        "dividend_yield": 1.85,
+        "52w_high": 280.25,
+        "52w_low": 183.14,
+        "volume": 9800000,
+        "avg_volume": 10200000,
+        "description": "JPMorgan Chase is the largest U.S. bank by assets, with operations in investment banking, commercial banking, and wealth management."
+      },
+      "V": {
+        "symbol": "V",
+        "name": "Visa Inc.",
+        "sector": "Financials",
+        "price": 344.2,
+        "change": 2.8,
+        "change_pct": 0.82,
+        "market_cap": "703B",
+        "pe_ratio": 31.5,
+        "dividend_yield": 0.73,
+        "52w_high": 365.4,
+        "52w_low": 267.93,
+        "volume": 6500000,
+        "avg_volume": 5900000,
+        "description": "Visa operates the world's largest retail electronic payments network, processing over 200 billion transactions annually."
+      },
+      "SPY": {
+        "symbol": "SPY",
+        "name": "SPDR S&P 500 ETF Trust",
+        "sector": "ETF",
+        "price": 594.3,
+        "change": 2.1,
+        "change_pct": 0.35,
+        "market_cap": "N/A",
+        "pe_ratio": 24.8,
+        "dividend_yield": 1.22,
+        "52w_high": 613.23,
+        "52w_low": 490.57,
+        "volume": 72300000,
+        "avg_volume": 68400000,
+        "description": "SPY tracks the S&P 500 index, holding 503 large-cap U.S. stocks."
+      },
+      "QQQ": {
+        "symbol": "QQQ",
+        "name": "Invesco QQQ Trust",
+        "sector": "ETF",
+        "price": 504.8,
+        "change": 3.4,
+        "change_pct": 0.68,
+        "market_cap": "N/A",
+        "pe_ratio": 31.2,
+        "dividend_yield": 0.56,
+        "52w_high": 540.81,
+        "52w_low": 406.5,
+        "volume": 38700000,
+        "avg_volume": 42100000,
+        "description": "QQQ tracks the Nasdaq-100 index, focused on large non-financial Nasdaq-listed companies. Heavy technology weighting."
+      }
+    },
+    "_INDICES": {
+      "^GSPC": {
+        "name": "S&P 500",
+        "value": 5891.2,
+        "change": 12.4,
+        "change_pct": 0.21
+      },
+      "^DJI": {
+        "name": "Dow Jones Industrial Average",
+        "value": 43218.5,
+        "change": 175.3,
+        "change_pct": 0.41
+      },
+      "^IXIC": {
+        "name": "Nasdaq Composite",
+        "value": 19340.1,
+        "change": -58.2,
+        "change_pct": -0.3
+      },
+      "^VIX": {
+        "name": "CBOE Volatility Index",
+        "value": 17.84,
+        "change": -0.63,
+        "change_pct": -3.41
+      },
+      "^TNX": {
+        "name": "10-Year Treasury Yield",
+        "value": 4.42,
+        "change": 0.03,
+        "change_pct": 0.68
+      }
+    },
+    "_PRICE_HISTORY": {
+      "NVDA": [
+        {
+          "date": "2026-02-14",
+          "open": 820.1,
+          "high": 850.3,
+          "low": 815.2,
+          "close": 846.5,
+          "volume": 38200000
+        },
+        {
+          "date": "2026-02-17",
+          "open": 848.0,
+          "high": 870.4,
+          "low": 840.1,
+          "close": 862.1,
+          "volume": 40100000
+        },
+        {
+          "date": "2026-02-18",
+          "open": 860.2,
+          "high": 880.6,
+          "low": 855.0,
+          "close": 875.4,
+          "volume": 42800000
+        },
+        {
+          "date": "2026-02-19",
+          "open": 875.4,
+          "high": 912.0,
+          "low": 870.0,
+          "close": 902.8,
+          "volume": 51400000
+        },
+        {
+          "date": "2026-02-20",
+          "open": 900.0,
+          "high": 920.5,
+          "low": 870.2,
+          "close": 875.4,
+          "volume": 42800000
+        }
+      ],
+      "AAPL": [
+        {
+          "date": "2026-02-14",
+          "open": 220.1,
+          "high": 225.8,
+          "low": 219.4,
+          "close": 224.6,
+          "volume": 50100000
+        },
+        {
+          "date": "2026-02-17",
+          "open": 224.8,
+          "high": 228.4,
+          "low": 222.1,
+          "close": 226.3,
+          "volume": 48700000
+        },
+        {
+          "date": "2026-02-18",
+          "open": 226.5,
+          "high": 230.2,
+          "low": 224.8,
+          "close": 228.8,
+          "volume": 53200000
+        },
+        {
+          "date": "2026-02-19",
+          "open": 228.9,
+          "high": 231.4,
+          "low": 226.7,
+          "close": 227.1,
+          "volume": 55000000
+        },
+        {
+          "date": "2026-02-20",
+          "open": 227.2,
+          "high": 230.1,
+          "low": 226.0,
+          "close": 228.5,
+          "volume": 54320000
+        }
+      ],
+      "TSLA": [
+        {
+          "date": "2026-02-14",
+          "open": 330.2,
+          "high": 342.1,
+          "low": 326.5,
+          "close": 338.8,
+          "volume": 90100000
+        },
+        {
+          "date": "2026-02-17",
+          "open": 338.5,
+          "high": 345.0,
+          "low": 325.3,
+          "close": 328.4,
+          "volume": 95300000
+        },
+        {
+          "date": "2026-02-18",
+          "open": 328.6,
+          "high": 335.2,
+          "low": 318.9,
+          "close": 322.1,
+          "volume": 88700000
+        },
+        {
+          "date": "2026-02-19",
+          "open": 322.0,
+          "high": 328.4,
+          "low": 310.5,
+          "close": 321.0,
+          "volume": 92500000
+        },
+        {
+          "date": "2026-02-20",
+          "open": 321.1,
+          "high": 323.8,
+          "low": 308.2,
+          "close": 312.6,
+          "volume": 88100000
+        }
+      ]
+    },
+    "_NEWS": [
+      {
+        "symbol": "NVDA",
+        "headline": "NVIDIA beats Q4 estimates; data center revenue surges 78% YoY",
+        "source": "Reuters",
+        "timestamp": "2026-02-20T16:30:00"
+      },
+      {
+        "symbol": "NVDA",
+        "headline": "Analysts raise NVDA price targets ahead of GTC developer conference",
+        "source": "Barron's",
+        "timestamp": "2026-02-20T09:15:00"
+      },
+      {
+        "symbol": "AAPL",
+        "headline": "Apple Vision Pro 2 supply chain ramp confirmed by suppliers",
+        "source": "Bloomberg",
+        "timestamp": "2026-02-20T11:00:00"
+      },
+      {
+        "symbol": "TSLA",
+        "headline": "Tesla February delivery numbers disappoint; shares slide",
+        "source": "CNBC",
+        "timestamp": "2026-02-20T14:00:00"
+      },
+      {
+        "symbol": "META",
+        "headline": "Meta's AI assistant crosses 1 billion monthly active users",
+        "source": "WSJ",
+        "timestamp": "2026-02-19T17:00:00"
+      },
+      {
+        "symbol": "MSFT",
+        "headline": "Microsoft Azure revenue grows 31% in latest quarter",
+        "source": "MarketWatch",
+        "timestamp": "2026-02-19T08:30:00"
+      },
+      {
+        "symbol": "GOOGL",
+        "headline": "Alphabet faces EU antitrust probe over AI search integration",
+        "source": "FT",
+        "timestamp": "2026-02-18T12:00:00"
+      }
+    ]
+  },
+  "slack": {
+    "_USERS": {
+      "U001": {
+        "id": "U001",
+        "name": "alice",
+        "display_name": "Alice Chen",
+        "email": "alice@example.com",
+        "status": "active"
+      },
+      "U002": {
+        "id": "U002",
+        "name": "bob",
+        "display_name": "Bob Smith",
+        "email": "bob@example.com",
+        "status": "active"
+      }
+    },
+    "_CHANNELS": {
+      "C001": {
+        "id": "C001",
+        "name": "general",
+        "topic": "Company-wide announcements",
+        "is_private": false,
+        "members": ["U001", "U002"]
+      },
+      "C002": {
+        "id": "C002",
+        "name": "engineering",
+        "topic": "Engineering discussions and build notifications",
+        "is_private": false,
+        "members": ["U001", "U002"]
+      }
+    },
+    "_MESSAGES": [
+      {
+        "id": "msg001",
+        "channel": "C001",
+        "user": "U001",
+        "text": "Overnight update: Server is stable.",
+        "timestamp": "{{NOW-10h}}",
+        "reactions": [],
+        "thread_ts": null
+      },
+      {
+        "id": "msg002",
+        "channel": "C002",
+        "user": "U003",
+        "text": "Build failed for `universal-mcp` on branch `main`. Error: `ModuleNotFoundError: No module named 'fastmcp.util'`.",
+        "timestamp": "{{NOW-1h}}",
+        "reactions": [],
+        "thread_ts": null
+      }
+    ],
+
+    "_DMS": []
+  },
+  "todo": {
+    "_TASKS": {
+      "t001": {
+        "id": "t001",
+        "title": "Design system review",
+        "status": "pending",
+        "project": "Engineering",
+        "priority": "high",
+        "due_date": "{{NOW+2d}}"
+      },
+      "t002": {
+        "id": "t002",
+        "title": "Q1 Marketing campaign",
+        "status": "pending",
+        "project": "Marketing",
+        "priority": "medium",
+        "due_date": "{{NOW+5d}}"
+      },
+      "t003": {
+        "id": "t003",
+        "title": "Fix critical bug in auth flow",
+        "status": "in_progress",
+        "project": "Engineering",
+        "priority": "high",
+        "due_date": "{{NOW+1d}}"
+      },
+      "t004": {
+        "id": "t004",
+        "title": "Update social media assets",
+        "status": "completed",
+        "project": "Marketing",
+        "priority": "low",
+        "due_date": "{{NOW-1d}}"
+      }
+    }
+  },
+  "docs": {
+    "_DOCS": [
+      {
+        "id": "doc007",
+        "title": "Budget.md",
+        "content": "# Team Budget 2026\n\n## Allocated Budget\n- Software: $5,000\n- Hardware: $10,000\n- Travel: $2,000\n- Miscellaneous: $1,000\n\n## Total Allocated: $18,000\n",
+        "owner": "finance@example.com",
+        "tags": ["budget", "finance", "2026"],
+        "folder": "Finance",
+        "created_at": "{{NOW-60d}}",
+        "updated_at": "{{NOW-60d}}"
+      },
+      {
+        "id": "doc001",
+        "title": "Q1 2026 OKR Review",
+        "content": "# Q1 2026 OKR Review\n\n## Objective 1: Launch v2.0 of the platform\n- KR1: Ship 3 major features \u2014 **2/3 complete**\n- KR2: Reduce API latency p99 < 200ms \u2014 **On track (currently 245ms)**\n- KR3: Achieve 99.9% uptime \u2014 **Met (99.92%)**\n\n## Objective 2: Grow user base\n- KR1: Reach 50K DAU \u2014 **38K (76%)**\n- KR2: Reduce churn below 3% \u2014 **3.4% (needs work)**\n",
+        "owner": "alice@example.com",
+        "tags": ["okr", "q1", "review", "planning"],
+        "folder": "Planning",
+        "created_at": "{{NOW-30d}}",
+        "updated_at": "{{NOW-2d}}"
+      },
+      {
+        "id": "doc002",
+        "title": "Engineering Onboarding Guide",
+        "content": "# Engineering Onboarding Guide\n\nWelcome to the team! This guide covers your first two weeks.\n\n## Week 1: Setup\n1. Request GitHub, Slack, and AWS access from IT\n2. Clone the main repo: `git clone git@github.com:acme/platform.git`\n3. Follow `README.md` to get your dev environment running\n4. Shadow a teammate for 2 days\n\n## Week 2: Ramp\n1. Pick up a 'good first issue' from the backlog\n2. Attend sprint planning and standup\n3. Complete your first PR and get it merged\n",
+        "owner": "carol@example.com",
+        "tags": ["onboarding", "engineering", "guide"],
+        "folder": "HR",
+        "created_at": "{{NOW-90d}}",
+        "updated_at": "{{NOW-14d}}"
+      },
+      {
+        "id": "doc003",
+        "title": "Architecture Decision Record: Move to Microservices",
+        "content": "# ADR-014: Migrate Monolith to Microservices\n\n**Status:** Accepted\n**Date:** 2026-01-15\n\n## Context\nThe monolith has grown to 500K LOC. Deploy times exceed 45 minutes. Teams are stepping on each other's changes.\n\n## Decision\nIncrementally extract services starting with: Auth, Payments, and Notifications.\n\n## Consequences\n- (+) Independent deployability per service\n- (+) Team autonomy\n- (-) Increased operational complexity (service mesh, distributed tracing)\n- (-) Network latency between services\n",
+        "owner": "bob@example.com",
+        "tags": ["adr", "architecture", "microservices", "engineering"],
+        "folder": "Engineering",
+        "created_at": "{{NOW-36d}}",
+        "updated_at": "{{NOW-36d}}"
+      },
+      {
+        "id": "doc004",
+        "title": "Product Roadmap H1 2026",
+        "content": "# Product Roadmap \u2014 H1 2026\n\n## February\n- Launch redesigned onboarding flow\n- A/B test new pricing page\n\n## March\n- Release mobile app v3.0 (iOS + Android)\n- Integrate Stripe for payments\n\n## April\n- Launch team collaboration features\n- API v2 public release\n\n## May\u2013June\n- Enterprise SSO support\n- Analytics dashboard v2\n- Data export (CSV, Parquet)\n",
+        "owner": "eve@example.com",
+        "tags": ["roadmap", "product", "h1", "2026"],
+        "folder": "Product",
+        "created_at": "{{NOW-20d}}",
+        "updated_at": "{{NOW-6h}}"
+      },
+      {
+        "id": "doc005",
+        "title": "Incident Post-Mortem: Payment Outage 2026-02-15",
+        "content": "# Post-Mortem: Payment Service Outage\n**Date:** 2026-02-15 | **Duration:** 47 minutes | **Severity:** P1\n\n## Summary\nPayment processing was unavailable for 47 minutes due to a DB connection pool exhaustion triggered by a misconfigured deploy.\n\n## Timeline\n- 14:32 \u2014 Deploy v2.4.1 to production\n- 14:38 \u2014 Alerts fire: p99 latency > 5s\n- 14:41 \u2014 On-call acknowledges incident\n- 14:58 \u2014 Root cause identified: max_connections set to 5 instead of 50\n- 15:19 \u2014 Rollback complete, service restored\n\n## Action Items\n1. Add config validation in CI pipeline (owner: alice, due: 2026-02-22)\n2. Lower alert threshold to p99 > 1s (owner: bob, due: 2026-02-20)\n3. Add runbook for DB connection pool issues (owner: carol, due: 2026-03-01)\n",
+        "owner": "alice@example.com",
+        "tags": ["post-mortem", "incident", "payments", "outage"],
+        "folder": "Engineering",
+        "created_at": "{{NOW-5d}}",
+        "updated_at": "{{NOW-4d}}"
+      },
+      {
+        "id": "doc006",
+        "title": "Meeting Notes: All-Hands Feb 20, 2026",
+        "content": "# All-Hands Meeting Notes\n**Date:** 2026-02-20 | **Facilitator:** Alice Chen\n\n## Agenda\n1. Q1 progress update\n2. New hire introductions\n3. Office policy changes\n\n## Key Takeaways\n- Revenue is tracking 12% above forecast\n- Three new engineers joining next week: Dan, Mei, and Raj\n- New PTO policy: unlimited PTO effective March 1\n- Remote work policy updated: 2 days in-office required\n\n## Action Items\n- All managers to communicate new PTO policy by Feb 25\n- IT to provision accounts for new hires by Feb 24\n",
+        "owner": "alice@example.com",
+        "tags": ["meeting", "all-hands", "notes", "february"],
+        "folder": "Meetings",
+        "created_at": "{{NOW-2h}}",
+        "updated_at": "{{NOW-1h}}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "domain": "email_management",
+  "prompt": "Find the 'Eazydiner' invoice email. Reply with 'Approved' and forward the total amount to 'accounting@example.com'. When done, report exactly what actions you took.",
+  "gold_response": "Found the Eazydiner invoice (e006) for $45.00. Replied 'Approved' and forwarded the amount to accounting@example.com.",
+  "rubric": [
+    { "criteria": "The agent must find the email from 'receipts@eazydiner.example' or with 'Eazydiner' in the subject/body." },
+    { "criteria": "The agent must reply to the email with the text 'Approved'." },
+    { "criteria": "The agent must forward the correct amount ($45.00) to 'accounting@example.com'." },
+    { "criteria": "The agent must report these actions in the final response." }
+  ]
+}

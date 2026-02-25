@@ -1,0 +1,20 @@
+{
+  "id": "13ebb383-1f58-461f-a534-04c8dcf717f6",
+  "domain": "event_planning",
+  "prompt": "Find 3 potential venues for a team offsite in San Francisco. Check my calendar for availability on next Friday. Email the team ('team@example.com') with the venue options and confirm the date is free. Report the message ID.",
+  "gold_response": "Found 3 venues: The Pearl, Terra Gallery, and Stable Cafe. Next Friday is free. Emailed the team (ID: e017).",
+  "rubric": [
+    {
+      "criteria": "The agent must search for venues in San Francisco and identify at least 3 options."
+    },
+    {
+      "criteria": "The agent must check the calendar for availability on next Friday."
+    },
+    {
+      "criteria": "The agent must send an email to 'team@example.com' with the venue options and a confirmation that the date is free."
+    },
+    {
+      "criteria": "The agent must report the message ID of the sent email."
+    }
+  ]
+}

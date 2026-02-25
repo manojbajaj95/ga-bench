@@ -3,258 +3,12 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Literal
 
 from fastmcp import FastMCP
 
-# ---------------------------------------------------------------------------
-# Dummy seed data
-# ---------------------------------------------------------------------------
-
-_now = datetime.now()
-
-_REPOS: dict[str, dict] = {
-    "octocat/hello-world": {
-        "id": "r001",
-        "full_name": "octocat/hello-world",
-        "owner": "octocat",
-        "name": "hello-world",
-        "description": "My first repository on GitHub!",
-        "language": "Ruby",
-        "stars": 2100,
-        "forks": 890,
-        "open_issues": 3,
-        "default_branch": "main",
-        "private": False,
-        "archived": False,
-        "created_at": "2011-01-26T19:01:12",
-        "updated_at": (_now - timedelta(days=10)).isoformat(),
-    },
-    "myorg/backend-api": {
-        "id": "r002",
-        "full_name": "myorg/backend-api",
-        "owner": "myorg",
-        "name": "backend-api",
-        "description": "REST API for the main product.",
-        "language": "Python",
-        "stars": 45,
-        "forks": 8,
-        "open_issues": 12,
-        "default_branch": "main",
-        "private": True,
-        "archived": False,
-        "created_at": "2022-03-15T10:00:00",
-        "updated_at": (_now - timedelta(hours=2)).isoformat(),
-    },
-    "myorg/frontend": {
-        "id": "r003",
-        "full_name": "myorg/frontend",
-        "owner": "myorg",
-        "name": "frontend",
-        "description": "React-based frontend application.",
-        "language": "TypeScript",
-        "stars": 12,
-        "forks": 2,
-        "open_issues": 5,
-        "default_branch": "main",
-        "private": True,
-        "archived": False,
-        "created_at": "2023-01-10T08:30:00",
-        "updated_at": (_now - timedelta(hours=6)).isoformat(),
-    },
-    "myorg/legacy-service": {
-        "id": "r004",
-        "full_name": "myorg/legacy-service",
-        "owner": "myorg",
-        "name": "legacy-service",
-        "description": "Old monolith — do not touch.",
-        "language": "Java",
-        "stars": 3,
-        "forks": 1,
-        "open_issues": 0,
-        "default_branch": "master",
-        "private": True,
-        "archived": True,
-        "created_at": "2015-06-01T00:00:00",
-        "updated_at": (_now - timedelta(days=365)).isoformat(),
-    },
-}
-
-_ISSUES: dict[str, dict] = {
-    "i001": {
-        "id": "i001",
-        "number": 42,
-        "repo": "myorg/backend-api",
-        "title": "API returns 500 when user has no profile picture",
-        "body": (
-            "Steps to reproduce: create a new user without uploading an avatar,"
-            " then call GET /users/{id}. The server throws a NullPointerException."
-        ),
-        "author": "alice",
-        "assignees": ["bob"],
-        "labels": ["bug", "high-priority"],
-        "state": "open",
-        "comments": 4,
-        "created_at": (_now - timedelta(days=3)).isoformat(),
-        "updated_at": (_now - timedelta(hours=5)).isoformat(),
-    },
-    "i002": {
-        "id": "i002",
-        "number": 43,
-        "repo": "myorg/backend-api",
-        "title": "Add pagination to /products endpoint",
-        "body": (
-            "Currently the products endpoint returns all records."
-            " We need cursor-based pagination to handle large catalogs."
-        ),
-        "author": "carol",
-        "assignees": [],
-        "labels": ["enhancement"],
-        "state": "open",
-        "comments": 1,
-        "created_at": (_now - timedelta(days=7)).isoformat(),
-        "updated_at": (_now - timedelta(days=6)).isoformat(),
-    },
-    "i003": {
-        "id": "i003",
-        "number": 38,
-        "repo": "myorg/backend-api",
-        "title": "Update README with deployment instructions",
-        "body": "The README is outdated. We need to document docker-compose and k8s setup.",
-        "author": "dave",
-        "assignees": ["dave"],
-        "labels": ["documentation"],
-        "state": "closed",
-        "comments": 2,
-        "created_at": (_now - timedelta(days=14)).isoformat(),
-        "updated_at": (_now - timedelta(days=2)).isoformat(),
-    },
-    "i004": {
-        "id": "i004",
-        "number": 17,
-        "repo": "myorg/frontend",
-        "title": "Dark mode flickers on initial page load",
-        "body": (
-            "When dark mode is enabled and the page first loads there is a brief white flash"
-            " before the theme is applied."
-        ),
-        "author": "alice",
-        "assignees": ["alice"],
-        "labels": ["bug", "ui"],
-        "state": "open",
-        "comments": 6,
-        "created_at": (_now - timedelta(days=5)).isoformat(),
-        "updated_at": (_now - timedelta(hours=1)).isoformat(),
-    },
-    "i005": {
-        "id": "i005",
-        "number": 18,
-        "repo": "myorg/frontend",
-        "title": "Add loading skeleton to product cards",
-        "body": "Product cards should show a shimmer skeleton while data is being fetched.",
-        "author": "bob",
-        "assignees": [],
-        "labels": ["enhancement", "ui"],
-        "state": "open",
-        "comments": 0,
-        "created_at": (_now - timedelta(days=1)).isoformat(),
-        "updated_at": (_now - timedelta(days=1)).isoformat(),
-    },
-}
-
-_PULL_REQUESTS: dict[str, dict] = {
-    "pr001": {
-        "id": "pr001",
-        "number": 55,
-        "repo": "myorg/backend-api",
-        "title": "Fix null pointer in user profile endpoint",
-        "body": "Adds a null check for the avatar field before constructing the response. Fixes #42.",
-        "author": "bob",
-        "reviewers": ["alice", "carol"],
-        "labels": ["bug"],
-        "state": "open",
-        "draft": False,
-        "mergeable": True,
-        "base": "main",
-        "head": "fix/null-avatar",
-        "commits": 2,
-        "changed_files": 3,
-        "additions": 18,
-        "deletions": 4,
-        "created_at": (_now - timedelta(hours=10)).isoformat(),
-        "updated_at": (_now - timedelta(hours=2)).isoformat(),
-    },
-    "pr002": {
-        "id": "pr002",
-        "number": 54,
-        "repo": "myorg/backend-api",
-        "title": "Refactor database layer to use SQLAlchemy 2.x",
-        "body": "Modernises our DB access to use the new async session API.",
-        "author": "carol",
-        "reviewers": ["bob"],
-        "labels": ["refactor"],
-        "state": "open",
-        "draft": True,
-        "mergeable": True,
-        "base": "main",
-        "head": "refactor/sqlalchemy-2",
-        "commits": 14,
-        "changed_files": 22,
-        "additions": 340,
-        "deletions": 289,
-        "created_at": (_now - timedelta(days=4)).isoformat(),
-        "updated_at": (_now - timedelta(days=1)).isoformat(),
-    },
-    "pr003": {
-        "id": "pr003",
-        "number": 19,
-        "repo": "myorg/frontend",
-        "title": "Fix dark mode flash on load",
-        "body": "Inlines the theme class into the HTML head to prevent FOUC. Resolves #17.",
-        "author": "alice",
-        "reviewers": [],
-        "labels": ["bug", "ui"],
-        "state": "open",
-        "draft": False,
-        "mergeable": True,
-        "base": "main",
-        "head": "fix/dark-mode-flash",
-        "commits": 1,
-        "changed_files": 2,
-        "additions": 9,
-        "deletions": 1,
-        "created_at": (_now - timedelta(hours=4)).isoformat(),
-        "updated_at": (_now - timedelta(hours=1)).isoformat(),
-    },
-}
-
-_COMMENTS: dict[str, dict] = {
-    "ic001": {
-        "id": "ic001",
-        "target_id": "i001",
-        "target_type": "issue",
-        "author": "bob",
-        "body": "I can reproduce this. The avatar URL field is None when not set and we call .length on it.",
-        "created_at": (_now - timedelta(days=2)).isoformat(),
-    },
-    "ic002": {
-        "id": "ic002",
-        "target_id": "i001",
-        "target_type": "issue",
-        "author": "alice",
-        "body": "Working on a fix, PR coming soon.",
-        "created_at": (_now - timedelta(hours=8)).isoformat(),
-    },
-    "ic003": {
-        "id": "ic003",
-        "target_id": "pr001",
-        "target_type": "pr",
-        "author": "alice",
-        "body": "LGTM — can you add a unit test for the null case?",
-        "created_at": (_now - timedelta(hours=3)).isoformat(),
-    },
-}
+from worlds.utils import load_seed_data
 
 
 class GitHubApp:
@@ -262,10 +16,11 @@ class GitHubApp:
 
     def __init__(self) -> None:
         self.name = "github"
-        self._repos: dict[str, dict] = {k: dict(v) for k, v in _REPOS.items()}
-        self._issues: dict[str, dict] = {k: dict(v) for k, v in _ISSUES.items()}
-        self._prs: dict[str, dict] = {k: dict(v) for k, v in _PULL_REQUESTS.items()}
-        self._comments: dict[str, dict] = {k: dict(v) for k, v in _COMMENTS.items()}
+        self.data = load_seed_data("github")
+        self._repos: dict[str, dict] = {k: dict(v) for k, v in self.data["_REPOS"].items()}
+        self._issues: dict[str, dict] = {k: dict(v) for k, v in self.data["_ISSUES"].items()}
+        self._prs: dict[str, dict] = {k: dict(v) for k, v in self.data["_PULL_REQUESTS"].items()}
+        self._comments: dict[str, dict] = {k: dict(v) for k, v in self.data["_COMMENTS"].items()}
 
     # ------------------------------------------------------------------
     # Tools
@@ -532,6 +287,41 @@ class GitHubApp:
         comments.sort(key=lambda c: c["created_at"])
         return comments
 
+    def list_branches(self, repo: str) -> list[dict]:
+        """List branches in a repository.
+
+        Args:
+            repo: Repository full name, e.g. 'myorg/backend-api'.
+
+        Returns:
+            list[dict]: Branch summaries with name and updated_at.
+
+        Tags:
+            github, branches, list
+        """
+        if repo not in self._repos:
+            return [{"error": f"Repository '{repo}' not found."}]
+
+        # In this dummy app, branches are stored in the repo object under '_BRANCHES'
+        branches = self._repos[repo].get("_BRANCHES", [])
+        return branches
+
+    def add_to_team(self, team: str, username: str) -> dict:
+        """Add a user to a team.
+
+        Args:
+            team: Team name.
+            username: GitHub username.
+
+        Returns:
+            dict: Confirmation or error dict.
+
+        Tags:
+            github, team, add, user, member
+        """
+        # In this dummy app, we just simulate the action
+        return {"team": team, "username": username, "status": "added"}
+
     # ------------------------------------------------------------------
 
     def list_tools(self) -> list:
@@ -551,6 +341,8 @@ class GitHubApp:
             self.get_pull_request,
             self.add_comment,
             self.get_comments,
+            self.list_branches,
+            self.add_to_team,
         ]
 
     def create_mcp_server(self) -> FastMCP:

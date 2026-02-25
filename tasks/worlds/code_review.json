@@ -1,0 +1,17 @@
+{
+  "id": "83d0cb82-7b97-466b-98dc-e297be729bbe",
+  "domain": "github_management",
+  "prompt": "Find PR #42 in 'myorg/universal-mcp'. Post a comment on it: 'Please add tests for the new feature.' Report the comment ID.",
+  "gold_response": "Posted comment 'Please add tests for the new feature.' on PR #42 in 'myorg/universal-mcp'. Comment ID: icXXXXXX.",
+  "rubric": [
+    {
+      "criteria": "The agent must find PR #42 in the 'myorg/universal-mcp' repository."
+    },
+    {
+      "criteria": "The agent must post the exact comment 'Please add tests for the new feature.' on that PR."
+    },
+    {
+      "criteria": "The agent must report the ID of the created comment."
+    }
+  ]
+}

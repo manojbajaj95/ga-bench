@@ -1,0 +1,23 @@
+{
+  "id": "cc6a5d43-f3e3-4df8-a5d1-c8ba13ac0e55",
+  "domain": "financial_audit",
+  "prompt": "Find all emails with 'Invoice' in the subject. Calculate the total amount. Compare it against the allocated budget in 'Budget.md' (in 'Finance' folder). Create a report 'Audit_Report.md' with the findings. Report the document ID.",
+  "gold_response": "Found 3 invoices totaling $399.99. Budget in Budget.md is $18,000. Created Audit_Report.md (ID: doc008).",
+  "rubric": [
+    {
+      "criteria": "The agent must search for emails with 'Invoice' in the subject and extract the amounts."
+    },
+    {
+      "criteria": "The agent must read 'Budget.md' from the 'Finance' folder to find the allocated budget."
+    },
+    {
+      "criteria": "The agent must calculate the total invoice amount and compare it to the budget."
+    },
+    {
+      "criteria": "The agent must create a new document 'Audit_Report.md' with the comparison results."
+    },
+    {
+      "criteria": "The agent must report the document ID of the created report."
+    }
+  ]
+}

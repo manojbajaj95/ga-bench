@@ -12,6 +12,7 @@ from worlds.apps.github_app import GitHubApp
 from worlds.apps.reddit_app import RedditApp
 from worlds.apps.slack_app import SlackApp
 from worlds.apps.sqlite_app import SQLiteApp
+from worlds.apps.todo_app import TodoApp
 from worlds.apps.web_search_app import WebSearchApp
 from worlds.apps.yahoo_finance_app import YahooFinanceApp
 
@@ -32,6 +33,7 @@ _apps = [
     SQLiteApp(),
     RedditApp(),
     GitHubApp(),
+    TodoApp(),
     #    FilesApp(),
 ]
 

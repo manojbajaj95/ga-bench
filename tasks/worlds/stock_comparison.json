@@ -1,0 +1,23 @@
+{
+  "id": "ae8b9a75-aa87-45e8-a12f-0d663bd5f01f",
+  "domain": "finance",
+  "prompt": "Get the current stock price for NVDA and AMD. Search the web for 'NVDA vs AMD' financial comparison. Create a document 'Chip_Wars.md' in the 'General' folder with the prices and a summary of the web comparison. Report the document ID and the stock prices.",
+  "gold_response": "NVDA is at $875.4. I searched for 'NVDA vs AMD' and found that NVDA leads in AI accelerators while AMD is making inroads with MI300. I created 'Chip_Wars.md' (docID: doc...) with this info.",
+  "rubric": [
+    {
+      "criteria": "The agent must get stock quotes for NVDA and AMD (AMD might not be in stocks but should be searched or handled)."
+    },
+    {
+      "criteria": "The agent must search the web for 'NVDA vs AMD'."
+    },
+    {
+      "criteria": "The agent must create a new document named 'Chip_Wars.md' using the docs tool."
+    },
+    {
+      "criteria": "The document must include the NVDA price ($875.4) and a summary of the comparison."
+    },
+    {
+      "criteria": "The agent must report the document ID of the created report."
+    }
+  ]
+}

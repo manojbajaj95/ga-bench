@@ -1,0 +1,23 @@
+{
+  "id": "a8765a2e-8f25-49e6-8ad1-96d373bb3369",
+  "domain": "academic_research",
+  "prompt": "Find the most cited paper about 'LLM Agents' from 2023 or 2024. Create a document 'Paper_Summary.md' in the 'General' folder with the title, authors, and a summary of the abstract. Report the document ID.",
+  "gold_response": "I found the paper 'The Rise of LLM Agents: A Survey of Recent Advances' by John Doe and Jane Smith. I created 'Paper_Summary.md' (ID: doc007) in the 'General' folder with the summary.",
+  "rubric": [
+    {
+      "criteria": "The agent must search for papers about 'LLM Agents' from 2023 or 2024."
+    },
+    {
+      "criteria": "The agent must identify 'The Rise of LLM Agents: A Survey of Recent Advances' as the target paper."
+    },
+    {
+      "criteria": "The agent must create a document named 'Paper_Summary.md' in the 'General' folder."
+    },
+    {
+      "criteria": "The document content must include the title, authors, and a summary of the abstract."
+    },
+    {
+      "criteria": "The agent must report the document ID of the created file."
+    }
+  ]
+}

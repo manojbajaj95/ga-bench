@@ -1,0 +1,12 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440003",
+  "domain": "travel_planning",
+  "prompt": "Find the flight confirmation email. Extract the arrival time. Create a calendar event 'Airport Pickup' starting at that time for 1 hour. When done, report exactly what actions you took.",
+  "gold_response": "Found the flight confirmation email (e007). Extracted arrival time {{NOW+3d}}. Created calendar event 'Airport Pickup' for that time.",
+  "rubric": [
+    { "criteria": "The agent must find the flight confirmation email (e007)." },
+    { "criteria": "The agent must extract the arrival time from the email body." },
+    { "criteria": "The agent must create a calendar event named 'Airport Pickup' starting at the extracted arrival time." },
+    { "criteria": "The agent must report the actions taken, including the event creation." }
+  ]
+}

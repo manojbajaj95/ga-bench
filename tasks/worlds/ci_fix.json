@@ -1,0 +1,23 @@
+{
+  "id": "42096691-43f3-4657-92d7-ebe79969bbf7",
+  "domain": "ci_cd_management",
+  "prompt": "Find the recent failed build notification in Slack. Locate the corresponding error log in the GitHub repo's CI checks (or recent issue). Search for the error message to find a solution. Create a ticket in TodoApp titled 'Fix CI: [Error Message]' with the solution in the description. Report the ticket ID.",
+  "gold_response": "Found failed build in Slack #engineering. Found error log in GitHub issue #4. Solution: Update imports from 'fastmcp.util' to 'fastmcp.utils'. Created Todo task 'Fix CI: ModuleNotFoundError: No module named 'fastmcp.util'' (tXXX).",
+  "rubric": [
+    {
+      "criteria": "The agent must find the failed build message in the Slack #engineering channel."
+    },
+    {
+      "criteria": "The agent must find the corresponding error message in the GitHub repository (issue #4)."
+    },
+    {
+      "criteria": "The agent must search for the error message and find the solution (rename 'util' to 'utils')."
+    },
+    {
+      "criteria": "The agent must create a Todo task with the correct title and the solution in the description."
+    },
+    {
+      "criteria": "The agent must report the ID of the created Todo task."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "e1cfa0f8-b654-467d-b2cd-8d2db10c3fde",
+  "domain": "startup_tracking",
+  "prompt": "Search for 'YC Launches' to find recent startups. Create a file 'YC_Launches.csv' in the 'General' folder with columns: Company, Pitch, Funding. Add at least 3 companies found in the search results. Report the document ID.",
+  "gold_response": "I searched for 'YC Launches' and found several AI startups. I created 'YC_Launches.csv' (docID: doc...) with the requested columns and 3+ companies.",
+  "rubric": [
+    {
+      "criteria": "The agent must search for 'YC Launches' using the web search tool."
+    },
+    {
+      "criteria": "The agent must create a new document (CSV format) named 'YC_Launches.csv' using the docs tool."
+    },
+    {
+      "criteria": "The document must contain at least 3 companies with Company, Pitch, and Funding columns (agent can hallucinate specific names if search snippet is vague, but must follow format)."
+    },
+    {
+      "criteria": "The agent must report the document ID of the created file."
+    }
+  ]
+}

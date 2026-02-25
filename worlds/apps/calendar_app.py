@@ -3,94 +3,12 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Literal
 
 from fastmcp import FastMCP
 
-# ---------------------------------------------------------------------------
-# Dummy seed data — anchored to a fixed Monday so tasks are reproducible
-# ---------------------------------------------------------------------------
-
-_MONDAY = datetime(2026, 2, 23, 0, 0, 0)  # Monday of the current week
-
-
-def _dt(day_offset: int, hour: int, minute: int = 0) -> str:
-    return (_MONDAY + timedelta(days=day_offset, hours=hour, minutes=minute)).isoformat()
-
-
-_EVENTS: dict[str, dict] = {
-    "ev001": {
-        "id": "ev001",
-        "title": "Team Standup",
-        "start": _dt(0, 9),
-        "end": _dt(0, 9, 30),
-        "attendees": ["alice@example.com", "bob@example.com", "carol@example.com"],
-        "description": "Daily sync",
-        "calendar": "work",
-        "status": "confirmed",
-    },
-    "ev002": {
-        "id": "ev002",
-        "title": "CANCELLED: Board Meeting",
-        "start": _dt(1, 10),
-        "end": _dt(1, 11),
-        "attendees": ["ceo@example.com", "bob@example.com"],
-        "description": "Quarterly board review — cancelled due to scheduling conflict.",
-        "calendar": "work",
-        "status": "cancelled",
-    },
-    "ev003": {
-        "id": "ev003",
-        "title": "Lunch with Alice",
-        "start": _dt(2, 12),
-        "end": _dt(2, 13),
-        "attendees": ["alice@example.com", "bob@example.com"],
-        "description": "",
-        "calendar": "personal",
-        "status": "confirmed",
-    },
-    "ev004": {
-        "id": "ev004",
-        "title": "CANCELLED: Sprint Planning",
-        "start": _dt(2, 14),
-        "end": _dt(2, 15, 30),
-        "attendees": ["alice@example.com", "bob@example.com", "dave@example.com"],
-        "description": "Sprint 12 planning — postponed to next week.",
-        "calendar": "work",
-        "status": "cancelled",
-    },
-    "ev005": {
-        "id": "ev005",
-        "title": "Project Review",
-        "start": _dt(3, 15),
-        "end": _dt(3, 16),
-        "attendees": ["carol@example.com", "bob@example.com"],
-        "description": "Mid-sprint review of Project Alpha",
-        "calendar": "work",
-        "status": "confirmed",
-    },
-    "ev006": {
-        "id": "ev006",
-        "title": "Weekend BBQ",
-        "start": _dt(5, 15),
-        "end": _dt(5, 18),
-        "attendees": ["alice@example.com", "bob@example.com", "dave@example.com", "carol@example.com"],
-        "description": "Team BBQ at Dave's place",
-        "calendar": "personal",
-        "status": "confirmed",
-    },
-    "ev007": {
-        "id": "ev007",
-        "title": "1:1 with Manager",
-        "start": _dt(4, 11),
-        "end": _dt(4, 11, 30),
-        "attendees": ["manager@example.com", "bob@example.com"],
-        "description": "",
-        "calendar": "work",
-        "status": "confirmed",
-    },
-}
+from worlds.utils import load_seed_data
 
 
 class CalendarApp:
@@ -98,7 +16,8 @@ class CalendarApp:
 
     def __init__(self) -> None:
         self.name = "calendar"
-        self._events: dict[str, dict] = dict(_EVENTS)
+        self.data = load_seed_data("calendar")
+        self._events: dict[str, dict] = dict(self.data["_EVENTS"])
 
     # ------------------------------------------------------------------
     # Tools

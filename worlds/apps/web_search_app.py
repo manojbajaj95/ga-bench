@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from fastmcp import FastMCP
 
-# ---------------------------------------------------------------------------
+from worlds.utils import load_seed_data
+
 # Hardcoded search index
 # ---------------------------------------------------------------------------
 
@@ -190,6 +191,9 @@ class WebSearchApp:
 
     def __init__(self) -> None:
         self.name = "web_search"
+        self.data = load_seed_data("web_search")
+        self._search_index: list[dict] = self.data["_SEARCH_INDEX"]
+        self.name = "web_search"
 
     # ------------------------------------------------------------------
     # Tools
@@ -209,7 +213,7 @@ class WebSearchApp:
             search, web, query, find, information
         """
         max_results = min(max_results, 10)
-        matches = [(item, _score(query, item)) for item in _SEARCH_INDEX if _matches(query, item)]
+        matches = [(item, self._score(query, item)) for item in self._search_index if self._matches(query, item)]
         matches.sort(key=lambda x: x[1], reverse=True)
         return [
             {
@@ -235,7 +239,7 @@ class WebSearchApp:
         Tags:
             web, fetch, page, content, read
         """
-        for item in _SEARCH_INDEX:
+        for item in self._search_index:
             if item["url"] == url:
                 return {
                     "title": item["title"],
@@ -259,7 +263,11 @@ class WebSearchApp:
         Tags:
             trending, popular, news, topics, discovery
         """
-        items = _SEARCH_INDEX if category == "all" else [item for item in _SEARCH_INDEX if item["category"] == category]
+        items = (
+            self._search_index
+            if category == "all"
+            else [item for item in self._search_index if item["category"] == category]
+        )
         return [
             {
                 "title": item["title"],
@@ -279,7 +287,17 @@ class WebSearchApp:
         Tags:
             categories, search, filter, index
         """
-        return sorted({item["category"] for item in _SEARCH_INDEX})
+        return sorted({item["category"] for item in self._search_index})
+
+    def _matches(self, query: str, item: dict) -> bool:
+        """Return True if any keyword appears in the query string."""
+        q = query.lower()
+        return any(kw in q for kw in item["keywords"])
+
+    def _score(self, query: str, item: dict) -> int:
+        """Count how many keywords match — used for ranking."""
+        q = query.lower()
+        return sum(1 for kw in item["keywords"] if kw in q)
 
     # ------------------------------------------------------------------
 

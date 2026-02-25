@@ -1,0 +1,11 @@
+{
+  "id": "935957d7-9d81-422e-8264-3311a24af6cd",
+  "domain": "calendar_management",
+  "prompt": "I am going on vacation next week. Decline all meetings scheduled for next week and send an email to 'team@example.com' saying I will be OOO.",
+  "gold_response": "Declined all meetings for next week and sent an OOO email to the team.",
+  "rubric": [
+    { "criteria": "The agent must find all meetings scheduled for next week." },
+    { "criteria": "The agent must decline (cancel or update status to cancelled) all those meetings." },
+    { "criteria": "The agent must send an email to 'team@example.com' regarding the OOO status." }
+  ]
+}

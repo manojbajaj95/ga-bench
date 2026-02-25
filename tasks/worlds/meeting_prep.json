@@ -1,0 +1,11 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440001",
+  "domain": "calendar_management",
+  "prompt": "Check my calendar for today's meetings. Email me a summary of the meetings. When done, report exactly what actions you took.",
+  "gold_response": "Checked the calendar for today and found [list of meetings]. Sent a summary email to bob@example.com.",
+  "rubric": [
+    { "criteria": "The agent must list calendar events for the current day." },
+    { "criteria": "The agent must send an email containing a summary of these meetings." },
+    { "criteria": "The agent must report that it checked the calendar and sent the email." }
+  ]
+}

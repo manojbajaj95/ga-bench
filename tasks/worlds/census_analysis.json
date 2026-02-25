@@ -1,0 +1,20 @@
+{
+  "id": "4d955acc-d2d4-428c-871a-3e3b0f92bd8a",
+  "domain": "data_analysis",
+  "prompt": "Search for 'Census 94012' to find population demographics. Create a new document 'Census_Report.md' in the 'General' folder summarizing the population density and key demographic shifts. Report the document ID and a summary of the content.",
+  "gold_response": "I searched for 'Census 94012' and found a population of 15,000 with 6,000 housing units. I created 'Census_Report.md' (docID: doc...) summarizing these demographics.",
+  "rubric": [
+    {
+      "criteria": "The agent must search for 'Census 94012' using the web search tool."
+    },
+    {
+      "criteria": "The agent must create a new document named 'Census_Report.md' using the docs tool."
+    },
+    {
+      "criteria": "The document content must include population (15,000) and housing units (6,000) or similar demographic data found in the search."
+    },
+    {
+      "criteria": "The agent must report the document ID of the created report."
+    }
+  ]
+}
