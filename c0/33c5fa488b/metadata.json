@@ -1,0 +1,28 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "c033c5fa488b",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "agents/claude_agent_sdk/agent.py",
+    "agents/langchain/react.py",
+    "run.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/c0/33c5fa488b/0/metadata.json",
+      "transcript": "/c0/33c5fa488b/0/full.jsonl",
+      "context": "/c0/33c5fa488b/0/context.md",
+      "content_hash": "/c0/33c5fa488b/0/content_hash.txt",
+      "prompt": "/c0/33c5fa488b/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 68,
+    "cache_creation_tokens": 57063,
+    "cache_read_tokens": 3206017,
+    "output_tokens": 7438,
+    "api_call_count": 52
+  }
+}

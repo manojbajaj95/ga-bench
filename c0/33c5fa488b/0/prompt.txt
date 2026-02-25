@@ -1,0 +1,45 @@
+@agents/langchain/react.py has the bug where only last message usage is shown and not the entire run, we should take usage and sum it up.
+
+---
+
+Run on a simple task and check the output
+
+---
+
+take the task for fib calculation and retry
+
+---
+
+In the messages loop, use loguru logger to log message type: AI|HUMAN|SYSTEM and message and usage. if loguru supports structured log use that
+
+---
+
+Run for fibonacci task.
+
+---
+
+Add the same tracing to @agents/claude_agent_sdk/agent.py as well
+
+---
+
+Run claude for fib test
+
+---
+
+[Request interrupted by user for tool use]
+
+---
+
+I'll run it manually.
+
+---
+
+[Request interrupted by user]
+
+---
+
+We should log tool calls as well, both in react and claude
+
+---
+
+[Request interrupted by user for tool use]
