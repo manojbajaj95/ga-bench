@@ -105,6 +105,20 @@
       "context": "",
       "content_hash": "/c5/ef60ad7e41/7/content_hash.txt",
       "prompt": ""
+    },
+    {
+      "metadata": "/c5/ef60ad7e41/8/metadata.json",
+      "transcript": "/c5/ef60ad7e41/8/full.jsonl",
+      "context": "",
+      "content_hash": "/c5/ef60ad7e41/8/content_hash.txt",
+      "prompt": ""
     }
-  ]
+  ],
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  }
 }
