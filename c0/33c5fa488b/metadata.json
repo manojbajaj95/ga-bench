@@ -8,6 +8,10 @@
     "agents/claude_agent_sdk/agent.py",
     "agents/langchain/react.py",
     "run.py",
+    "tasks/worlds/cac_analysis_report.json",
+    "tasks/worlds/engineer_onboarding_digest.json",
+    "tasks/worlds/low_stock_reorder_alert.json",
+    "tasks/worlds/team_purchasing_power.json",
     "worlds/server.py"
   ],
   "sessions": [
@@ -45,13 +49,20 @@
       "context": "/c0/33c5fa488b/4/context.md",
       "content_hash": "/c0/33c5fa488b/4/content_hash.txt",
       "prompt": "/c0/33c5fa488b/4/prompt.txt"
+    },
+    {
+      "metadata": "/c0/33c5fa488b/5/metadata.json",
+      "transcript": "/c0/33c5fa488b/5/full.jsonl",
+      "context": "/c0/33c5fa488b/5/context.md",
+      "content_hash": "/c0/33c5fa488b/5/content_hash.txt",
+      "prompt": "/c0/33c5fa488b/5/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 2739,
-    "cache_creation_tokens": 494995,
-    "cache_read_tokens": 22315816,
-    "output_tokens": 95596,
-    "api_call_count": 265
+    "input_tokens": 2751,
+    "cache_creation_tokens": 540256,
+    "cache_read_tokens": 22687265,
+    "output_tokens": 97772,
+    "api_call_count": 275
   }
 }
