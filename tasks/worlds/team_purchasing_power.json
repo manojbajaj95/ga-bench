@@ -1,0 +1,17 @@
+{
+  "id": "09126064-316b-4331-84f9-b3c84e250104",
+  "domain": "cross_app",
+  "prompt": "Analyze team purchasing behavior against current NVDA market valuation.\n\n1. Query the SQLite database to compute total delivered revenue grouped by user team: join the users and orders tables, filter for status = 'delivered', group by team. Exclude users with a NULL team.\n2. Fetch the current stock price for NVDA from the market data.\n3. For each team that has delivered revenue greater than $0, calculate how many fractional NVDA shares that team's total delivered spend could purchase (team_spend ÷ NVDA_price), rounded to 3 decimal places.\n4. Create a new document titled 'Team Purchasing Power — Feb 2026' in the docs system under the 'Finance' folder. The document must contain a table with columns: Team, Total Delivered Spend, NVDA Share Equivalent.\n\nWhen done, report each team's delivered spend and NVDA share equivalent, the NVDA price used, and the new document ID.",
+  "gold_response": "Delivered revenue by team: Platform $889.98, Backend $331.96, Product $89.98 (Frontend had no delivered orders; NULL-team users excluded). NVDA current price: $875.40. NVDA share equivalents: Platform 1.017, Backend 0.379, Product 0.103. Created 'Team Purchasing Power — Feb 2026' in Finance folder with document ID [docXXXXXX].",
+  "rubric": [
+    {
+      "criteria": "Agent correctly computed team delivered revenue: Platform between $888 and $892, Backend between $330 and $334, Product between $88 and $92."
+    },
+    {
+      "criteria": "Agent correctly fetched NVDA price (between $874 and $877) and computed share equivalents: Platform between 1.01 and 1.03, Backend between 0.37 and 0.39, Product between 0.10 and 0.11."
+    },
+    {
+      "criteria": "Agent created a new document in the docs system and reported its document ID."
+    }
+  ]
+}

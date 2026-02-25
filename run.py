@@ -111,7 +111,16 @@ async def _main(
         results = []
         for i, task in enumerate(tasks, 1):
             logger.info("Task {}/{}", i, len(tasks))
-            result = await run_task(agent, task, system_prompt=system_prompt)
+            trace_file = run_dir / f"{task.id}.traces"
+            sink_id = logger.add(
+                trace_file,
+                level="DEBUG",
+                format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level:<8} | {name}:{function}:{line} | {message} | extra={extra}",  # noqa: E501
+            )
+            try:
+                result = await run_task(agent, task, system_prompt=system_prompt)
+            finally:
+                logger.remove(sink_id)
             logger.debug("Response: {}", result["agent_response"][:120])
 
             task_file = run_dir / f"{task.id}.json"

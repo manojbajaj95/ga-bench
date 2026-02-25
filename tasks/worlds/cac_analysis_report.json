@@ -1,0 +1,20 @@
+{
+  "id": "825e9af3-3b3f-4fc9-bf94-dcdedcc14bf7",
+  "domain": "cross_app",
+  "prompt": "Generate a marketing efficiency report by cross-referencing order data with ad campaign spend.\n\n1. Query the SQLite database to find: (a) the count of unique customer IDs who have at least one delivered order, and (b) the total delivered revenue (sum of the 'total' column where status = 'delivered').\n2. Read the file at tasks/worlds/ads_data.csv and compute the total ad spend across all rows (sum of the 'spend' column).\n3. Using the calculator, compute: (a) blended Customer Acquisition Cost (CAC) = total_ad_spend ÷ unique_delivered_customers; (b) average customer Lifetime Value (LTV) = total_delivered_revenue ÷ unique_delivered_customers; (c) LTV:CAC ratio = avg_LTV ÷ CAC, rounded to 2 decimal places.\n4. Create a new document titled 'Marketing Efficiency Report — Feb 2026' in the docs system under the 'Finance' folder. The document body must include: unique delivered-customer count, total delivered revenue, total ad spend, blended CAC, average LTV, and LTV:CAC ratio.\n\nWhen done, report all six computed figures and the new document ID.",
+  "gold_response": "Queried the database: 4 unique customers with delivered orders, total delivered revenue $1,311.92. Read ads_data.csv: total ad spend $9,440.00. Computed: blended CAC = $2,360.00, average LTV = $327.98, LTV:CAC ratio = 0.14. Created document 'Marketing Efficiency Report — Feb 2026' in the Finance folder with document ID [docXXXXXX].",
+  "rubric": [
+    {
+      "criteria": "Agent correctly identified 4 unique customers with delivered orders and total delivered revenue between $1,310 and $1,315."
+    },
+    {
+      "criteria": "Agent correctly read the CSV and computed total ad spend between $9,430 and $9,450."
+    },
+    {
+      "criteria": "Agent correctly computed blended CAC between $2,350 and $2,370 and LTV:CAC ratio between 0.12 and 0.16."
+    },
+    {
+      "criteria": "Agent created a new document in the docs system under the Finance folder and reported its document ID."
+    }
+  ]
+}

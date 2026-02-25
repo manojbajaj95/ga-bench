@@ -1,0 +1,20 @@
+{
+  "id": "a988205f-cf3b-4931-b2ab-71b02608b36d",
+  "domain": "cross_app",
+  "prompt": "Generate an inventory restock alert with projected revenue impact from ad performance.\n\n1. Query the SQLite database to find all products where stock < 50. For each such product, compute its current inventory value = price × stock.\n2. Read tasks/worlds/ads_data.csv. For the Retargeting campaign only (campaign_id = 'C003'), compute the overall conversion rate = total_conversions ÷ total_clicks, expressed as a percentage.\n3. For each low-stock product, compute its expected revenue per ad click = product_price × (C003_conversion_rate ÷ 100). Identify which low-stock product has the highest expected revenue per click.\n4. Post an alert message to the #engineering Slack channel (C002). The message must include: (a) a list of all low-stock products with their name, current stock, and inventory value; (b) the C003 conversion rate; (c) the product with the highest expected revenue per click and that figure.\n\nWhen done, report: all low-stock products with their inventory values, the C003 conversion rate, each product's expected revenue per click, and the Slack message ID.",
+  "gold_response": "Found 3 low-stock products: 4K Webcam (stock 33, inventory value $2,639.67), Standing Desk (stock 12, inventory value $5,999.88), Ergonomic Chair (stock 19, inventory value $7,409.81). C003 Retargeting conversion rate: 10.00% (260 conversions / 2600 clicks). Expected revenue per click: 4K Webcam $8.00, Standing Desk $50.00, Ergonomic Chair $39.00. Highest: Standing Desk at $50.00/click. Posted alert to #engineering (C002), message ID [msgXXXXXX].",
+  "rubric": [
+    {
+      "criteria": "Agent correctly identified all 3 low-stock products (4K Webcam stock ~33, Standing Desk stock ~12, Ergonomic Chair stock ~19) and reported inventory values within $10 of the correct values ($2,639.67, $5,999.88, $7,409.81)."
+    },
+    {
+      "criteria": "Agent correctly computed the C003 Retargeting conversion rate as approximately 10% (between 9.5% and 10.5%)."
+    },
+    {
+      "criteria": "Agent correctly identified the Standing Desk as the product with the highest expected revenue per click, reporting a value between $49 and $51."
+    },
+    {
+      "criteria": "Agent posted the alert to the #engineering Slack channel (C002) and reported the resulting Slack message ID."
+    }
+  ]
+}

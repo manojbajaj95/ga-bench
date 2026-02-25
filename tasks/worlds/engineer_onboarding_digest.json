@@ -1,0 +1,20 @@
+{
+  "id": "f646bb89-1a55-4f28-8075-72fc3095ad37",
+  "domain": "cross_app",
+  "prompt": "Create a new-hire reading list for recently joined engineers.\n\n1. Query the SQLite database for all users where role = 'engineer' AND joined_at >= '2023-01-01'. Return name, email, team, and joined_at for each.\n2. For each engineer found, look them up by email address in the Slack user list. Record their Slack display name and current status. If their email is not present in Slack, note them as 'not in Slack'.\n3. Search arXiv for papers in the cs.LG category. Identify the paper with the highest citation count.\n4. Create a new document titled 'New Engineer Onboarding — Reading List' in the docs system under the 'HR' folder. The document body must include: (a) a table of the engineers with columns Name, Team, Join Date, Slack Status; (b) a 'Recommended Reading' section featuring the top-cited cs.LG paper's title, authors, citation count, and one sentence from its abstract.\n\nWhen done, report the full list of engineers with their Slack statuses, the recommended paper's title and citation count, and the new document ID.",
+  "gold_response": "Found 4 engineers joined on or after 2023-01-01: Bob Smith (Backend, 2023-01-09, Slack: active), Carol Jones (Frontend, 2023-06-20, Slack: away), Dave Park (Backend, 2023-11-01, Slack: active), Hiro Yamamoto (Platform, 2024-09-03, not in Slack). Top cs.LG paper by citations: 'Constitutional AI: Training Harmless Assistants Without Human Labels' with 1420 citations by Anthropic Research Team. Created 'New Engineer Onboarding — Reading List' in the HR folder with document ID [docXXXXXX].",
+  "rubric": [
+    {
+      "criteria": "Agent correctly identified all 4 engineers with role='engineer' who joined on or after 2023-01-01: Bob Smith, Carol Jones, Dave Park, and Hiro Yamamoto."
+    },
+    {
+      "criteria": "Agent correctly reported Slack statuses: Bob Smith (active), Carol Jones (away), Dave Park (active), and Hiro Yamamoto as not found in Slack."
+    },
+    {
+      "criteria": "Agent correctly identified 'Constitutional AI: Training Harmless Assistants Without Human Labels' as the most-cited cs.LG paper and reported a citation count near 1420 (between 1400 and 1440)."
+    },
+    {
+      "criteria": "Agent created a new document in the docs system and reported its document ID."
+    }
+  ]
+}
