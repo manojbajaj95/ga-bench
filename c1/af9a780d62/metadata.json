@@ -3,7 +3,7 @@
   "checkpoint_id": "c1af9a780d62",
   "strategy": "manual-commit",
   "branch": "main",
-  "checkpoints_count": 1,
+  "checkpoints_count": 2,
   "files_touched": [
     "run.py"
   ],
@@ -76,6 +76,13 @@
       "transcript": "/c1/af9a780d62/9/full.jsonl",
       "context": "",
       "content_hash": "/c1/af9a780d62/9/content_hash.txt",
+      "prompt": ""
+    },
+    {
+      "metadata": "/c1/af9a780d62/10/metadata.json",
+      "transcript": "/c1/af9a780d62/10/full.jsonl",
+      "context": "",
+      "content_hash": "/c1/af9a780d62/10/content_hash.txt",
       "prompt": ""
     }
   ]
