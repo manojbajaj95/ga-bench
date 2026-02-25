@@ -1,6 +1,7 @@
 import asyncio
 import json
 import sys
+import traceback
 import uuid
 from datetime import UTC, datetime
 from enum import StrEnum
@@ -117,8 +118,25 @@ async def _main(
                 level="DEBUG",
                 format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level:<8} | {name}:{function}:{line} | {message} | extra={extra}",  # noqa: E501
             )
+            result: dict[str, Any] = {}
             try:
-                result = await run_task(agent, task, system_prompt=system_prompt)
+                try:
+                    result = await run_task(agent, task, system_prompt=system_prompt)
+                except Exception as e:
+                    logger.error("Task failed: {}", e)
+                    logger.debug("Traceback: {}", traceback.format_exc())
+                    result = {
+                        "task_id": task.id,
+                        "domain": task.domain,
+                        "prompt": task.prompt,
+                        "gold_response": task.gold_response,
+                        "rubric": [r.criteria for r in task.rubric],
+                        "agent_response": f"Error: {e}",
+                        "token_usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0},
+                        "time_taken": 0.0,
+                        "status": "failed",
+                        "error": str(e),
+                    }
             finally:
                 logger.remove(sink_id)
             logger.debug("Response: {}", result["agent_response"][:120])
