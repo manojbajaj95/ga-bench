@@ -1,0 +1,34 @@
+{
+  "cli_version": "0.4.5",
+  "checkpoint_id": "c033c5fa488b",
+  "session_id": "a1f0d31d-1cb2-45c3-9728-972399e0c13f",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-25T12:58:50.077531916Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "tasks/worlds/cac_analysis_report.json",
+    "tasks/worlds/engineer_onboarding_digest.json",
+    "tasks/worlds/low_stock_reorder_alert.json",
+    "tasks/worlds/team_purchasing_power.json"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "a7617f65fee4",
+  "token_usage": {
+    "input_tokens": 22,
+    "cache_creation_tokens": 37318,
+    "cache_read_tokens": 742328,
+    "output_tokens": 1127,
+    "api_call_count": 14
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-25T12:58:49.853274772Z",
+    "agent_lines": 77,
+    "human_added": 120,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 197,
+    "agent_percentage": 39.08629441624365
+  },
+  "transcript_path": ".claude/projects/-home-mbajaj-src-ga-bench/a1f0d31d-1cb2-45c3-9728-972399e0c13f.jsonl"
+}

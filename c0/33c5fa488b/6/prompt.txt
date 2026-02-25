@@ -1,0 +1,239 @@
+Implement the following plan:
+
+# Plan: 4 Convoluted Multi-Tool Cross-App Tasks
+
+## Context
+
+The existing task suite has 15 tasks, but only the `ads_analysis` task truly exercises **SQL + CSV + math + messaging** in one workflow. The three currently-failing cases all fail on a single rubric criterion, partly because rubric criteria were too exact (rounding issues) or because Slack post content wasn't echo'd back verbosely enough.
+
+This plan adds **4 new "convoluted" tasks** that each require:
+- SQLite queries (JOIN, GROUP BY, aggregation)
+- A second data source (CSV file or live stock data or research API)
+- Calculator-based math (derived metric computation)
+- A third tool for output (Docs, Slack)
+- Some tasks require a 4th tool (ArXiv, Yahoo Finance)
+
+Rubrics deliberately use **ranges** (±$1, within 10%, etc.) to avoid the rounding failures seen in the existing sqlite task.
+
+---
+
+## Pre-computed Gold Answers (from seed data)
+
+### SQLite delivered orders
+Orders 1–4, 7–9 are `status='delivered'`:
+| order | user | product | total |
+|-------|------|---------|-------|
+| 1 | Alice (Platform) | Standing Desk | $499.99 |
+| 2 | Alice (Platform) | Ergonomic Chair | $389.99 |
+| 3 | Bob (Backend) | Wireless Headphones | $89.99 |
+| 4 | Bob (Backend) | Mechanical Keyboard | $149.99 |
+| 7 | Dave (Backend) | Python Crash Course | $35.99 |
+| 8 | Dave (Backend) | DDIA Book | $55.99 |
+| 9 | Eve (Product) | Pragmatic Programmer ×2 | $89.98 |
+
+- Unique customers with delivered orders: **4** (Alice, Bob, Dave, Eve)
+- Total delivered revenue: **$1,311.92**
+- By team: Platform=$889.98, Backend=$331.96, Product=$89.98, Frontend=$0
+
+### ads_data.csv (C003 Retargeting)
+5 rows; clicks=2600, conversions=260 → **conversion rate = 10.00%**
+Total ad spend across all rows: **$9,440.00**
+
+### Low-stock products (stock < 50)
+| Product | Stock | Price | Inventory Value |
+|---------|-------|-------|-----------------|
+| 4K Webcam | 33 | $79.99 | **$2,639.67** |
+| Standing Desk | 12 | $499.99 | **$5,999.88** |
+| Ergonomic Chair | 19 | $389.99 | **$7,409.81** |
+
+Revenue per click at 10% conversion: Webcam=$8.00, **Standing Desk=$50.00 (highest)**, Chair=$39.00
+
+### Yahoo Finance (from seed data)
+- NVDA current price: **$875.40**
+- NVDA share equivalents: Platform=**1.017**, Backend=**0.379**, Product=**0.103**
+
+### SQLite engineers joined ≥ 2023-01-01 (role='engineer')
+Bob Smith (Backend, 2023-01-09), Carol Jones (Frontend, 2023-06-20), Dave Park (Backend, 2023-11-01), Hiro Yamamoto (Platform, 2024-09-03)
+- Slack status: Bob=active, Carol=away, Dave=active, Hiro=**not in Slack**
+
+### ArXiv top cs.LG paper by citations
+"Constitutional AI: Training Harmless Assistants Without Human Labels" (2412.99876), **1420 citations**, Anthropic Research Team
+
+---
+
+## Files to Create
+
+Four new task JSON files in `tasks/worlds/`:
+
+1. `tasks/worlds/cac_analysis_report.json`
+2. `tasks/worlds/team_purchasing_power.json`
+3. `tasks/worlds/engineer_onboarding_digest.json`
+4. `tasks/worlds/low_stock_reorder_alert.json`
+
+No existing files need modification.
+
+---
+
+## Task 1: `cac_analysis_report.json`
+
+**Tools:** SQLite + Files (CSV) + Calculator + Docs
+**Domain:** `cross_app`
+
+**Prompt:**
+```
+Generate a marketing efficiency report by cross-referencing order data with ad campaign spend.
+
+1. Query the SQLite database to find: (a) the count of unique customer IDs who have at least one delivered order, and (b) the total delivered revenue (sum of the 'total' column where status = 'delivered').
+2. Read the file at tasks/worlds/ads_data.csv and compute the total ad spend across all rows (sum of the 'spend' column).
+3. Using the calculator, compute: (a) blended Customer Acquisition Cost (CAC) = total_ad_spend ÷ unique_delivered_customers; (b) average customer Lifetime Value (LTV) = total_delivered_revenue ÷ unique_delivered_customers; (c) LTV:CAC ratio = avg_LTV ÷ CAC, rounded to 2 decimal places.
+4. Create a new document titled 'Marketing Efficiency Report — Feb 2026' in the docs system under the 'Finance' folder. The document body must include: unique delivered-customer count, total delivered revenue, total ad spend, blended CAC, average LTV, and LTV:CAC ratio.
+
+When done, report all six computed figures and the new document ID.
+```
+
+**Gold response:**
+```
+Queried the database: 4 unique customers with delivered orders, total delivered revenue $1,311.92. Read ads_data.csv: total ad spend $9,440.00. Computed: blended CAC = $2,360.00, average LTV = $327.98, LTV:CAC ratio = 0.14. Created document 'Marketing Efficiency Report — Feb 2026' in the Finance folder with document ID [docXXXXXX].
+```
+
+**Rubric (4 criteria):**
+1. Agent correctly identified 4 unique customers with delivered orders and total delivered revenue between $1,310 and $1,315.
+2. Agent correctly read the CSV and computed total ad spend between $9,430 and $9,450.
+3. Agent correctly computed blended CAC between $2,350 and $2,370 and LTV:CAC ratio between 0.12 and 0.16.
+4. Agent created a new document in the docs system under the Finance folder and reported its document ID.
+
+---
+
+## Task 2: `team_purchasing_power.json`
+
+**Tools:** SQLite + Yahoo Finance + Calculator + Docs
+**Domain:** `cross_app`
+
+**Prompt:**
+```
+Analyze team purchasing behavior against current NVDA market valuation.
+
+1. Query the SQLite database to compute total delivered revenue grouped by user team: join the users and orders tables, filter for status = 'delivered', group by team. Exclude users with a NULL team.
+2. Fetch the current stock price for NVDA from the market data.
+3. For each team that has delivered revenue greater than $0, calculate how many fractional NVDA shares that team's total delivered spend could purchase (team_spend ÷ NVDA_price), rounded to 3 decimal places.
+4. Create a new document titled 'Team Purchasing Power — Feb 2026' in the docs system under the 'Finance' folder. The document must contain a table with columns: Team, Total Delivered Spend, NVDA Share Equivalent.
+
+When done, report each team's delivered spend and NVDA share equivalent, the NVDA price used, and the new document ID.
+```
+
+**Gold response:**
+```
+Delivered revenue by team: Platform $889.98, Backend $331.96, Product $89.98 (Frontend had no delivered orders; NULL-team users excluded). NVDA current price: $875.40. NVDA share equivalents: Platform 1.017, Backend 0.379, Product 0.103. Created 'Team Purchasing Power — Feb 2026' in Finance folder with document ID [docXXXXXX].
+```
+
+**Rubric (3 criteria):**
+1. Agent correctly computed team delivered revenue: Platform between $888 and $892, Backend between $330 and $334, Product between $88 and $92.
+2. Agent correctly fetched NVDA price (between $874 and $877) and computed share equivalents: Platform between 1.01 and 1.03, Backend between 0.37 and 0.39, Product between 0.10 and 0.11.
+3. Agent created a new document in the docs system and reported its document ID.
+
+---
+
+## Task 3: `engineer_onboarding_digest.json`
+
+**Tools:** SQLite + Slack + ArXiv + Docs
+**Domain:** `cross_app`
+
+**Prompt:**
+```
+Create a new-hire reading list for recently joined engineers.
+
+1. Query the SQLite database for all users where role = 'engineer' AND joined_at >= '2023-01-01'. Return name, email, team, and joined_at for each.
+2. For each engineer found, look them up by email address in the Slack user list. Record their Slack display name and current status. If their email is not present in Slack, note them as 'not in Slack'.
+3. Search arXiv for papers in the cs.LG category. Identify the paper with the highest citation count.
+4. Create a new document titled 'New Engineer Onboarding — Reading List' in the docs system under the 'HR' folder. The document body must include: (a) a table of the engineers with columns Name, Team, Join Date, Slack Status; (b) a 'Recommended Reading' section featuring the top-cited cs.LG paper's title, authors, citation count, and one sentence from its abstract.
+
+When done, report the full list of engineers with their Slack statuses, the recommended paper's title and citation count, and the new document ID.
+```
+
+**Gold response:**
+```
+Found 4 engineers joined on or after 2023-01-01: Bob Smith (Backend, 2023-01-09, Slack: active), Carol Jones (Frontend, 2023-06-20, Slack: away), Dave Park (Backend, 2023-11-01, Slack: active), Hiro Yamamoto (Platform, 2024-09-03, not in Slack). Top cs.LG paper by citations: 'Constitutional AI: Training Harmless Assistants Without Human Labels' with 1420 citations by Anthropic Research Team. Created 'New Engineer Onboarding — Reading List' in the HR folder with document ID [docXXXXXX].
+```
+
+**Rubric (4 criteria):**
+1. Agent correctly identified all 4 engineers with role='engineer' who joined on or after 2023-01-01: Bob Smith, Carol Jones, Dave Park, and Hiro Yamamoto.
+2. Agent correctly reported Slack statuses: Bob Smith (active), Carol Jones (away), Dave Park (active), and Hiro Yamamoto as not found in Slack.
+3. Agent correctly identified 'Constitutional AI: Training Harmless Assistants Without Human Labels' as the most-cited cs.LG paper and reported a citation count near 1420 (between 1400 and 1440).
+4. Agent created a new document in the docs system and reported its document ID.
+
+---
+
+## Task 4: `low_stock_reorder_alert.json`
+
+**Tools:** SQLite + Files (CSV) + Calculator + Slack
+**Domain:** `cross_app`
+
+**Prompt:**
+```
+Generate an inventory restock alert with projected revenue impact from ad performance.
+
+1. Query the SQLite database to find all products where stock < 50. For each such product, compute its current inventory value = price × stock.
+2. Read tasks/worlds/ads_data.csv. For the Retargeting campaign only (campaign_id = 'C003'), compute the overall conversion rate = total_conversions ÷ total_clicks, expressed as a percentage.
+3. For each low-stock product, compute its expected revenue per ad click = product_price × (C003_conversion_rate ÷ 100). Identify which low-stock product has the highest expected revenue per click.
+4. Post an alert message to the #engineering Slack channel (C002). The message must include: (a) a list of all low-stock products with their name, current stock, and inventory value; (b) the C003 conversion rate; (c) the product with the highest expected revenue per click and that figure.
+
+When done, report: all low-stock products with their inventory values, the C003 conversion rate, each product's expected revenue per click, and the Slack message ID.
+```
+
+**Gold response:**
+```
+Found 3 low-stock products: 4K Webcam (stock 33, inventory value $2,639.67), Standing Desk (stock 12, inventory value $5,999.88), Ergonomic Chair (stock 19, inventory value $7,409.81). C003 Retargeting conversion rate: 10.00% (260 conversions / 2600 clicks). Expected revenue per click: 4K Webcam $8.00, Standing Desk $50.00, Ergonomic Chair $39.00. Highest: Standing Desk at $50.00/click. Posted alert to #engineering (C002), message ID [msgXXXXXX].
+```
+
+**Rubric (4 criteria):**
+1. Agent correctly identified all 3 low-stock products (4K Webcam stock ~33, Standing Desk stock ~12, Ergonomic Chair stock ~19) and reported inventory values within $10 of the correct values ($2,639.67, $5,999.88, $7,409.81).
+2. Agent correctly computed the C003 Retargeting conversion rate as approximately 10% (between 9.5% and 10.5%).
+3. Agent correctly identified the Standing Desk as the product with the highest expected revenue per click, reporting a value between $49 and $51.
+4. Agent posted the alert to the #engineering Slack channel (C002) and reported the resulting Slack message ID.
+
+---
+
+## Implementation Notes
+
+- Generate fresh UUIDs for all 4 task IDs using Python `uuid.uuid4()`
+- Follow the exact JSON structure from `tasks/worlds/ads_analysis.json`
+- Rubric key is `"criteria"` (string), not `"criterion"`
+- Gold response should be written as what a correct agent would say, not a log
+- Keep prompts numbered and explicit about output format to avoid the "vague response" failure mode seen in existing tasks
+
+---
+
+## Verification
+
+After creating the files, verify each task is parseable:
+```bash
+uv run --group langchain python -c "from tasks.helpers import load_tasks; tasks = load_tasks('tasks/worlds'); print(len(tasks), 'tasks loaded')"
+```
+
+For a smoke-test of all 4 new tasks:
+```bash
+uv run --group langchain python run.py langchain-react tasks/worlds --world worlds/server.py --task-id <new-task-id>
+```
+
+
+If you need specific details from before exiting plan mode (like exact code snippets, error messages, or content you generated), read the full transcript at: /home/mbajaj/.claude/projects/-home-mbajaj-src-ga-bench/9ace8976-b3f9-4c92-91f4-e21c706e7ec3.jsonl
+
+---
+
+Run the task with react agent and see the output
+
+---
+
+[Request interrupted by user for tool use]
+
+---
+
+Run again
+
+---
+
+[Request interrupted by user for tool use]
+
+---
+
+no need to append agent model, run directly
