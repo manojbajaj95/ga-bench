@@ -3,7 +3,7 @@
   "checkpoint_id": "876ae6a4e6c2",
   "strategy": "manual-commit",
   "branch": "main",
-  "checkpoints_count": 1,
+  "checkpoints_count": 2,
   "files_touched": [
     "agents/claude_agent_sdk/agent.py"
   ],
@@ -76,6 +76,13 @@
       "transcript": "/87/6ae6a4e6c2/9/full.jsonl",
       "context": "",
       "content_hash": "/87/6ae6a4e6c2/9/content_hash.txt",
+      "prompt": ""
+    },
+    {
+      "metadata": "/87/6ae6a4e6c2/10/metadata.json",
+      "transcript": "/87/6ae6a4e6c2/10/full.jsonl",
+      "context": "",
+      "content_hash": "/87/6ae6a4e6c2/10/content_hash.txt",
       "prompt": ""
     }
   ]
