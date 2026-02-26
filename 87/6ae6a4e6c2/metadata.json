@@ -70,6 +70,13 @@
       "context": "",
       "content_hash": "/87/6ae6a4e6c2/8/content_hash.txt",
       "prompt": ""
+    },
+    {
+      "metadata": "/87/6ae6a4e6c2/9/metadata.json",
+      "transcript": "/87/6ae6a4e6c2/9/full.jsonl",
+      "context": "",
+      "content_hash": "/87/6ae6a4e6c2/9/content_hash.txt",
+      "prompt": ""
     }
   ]
 }
