@@ -80,6 +80,7 @@ class ClaudeAgentSDKAgent:
             "max_turns": self._max_turns,
         }
 
+        kwargs["allowed_tools"] = ["Read", "Edit", "Glob", "Bash", "Grep"]
         if self._mcp_server:
             # Translate ga-bench transport config → SDK format
             kwargs["mcp_servers"] = {
@@ -89,18 +90,17 @@ class ClaudeAgentSDKAgent:
                 }
             }
             # Wildcard: allow every tool exposed by the world server
-            kwargs["allowed_tools"] = [f"mcp__{_MCP_SERVER_NAME}__*"]
-        else:
-            kwargs["allowed_tools"] = ["Read", "Edit", "Glob", "Bash", "Grep"]
+            kwargs["allowed_tools"].extend([f"mcp__{_MCP_SERVER_NAME}__*"])
 
         return ClaudeAgentOptions(**kwargs)
 
-    async def run(self, task: Task, system_prompt: str = "") -> AgentResult:
+    async def run(self, task: Task, system_prompt: str = "You are helpful ai assistant") -> AgentResult:
         options = self._build_options(system_prompt)
 
         start = time.perf_counter()
         response_text = ""
         token_usage = TokenUsage()
+        processed_message_ids = set()
 
         async with ClaudeSDKClient(options=options) as client:
             await client.query(task.prompt)
@@ -112,18 +112,32 @@ class ClaudeAgentSDKAgent:
                 if usage:
                     inp = usage.get("input_tokens", 0) or 0
                     out = usage.get("output_tokens", 0) or 0
-                    token_usage = TokenUsage(
-                        input_tokens=token_usage.input_tokens + inp,
-                        output_tokens=token_usage.output_tokens + out,
-                        total_tokens=token_usage.total_tokens + inp + out,
-                    )
+
+                    if isinstance(message, ResultMessage):
+                        # ResultMessage contains cumulative usage; overwrite total
+                        token_usage = TokenUsage(
+                            input_tokens=inp,
+                            output_tokens=out,
+                            total_tokens=inp + out,
+                        )
+                    elif isinstance(message, AssistantMessage):
+                        # Deduplicate AssistantMessage usage by ID (charge once per step)
+                        msg_id = getattr(message, "id", None)
+                        if msg_id not in processed_message_ids:
+                            token_usage = TokenUsage(
+                                input_tokens=token_usage.input_tokens + inp,
+                                output_tokens=token_usage.output_tokens + out,
+                                total_tokens=token_usage.total_tokens + inp + out,
+                            )
+                            if msg_id:
+                                processed_message_ids.add(msg_id)
                 logger.debug(
                     "[{msg_type}] tokens=({input_tokens}in/{output_tokens}out) {content}",
                     msg_type=_msg_type(message),
                     content=_msg_content(message),
-                    input_tokens=inp or None,
-                    output_tokens=out or None,
-                    total_tokens=(inp + out) or None,
+                    input_tokens=inp,
+                    output_tokens=out,
+                    total_tokens=(inp + out),
                 )
 
         elapsed = round(time.perf_counter() - start, 3)
