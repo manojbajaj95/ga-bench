@@ -5,7 +5,7 @@ description = "Universal Model Context Protocol server"
 authors = [{ name = "Dev Team", email = "dev@example.com" }]
 dependencies = [
     "fastmcp==0.1.0",
-    "pydantic==2.0.0",
+    "pydantic==2.4.0",
     "loguru>=0.7.0",
 ]
 
