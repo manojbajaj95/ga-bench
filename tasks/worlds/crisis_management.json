@@ -1,5 +1,5 @@
 {
-  "id": "9a54cefa-773b-44bc-a4c7-e1be4d23e283",
+  "id": "crisis_management",
   "domain": "crisis_management",
   "prompt": "Monitor r/startups for negative sentiment about 'Acme Corp'. If there are more than 5 negative posts in the last 24 hours, draft a crisis response document 'Crisis_Response.md' in the 'General' folder. Report the document ID (or say 'No crisis' if fewer posts).",
   "gold_response": "Found 6 negative posts about Acme Corp in r/startups. Created Crisis_Response.md (ID: doc009).",

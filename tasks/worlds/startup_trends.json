@@ -1,5 +1,5 @@
 {
-  "id": "4c1e2390-b97f-4b73-8669-91e462fb017e",
+  "id": "startup_trends",
   "domain": "social_media_analysis",
   "prompt": "Analyze the last 7 days of posts in r/startups. Create a document 'Startup_Trends.md' in the 'General' folder comparing the number of posts about 'hiring' vs 'funding'. Report the document ID and the counts you found.",
   "gold_response": "I analyzed r/startups and found 1 post about hiring and 1 post about funding. I created 'Startup_Trends.md' (docID: doc...) with this comparison.",

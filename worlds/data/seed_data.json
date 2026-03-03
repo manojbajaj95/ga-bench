@@ -2149,6 +2149,20 @@
         "display_name": "Bob Smith",
         "email": "bob@example.com",
         "status": "active"
+      },
+      "U003": {
+        "id": "U003",
+        "name": "carol",
+        "display_name": "Carol Williams",
+        "email": "carol@example.com",
+        "status": "active"
+      },
+      "U004": {
+        "id": "U004",
+        "name": "dave",
+        "display_name": "Dave Park",
+        "email": "dave@example.com",
+        "status": "active"
       }
     },
     "_CHANNELS": {
@@ -2165,6 +2179,13 @@
         "topic": "Engineering discussions and build notifications",
         "is_private": false,
         "members": ["U001", "U002"]
+      },
+      "C005": {
+        "id": "C005",
+        "name": "incident-response",
+        "topic": "P1 incident coordination and resolution",
+        "is_private": false,
+        "members": ["U001", "U002", "U004"]
       }
     },
     "_MESSAGES": [
@@ -2185,6 +2206,33 @@
         "timestamp": "{{NOW-1h}}",
         "reactions": [],
         "thread_ts": null
+      },
+      {
+        "id": "msg014",
+        "channel": "C005",
+        "user": "U001",
+        "text": "P1 incident: Payment service latency spike detected. p99 latency > 5s across all payment endpoints. Investigating now.",
+        "timestamp": "{{NOW-30m}}",
+        "reactions": [{"emoji": "fire", "count": 2}],
+        "thread_ts": null
+      },
+      {
+        "id": "msg015",
+        "channel": "C005",
+        "user": "U002",
+        "text": "Root cause identified: DB connection pool exhaustion from the last deploy. Initiating rollback of commit a1b2c3d now.",
+        "timestamp": "{{NOW-25m}}",
+        "reactions": [{"emoji": "thumbsup", "count": 1}],
+        "thread_ts": "msg014"
+      },
+      {
+        "id": "msg016",
+        "channel": "C005",
+        "user": "U004",
+        "text": "Rollback complete. Latency returning to normal (p99 now ~120ms). Monitoring for next 15 min before closing incident.",
+        "timestamp": "{{NOW-10m}}",
+        "reactions": [{"emoji": "white_check_mark", "count": 2}],
+        "thread_ts": "msg014"
       }
     ],
 

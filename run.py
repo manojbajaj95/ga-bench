@@ -2,7 +2,7 @@ import asyncio
 import json
 import sys
 import traceback
-import uuid
+from nanoid import generate as nanoid
 from datetime import UTC, datetime
 from enum import StrEnum
 from pathlib import Path
@@ -76,7 +76,7 @@ async def _main(
     world: str | None,
     task_id: str | None,
 ):
-    run_id = str(uuid.uuid4())
+    run_id = nanoid()
     run_dir = Path(output_base) / run_id
     run_dir.mkdir(parents=True)
 

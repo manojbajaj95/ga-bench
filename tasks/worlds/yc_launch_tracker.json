@@ -1,5 +1,5 @@
 {
-  "id": "e1cfa0f8-b654-467d-b2cd-8d2db10c3fde",
+  "id": "yc_launch_tracker",
   "domain": "startup_tracking",
   "prompt": "Search for 'YC Launches' to find recent startups. Create a file 'YC_Launches.csv' in the 'General' folder with columns: Company, Pitch, Funding. Add at least 3 companies found in the search results. Report the document ID.",
   "gold_response": "I searched for 'YC Launches' and found several AI startups. I created 'YC_Launches.csv' (docID: doc...) with the requested columns and 3+ companies.",

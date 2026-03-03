@@ -1,5 +1,5 @@
 {
-  "id": "a3f81c20-7d44-4e59-b902-1dc5e6f8a301",
+  "id": "github_bug_triage_to_slack",
   "domain": "cross_app",
   "prompt": "Find all open issues labeled 'bug' in both the myorg/backend-api and myorg/frontend repositories. List each bug issue by number, title, and assignee. Then post a triage summary to the #engineering channel (C002) on Slack that lists the bugs and their assignees. When done, report the bug issues you found and the Slack message ID.",
   "gold_response": "Found 2 open bug issues: (1) myorg/backend-api #42 'API returns 500 when user has no profile picture', assigned to bob; (2) myorg/frontend #17 'Dark mode flickers on initial page load', assigned to alice. Posted a triage summary to #engineering (C002) and received a message ID.",

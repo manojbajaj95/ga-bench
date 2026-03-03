@@ -1,3 +1,4 @@
+import asyncio
 import json
 import os
 from pathlib import Path
@@ -39,7 +40,7 @@ class _JudgeOutput(BaseModel):
     score: bool
 
 
-def llm_as_judge(
+async def llm_as_judge(
     prompt: str,
     agent_output: str,
     rubric: list[str],
@@ -57,7 +58,7 @@ def llm_as_judge(
             response=agent_output,
             reference=gold_response,
         )
-        result: dict = model.invoke([{"role": "user", "content": content}])  # type: ignore[assignment]
+        result: dict = await model.ainvoke([{"role": "user", "content": content}])  # type: ignore[assignment]
         parsed: _JudgeOutput = result["parsed"]
         mark = "PASS" if parsed.score else "FAIL"
         logger.info("[{}] {}", mark, criterion[:80])
@@ -76,8 +77,61 @@ def llm_as_judge(
     )
 
 
-def evaluate_run(run_id: str, output_base: str = "output") -> None:
-    """Evaluate all tasks in a run, then write grades.json and final.json."""
+async def _evaluate_task(
+    task_file: Path,
+    run_dir: Path,
+    idx: int,
+    total: int,
+    semaphore: asyncio.Semaphore,
+) -> TaskGrade:
+    """Evaluate a single task, respecting the concurrency semaphore."""
+    async with semaphore:
+        task_result = json.loads(task_file.read_text())
+        eval_file = run_dir / f"{task_result['task_id']}.eval.json"
+
+        # Skip if already evaluated
+        if eval_file.exists():
+            logger.info("Task {}/{} [{}]: already evaluated, skipping", idx, total, task_result["domain"])
+            existing = json.loads(eval_file.read_text())
+            eval_result = EvalResult(**{k: v for k, v in existing.items() if k != "task_id"})
+        else:
+            logger.info("Task {}/{} [{}]: {}", idx, total, task_result["domain"], task_result["prompt"][:80])
+
+            eval_result = await llm_as_judge(
+                prompt=task_result["prompt"],
+                agent_output=task_result["agent_response"],
+                rubric=task_result["rubric"],
+                gold_response=task_result["gold_response"],
+            )
+
+            eval_file.write_text(
+                json.dumps(
+                    {
+                        "task_id": task_result["task_id"],
+                        **eval_result.model_dump(),
+                    },
+                    indent=2,
+                )
+            )
+
+        score = eval_result.passed / eval_result.total if eval_result.total else 0.0
+        usage = TokenUsage(**task_result["token_usage"])
+        grade = TaskGrade(
+            task_id=task_result["task_id"],
+            domain=task_result["domain"],
+            prompt=task_result["prompt"],
+            score=score,
+            passed=eval_result.passed,
+            total=eval_result.total,
+            token_usage=usage,
+            time_taken=task_result["time_taken"],
+        )
+        logger.success("Task {}/{} scored {:.0%} ({}/{})", idx, total, score, eval_result.passed, eval_result.total)
+        return grade
+
+
+async def evaluate_run(run_id: str, output_base: str = "output", max_concurrency: int = 5) -> None:
+    """Evaluate all tasks in a run concurrently, then write grades.json and final.json."""
     run_dir = Path(output_base) / run_id
     if not run_dir.exists():
         raise FileNotFoundError(f"Run directory not found: {run_dir}")
@@ -85,49 +139,17 @@ def evaluate_run(run_id: str, output_base: str = "output") -> None:
     _SKIP = {"manifest.json", "grades.json", "final.json"}
     task_files = sorted(f for f in run_dir.glob("*.json") if f.name not in _SKIP and not f.name.endswith(".eval.json"))
 
-    logger.info("Evaluating run: {}", run_id)
-    logger.info("Tasks to evaluate: {}", len(task_files))
+    logger.info("Evaluating run: {} ({} tasks, concurrency={})", run_id, len(task_files), max_concurrency)
 
-    grades: list[TaskGrade] = []
-
-    for i, task_file in enumerate(task_files, 1):
-        task_result = json.loads(task_file.read_text())
-        logger.info("Task {}/{} [{}]: {}", i, len(task_files), task_result["domain"], task_result["prompt"][:80])
-
-        eval_result = llm_as_judge(
-            prompt=task_result["prompt"],
-            agent_output=task_result["agent_response"],
-            rubric=task_result["rubric"],
-            gold_response=task_result["gold_response"],
-        )
-
-        # Save per-task eval
-        eval_file = run_dir / f"{task_result['task_id']}.eval.json"
-        eval_file.write_text(
-            json.dumps(
-                {
-                    "task_id": task_result["task_id"],
-                    **eval_result.model_dump(),
-                },
-                indent=2,
+    semaphore = asyncio.Semaphore(max_concurrency)
+    grades: list[TaskGrade] = list(
+        await asyncio.gather(
+            *(
+                _evaluate_task(task_file, run_dir, i, len(task_files), semaphore)
+                for i, task_file in enumerate(task_files, 1)
             )
         )
-
-        score = eval_result.passed / eval_result.total if eval_result.total else 0.0
-        usage = TokenUsage(**task_result["token_usage"])
-        grades.append(
-            TaskGrade(
-                task_id=task_result["task_id"],
-                domain=task_result["domain"],
-                prompt=task_result["prompt"],
-                score=score,
-                passed=eval_result.passed,
-                total=eval_result.total,
-                token_usage=usage,
-                time_taken=task_result["time_taken"],
-            )
-        )
-        logger.success("Task scored {:.0%} ({}/{})", score, eval_result.passed, eval_result.total)
+    )
 
     # grades.json
     grades_file = run_dir / "grades.json"
@@ -179,4 +201,4 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python -m evaluator.evaluate <run_id>")
         sys.exit(1)
-    evaluate_run(sys.argv[1])
+    asyncio.run(evaluate_run(sys.argv[1]))
